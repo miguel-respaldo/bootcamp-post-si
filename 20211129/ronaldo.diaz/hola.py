@@ -12,7 +12,7 @@ def main():
     """
     Comentario de la función
     """
-    print("Hola Mundo de Python")
+    print("Jose Ronaldo Diaz Paredes")
 
 
 if __name__ == "__main__":
