@@ -11,10 +11,10 @@ Ejemplo de un modulo
 def main():
     """
     Comentario de la función
-    """
-    print("Hola Mundo de Python")
+            """
+            print("Hola, buenas tardes o dias a todos")
 
 
-if __name__ == "__main__":
-    main()
+    if __name__ == "__main__":
+        main()
 
