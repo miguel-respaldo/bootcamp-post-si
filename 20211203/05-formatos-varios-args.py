@@ -4,7 +4,11 @@
 # :indentSize=4:tabSize=8:noTabs=true:
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
-x="print(55)"
-eval(x)
-numero=eval(input("escribe un numero: "))
-print (type(numero))
+
+
+cantidad = 3
+articulo = 567
+precio = 49
+txt = "El costo de {} piezas del articulo con número {} es de {:.2f} pesos"
+
+print(txt.format(cantidad, articulo, precio + precio))
