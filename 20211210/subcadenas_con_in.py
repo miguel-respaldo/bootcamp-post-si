@@ -9,6 +9,7 @@
 txt = "Las mejores cosas en la vida son gratis!"
 
 print("gratis" in txt)
+print("free" in txt)
 
 
 if "free" in txt:
