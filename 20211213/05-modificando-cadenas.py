@@ -5,5 +5,9 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-a = "   Hola Mundo!  "
-print(a.strip())
+
+cadena = "Hola Mundo!"
+
+print(cadena.replace("H","L") )
+
+
