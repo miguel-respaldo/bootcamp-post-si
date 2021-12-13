@@ -8,7 +8,30 @@
 
 cadena = "Hola,Mundo!"
 
+lista = cadena.split(",")
 
-print(cadena.split(",")
+print(lista)
+print(lista[0])
+print(lista[1])
+
+# Comma Separte Value
+csv = "Producto,Precio,Cantidad,Provedor"
+
+lista = csv.split(",")
+print(lista)
+print(len(lista))
+print(lista[0])
+print(lista[1])
+print(lista[2])
+print(lista[3])
 
 
+print("----------------_")
+lista = cadena.split("la")
+print(lista)
+lista = cadena.split("o")
+print(lista)
+lista = cadena.split("la ")
+print(lista)
+lista = cadena.split("Mundo")
+print(lista)
