@@ -9,9 +9,10 @@ a = "   Hola Mundo!  "
 print("-->" + a.strip() + "<--")
 
 cadena = "Hola Mundo!"
-print(cadena.replace("H","L") )
+print(cadena.replace("H","L"))
 print(cadena.replace("Hola","Adios") )
-print(cadena.replace("o","u") )
+print(cadena.replace("o","u"))
+print(cadena)
 
 print("----------------------------")
 
