@@ -35,3 +35,10 @@ lista = cadena.split("la ")
 print(lista)
 lista = cadena.split("Mundo")
 print(lista)
+
+print("----------------_")
+cadena = "La casa de la esquina es azul"
+lista = cadena.split(" ")
+print(len(lista))
+print(lista)
+
