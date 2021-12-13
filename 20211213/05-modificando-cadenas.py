@@ -11,3 +11,5 @@ cadena = "Hola Mundo!"
 print(cadena.replace("H","L") )
 
 
+a = "   Hola Mundo!  "
+print("-->" + a.strip() + "<--")
