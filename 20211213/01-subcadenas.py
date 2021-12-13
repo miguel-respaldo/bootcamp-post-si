@@ -10,3 +10,6 @@ cadena = "Hola Mundo!"
 #         01234567890
 print("-->" + cadena[2:5] + "<--")
 #                   [2,5)
+
+print("-->" + cadena[:5] + "<--")
+print("-->" + cadena[2:] + "<--")
