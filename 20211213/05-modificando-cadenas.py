@@ -5,11 +5,25 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-
-cadena = "Hola Mundo!"
-
-print(cadena.replace("H","L") )
-
-
 a = "   Hola Mundo!  "
 print("-->" + a.strip() + "<--")
+
+cadena = "Hola Mundo!"
+print(cadena.replace("H","L") )
+print(cadena.replace("Hola","Adios") )
+print(cadena.replace("o","u") )
+
+print("----------------------------")
+
+txt = """ Hola {},
+Buenos dias, como esta
+blabla
+
+espero que usted {}
+saludos"""
+
+print(txt)
+print("----------------------------")
+print(txt.format("Maria", "Maria"))
+print("----------------------------")
+print(txt.replace("{}","Juan"))
