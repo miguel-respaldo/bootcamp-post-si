@@ -19,11 +19,15 @@ txt = """ Hola {},
 Buenos dias, como esta
 blabla
 
-espero que usted {}
+espero que usted {} tenga {}
 saludos"""
+
+numero = 8
 
 print(txt)
 print("----------------------------")
-print(txt.format("Maria", "Maria"))
+print(txt.format("Maria", "Maria", numero))
+print("----------------------------")
+print(txt.format("Maria", "Juan", numero))
 print("----------------------------")
 print(txt.replace("{}","Juan"))
