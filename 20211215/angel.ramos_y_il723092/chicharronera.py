@@ -4,17 +4,12 @@
 # :indentSize=4:tabSize=8:noTabs=true:
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
-"""
-Ejemplo de un modulo
-"""
 
-def main():
-    """
-    Comentario de la función
-    """
-    print("Hola Mundo")
+import math
 
+a = int(input("Ingrese coeficiente de cuadratica\n"))
+b = int(input("Ingrese coeficiente lineal\n"))
+c = int(input("Ingrese coeficiente del independiente\n"))
 
-if __name__ == "__main__":
-    main()
-
+z1= ((-b + math.sqrt((b2)-(4*a*c)))/(2*a))
+z2= ((-b - math.sqrt((b2)-(4*a*c)))/(2*a))
