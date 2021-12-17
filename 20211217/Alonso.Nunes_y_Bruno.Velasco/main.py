@@ -5,16 +5,10 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 """
-Ejemplo de un modulo
-"""
+from math import sqrt
 
-def main():
-    """
-    Comentario de la función
-    """
-    print("Hola Mundo")
+a = input("Introduzca valor para A: ")
+b = input("Introduzca valor para B: ")
+c = input("Introduzca volor para C: ")
 
-
-if __name__ == "__main__":
-    main()
-
+x = (b ** 2 - 4 * a * c) 
