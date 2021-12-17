@@ -20,16 +20,16 @@ c = float(input("Ingresa el valor de c: "))
 print('Ingresaste la ecuacion:', a,'x² +',b,'x +',c,'c = 0\n')
 
 # Se calcula el determinante
-det = (b*b) - (4*a*c)
+dis = (b*b) - (4*a*c)
 
-if det < 0: # comprobamos si no existen soluciones reales
+if dis < 0: # comprobamos si no existen soluciones reales
     print('La ecuación contiene numeros imaginarios\n')
 
-    x1_c = ((-b + sqrt(det)) / (2*a))     # se calcula la primera solucion
+    x1_c = ((-b + sqrt(dis)) / (2*a))     # se calcula la primera solucion
     #print('La solucion es',x1_c)
 
-    if det != 0:                        # para saber si hay otra solucion
-        x2_c = (-b - sqrt(det)) / (2*a)   # calculamos la segunda solución
+    if dis != 0:                        # para saber si hay otra solucion
+        x2_c = (-b - sqrt(dis)) / (2*a)   # calculamos la segunda solución
         print('La primer solucion:',x1_c) # mostramos las dos soluciones
         print('La segunda solucion',x2_c) # mostramos las dos soluciones
 
@@ -37,12 +37,12 @@ if det < 0: # comprobamos si no existen soluciones reales
         print(f'La única solución es x = {x1_c}') # mostramos la única solución
 
 else:
-    x1 = ((-b + sqrt(det)) / (2*a))     # se calcula la primera solucion
+    x1 = ((-b + sqrt(dis)) / (2*a))     # se calcula la primera solucion
 
-    if det != 0:                        # para saber si hay otra solucion
-        x2 = (-b - sqrt(det)) / (2*a)   # calculamos la segunda solución
-        print(f'Las soluciones son {x1} y {x2}') # mostramos las dos soluciones
+    if dis != 0:                        # para saber si hay otra solucion
+        x2 = (-b - sqrt(dis)) / (2*a)   # calculamos la segunda solución
+        print('Las soluciones son x1=',x1,'  x2=',x2) # mostramos las dos soluciones
     else:
-        print(f'La única solución es x = {x_1}') # mostramos la única solución
+        print('La única solución es x=',x1) # mostramos la única solución
 
 
