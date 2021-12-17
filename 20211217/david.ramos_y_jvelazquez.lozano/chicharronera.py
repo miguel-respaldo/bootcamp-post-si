@@ -9,26 +9,38 @@
 Ejemplo de un modulo
 """
 
-from math import sqrt
+import math
 
 def main():
     """
     Comentario de la función
     """
-    a= int(input("ingresa A: "))
+    ind = True
+    while ind:
+        ind = False
+        a= int(input("ingresa A: "))
+        if a == 0:
+            ind = True
+            print("a debe ser diferente de cero, vuelve a intentarlo")
     b= int(input("ingresa B: "))
     c= int(input("ingresa C: "))
     x1=0
     x2=0
-
-    if ((b**2)-5*a*c)<0:
-        print("la solucion es con num complejos")
+    x1i=0 + 0j
+    x2i=0 + 0j
+    comparacion = (b**2)-4*a*c
+    if (comparacion<0):
+        comparacion = abs(comparacion)
+        comparacion = math.sqrt(comparacion)
+        x1i=complex(-b,comparacion)
+        x2i=complex(-b,-comparacion)
+        print("Valor de x1: {}".format(x1i/(2*a)))
+        print("valor de x2: {}".format(x2i/(2*a)))
     else:
-        x1= (-b+sqrt(b**2-(4*a*c)))/(2*a)
-        x2= (-b-sqrt(b**2-(4*a*c)))/(2*a)
-
-    print("Valor de x1: {}".format(x1))
-    print("valor de x2: {}".format(x2))
+        x1= (-b+math.sqrt(comparacion))/(2*a)
+        x2= (-b-math.sqrt(comparacion))/(2*a)
+        print("Valor de x1: {}".format(x1))
+        print("valor de x2: {}".format(x2))
 
 
 

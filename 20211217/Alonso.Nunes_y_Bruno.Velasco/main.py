@@ -8,25 +8,27 @@
 import math
 import cmath
 
-a = int(input("Introduzca valor para A: "))
-b = int(input("Introduzca valor para B: "))
-c = int(input("Introduzca volor para C: "))
+a = float(input("Introduzca valor para A: "))
+b = float(input("Introduzca valor para B: "))
+c = float(input("Introduzca volor para C: "))
 
-b4ac = (b ** 2 - 4 * a * c)
+b4ac = (b ** 2 - 4 * a * c) # Discriminante
+sqr = b4ac ** -0.5 # Raiz cuadrada
 
-if (b4ac > 0):
-    sqr = sqrt(b4ac)
+# Compara si hay imaginarios o no
+if (b4ac > 0): #reales
     z1 = (-b + sqr) / (2 * a)
-    z2 = (-b - sqr)
-else:
-    b4ac = b4ac * -1
+    z2 = (-b - sqr) / (2 * a)
+else: #imaginarios
     z1 = (-b + complex(0, sqr)) / (2 * a) 
     z2 = (-b - complex(0, sqr)) / (2 * a)
 
+"""""
 print(z1.real)
 print(z1.imag)
 print(z2.real)
 print(z2.imag)
+"""
 
 print("El valor para z1 es =", z1)
 print("El valor para z2 es =", z2)
