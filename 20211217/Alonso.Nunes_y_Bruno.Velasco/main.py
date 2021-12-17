@@ -15,13 +15,13 @@ c = int(input("Introduzca volor para C: "))
 b4ac = (b ** 2 - 4 * a * c)
 
 if (b4ac > 0):
-    sqr = sqrt(b4ac)
-    z1 = (-b + sqr) / (2 * a)
-    z2 = (-b - sqr)
+    x = math.sqtr(b4ac)
+    z1 = (-b + x) / (2 * a)
+    z2 = (-b - x)
 else:
     b4ac = b4ac * -1
-    z1 = (-b + complex(0, sqr)) / (2 * a) 
-    z2 = (-b - complex(0, sqr)) / (2 * a)
+    z1 = (-b + complex(0, x)) / (2 * a) 
+    z2 = (-b - complex(0, x)) / (2 * a)
 
 print(z1.real)
 print(z1.imag)
