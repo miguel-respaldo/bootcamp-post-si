@@ -4,17 +4,32 @@
 # :indentSize=4:tabSize=8:noTabs=true:
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
-"""
-Ejemplo de un modulo
-"""
 
-def main():
-    """
-    Comentario de la función
-    """
-    print("Hola Mundo")
+from math import sqrt
 
+print('Este programa es para resolver una ecuación de segundo grado:')
+print('ax² + bx + c = 0\n')
 
-if __name__ == "__main__":
-    main()
+# Se solicitan datos al usuario
+a = float(input("Ingresa el valor de a: "))
+b = float(input("Ingresa el valor de b: "))
+c = float(input("Ingresa el valor de c: "))
+
+print('Ingresaste la ecuacion:', a,'x² +',b,'x +',c,'c = 0\n')
+
+# Se calcula el determinante
+det = (b*b) - (4*a*c)
+
+if det < 0: # comprobamos si no existen soluciones reales
+    print('La ecuación contiene numeros imaginarios')
+
+else:
+    x1 = ((-b + sqrt(det)) / (2*a))     # se calcula la primera solucion
+
+    if det != 0:                        # para saber si hay otra solucion
+        x2 = (-b - sqrt(det)) / (2*a)   # calculamos la segunda solución
+        print(f'Las soluciones son {x1} y {x2}') # mostramos las dos soluciones
+    else:
+        print(f'La única solución es x = {x_1}') # mostramos la única solución
+
 
