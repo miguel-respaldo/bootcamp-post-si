@@ -17,11 +17,12 @@ b4ac = (b ** 2 - 4 * a * c)
 if (b4ac > 0):
     x = math.sqtr(b4ac)
     z1 = (-b + x) / (2 * a)
-    z2 = (-b - x)
+    z2 = (-b - x) / (2 * a)
 else:
     b4ac = b4ac * -1
-    z1 = (-b + complex(0, x)) / (2 * a) 
-    z2 = (-b - complex(0, x)) / (2 * a)
+    y = math.sqrt(b4ac)
+    z1 = (-b + complex(0, y)) / (2 * a) 
+    z2 = (-b - complex(0, y)) / (2 * a)
 
 print(z1.real)
 print(z1.imag)
