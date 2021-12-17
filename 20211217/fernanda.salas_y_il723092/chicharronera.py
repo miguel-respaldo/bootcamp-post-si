@@ -4,11 +4,14 @@
 # :indentSize=4:tabSize=8:noTabs=true:
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
-"""
-from math import sqrt
+from math import sqrt 
 
-a = input("Introduzca valor para A: ")
-b = input("Introduzca valor para B: ")
-c = input("Introduzca volor para C: ")
+a = (int(input("Ingrese el valor de a: "))
+b = (int(input("Ingrese el valor de b: "))
+c = (int(input("Ingrese el valor de c: "))   
 
-x = (b ** 2 - 4 * a * c) 
+x1 = 0
+x2 = 0
+
+
+
