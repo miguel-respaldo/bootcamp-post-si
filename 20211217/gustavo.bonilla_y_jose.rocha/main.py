@@ -5,7 +5,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 """
-Práctica 1: Formula General para Ecuaciones Cuadraticas
+Práctica 1: Fórmula General para Ecuaciones Cuadráticas
 """
 import math
 
