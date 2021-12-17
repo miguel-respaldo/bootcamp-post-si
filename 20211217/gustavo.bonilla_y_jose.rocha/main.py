@@ -5,23 +5,31 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 """
-Práctica 1: Formula General para Ecuaciones Cuadraticas
+Práctica 1: Fórmula General para Ecuaciones Cuadráticas
 """
 import math
+from cmath import sqrt
 
 def main():
-    a = float(input ('Introduzca a:'))
-    b = float(input ('Introduzca b:'))
-    c = float(input ('Introduzca c:'))
+    a = float(input ('Introduzca a:')) #Insertando a  
+    b = float(input ('Introduzca b:')) #Insertando b
+    c = float(input ('Introduzca c:')) #Insertando c
 
-    if((b**2)-4*a*c) < 0:
-        print("Solución con complejos")
-    else:
+    aux_1 = (b**2)-(4*a*c)  #Calculando elementos dentro de la raíz
 
-    x1 = ( - b + math.sqrt(b**2-(4*a*c)))/(2*a)
-    x2 = ( - b - math.sqrt(b**2-(4*a*c)))/(2*a)
+    if(aux_1) < 0:  #Caso por si el resultado es complejo
+        print("Solución con el uso de números complejos:")
+        aux_1 = sqrt(aux_1)
+    else:           #Caso por si el resultado no es complejo
+        print("Solución sin el uso de números complejos:")
+        aux_1 = math.sqrt(aux_1)
     
-    print(x1)
+    #Operaciones
+    x1 = (-b+aux_1) / (2*a) 
+    x2 = (-b-aux_1) / (2*a)
+    
+    #Mostrando los resultados
+    print(x1) 
     print(x2)
     
 
