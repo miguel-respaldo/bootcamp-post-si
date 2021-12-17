@@ -6,6 +6,8 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 from math import sqrt
+from cmath import sqrt
+
 
 print('Este programa es para resolver una ecuación de segundo grado:')
 print('ax² + bx + c = 0\n')
@@ -21,7 +23,18 @@ print('Ingresaste la ecuacion:', a,'x² +',b,'x +',c,'c = 0\n')
 det = (b*b) - (4*a*c)
 
 if det < 0: # comprobamos si no existen soluciones reales
-    print('La ecuación contiene numeros imaginarios')
+    print('La ecuación contiene numeros imaginarios\n')
+
+    x1_c = ((-b + sqrt(det)) / (2*a))     # se calcula la primera solucion
+    #print('La solucion es',x1_c)
+
+    if det != 0:                        # para saber si hay otra solucion
+        x2_c = (-b - sqrt(det)) / (2*a)   # calculamos la segunda solución
+        print('La primer solucion:',x1_c) # mostramos las dos soluciones
+        print('La segunda solucion',x2_c) # mostramos las dos soluciones
+
+    else:
+        print(f'La única solución es x = {x1_c}') # mostramos la única solución
 
 else:
     x1 = ((-b + sqrt(det)) / (2*a))     # se calcula la primera solucion
