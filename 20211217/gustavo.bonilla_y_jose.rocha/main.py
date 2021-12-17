@@ -8,18 +8,24 @@
 Práctica 1: Fórmula General para Ecuaciones Cuadráticas
 """
 import math
+from cmath import sqrt
 
 def main():
     a = float(input ('Introduzca a:'))
     b = float(input ('Introduzca b:'))
     c = float(input ('Introduzca c:'))
 
-    if((b**2)-4*a*c) < 0:
-        print("Solución con complejos")
-    else:
+    aux_1 = (b**2)-(4*a*c)
 
-    x1 = ( - b + math.sqrt(b**2-(4*a*c)))/(2*a)
-    x2 = ( - b - math.sqrt(b**2-(4*a*c)))/(2*a)
+    if(aux_1) < 0:
+        print("Solución con el uso de números complejos:")
+        aux_1 = sqrt(aux_1)
+    else:
+        print("Solución sin el uso de números complejos:")
+        aux_1 = math.sqrt(aux_1)
+    
+    x1 = (-b+aux_1) / (2*a)
+    x2 = (-b-aux_1) / (2*a)
     
     print(x1)
     print(x2)
