@@ -29,7 +29,7 @@ for xi in range(tam):         #iteramos en cada elemento de la lista "valores"
    sumatoria=sumatoria+suma   #hacemos la sumatoria de (xi-promedio)**2
 
 varianza=(sumatoria/(n-1))    #realizamos el calculo de la varianza 
-print("La varianza es =", varianza) # imprimos el valor de la varianza 
+print("La varianza es = {:.4f}".format(varianza)) # imprimimos el valor de la varianza 
 
 
 
