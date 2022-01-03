@@ -22,7 +22,7 @@ promedio = (a+b+c+d+e+f+g)/n  #calculamos el promedio
 valores = [a,b,c,d,e,f,g]     #hacemos una lista con los valores 
 
 tam=len(valores)              #calculamos el tamaño de la lista
-print(tam)
+
 sumatoria=0                   #inicializamos la variable sumatoria
 for xi in range(tam):         #iteramos en cada elemento de la lista "valores" 
    suma=((xi+1)-promedio)**2  #calculamos el primer xi-promedio
