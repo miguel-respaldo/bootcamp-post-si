@@ -5,7 +5,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-adjetivo = ["roja", "grande", "dulce"]
+adjetivos = ["roja", "grande", "dulce"]
 frutas = ["manzana", "platano", "naranja"]
 
 for x in adjetivos:
