@@ -9,10 +9,13 @@ Ejemplo de un modulo
 """
 
 def main():
-    """
-    Comentario de la función
-    """
-    print("Hola Mundo")
+    n1=0
+    n2=0
+    n3=0
+    n4=0
+    n5=0
+    n6=0
+    n7=0
 
 
 if __name__ == "__main__":
