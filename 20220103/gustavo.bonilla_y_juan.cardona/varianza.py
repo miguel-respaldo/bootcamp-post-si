@@ -6,27 +6,41 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """
 
-VARIANZA A 7 DATOS
+Calculo de la Varianza muestral de 7 Datos
 
 """
-
+# utilizada para obtener la media aritmetica o promedio
 import statistics
 
 def main():
-    print("Hola Usuario, introduce 7 datos:")
+    print("Bienvenido, Introduce 7 datos para calcular la varianza muestral:")
     datos = list()
-
+    #Ciclo para obtener los 7 numeros 
     for idx in range(7):
-        print(f"Introduce el dato {idx}: ")
+        print(f"Introduce el dato {idx+1}: ")
+    #Guardar el numero que introdujo el usuario en la lista
         datos.append(eval(input()))
-
+    #calculo del promedio 
     promedio = statistics.mean(datos)
-
+    
+    #Ciclo para obtener la sumatoria con la formula de la imagen
+    Resultado_Sum = 0
     for dato in datos:
-        sumatoria = (dato-promedio)**2
+    #calculo de la operacion del interior de la sumatoria
+        operando_interno = (dato-promedio)**2
+        Resultado_Sum += operando_interno
+    #Calculo de la operacion de la varianza muestral
+    resultado_final = (1/6)*(Resultado_Sum)
+    #Calculo utilizando la opcion de la libreria statistics
+    Variancia= statistics.variance(datos,promedio)
+    
+    text="la varianza muestral de los datos introducidos es: {:3f}"
+    print(text.format(Variancia))
+    print(text.format(resultado_final))
 
-    resultado = (1/6)*(sumatoria)
-    print(f"La varianza de los datos introducidos es: {resultado}")
+
+
+
 
 
 if __name__ == "__main__":
