@@ -14,3 +14,8 @@ for elemento in range(cantidad):
     # Imprimimos el primer elemento 2 veces y el último elento 2 veces
     if elemento == cantidad-1 or elemento == 0:
         print(lista[elemento])
+
+    print(lista[elemento])
+
+
+
