@@ -11,14 +11,6 @@ lista = ["uno", "dos", "tres", "cuatro", "cinco"]
 cantidad = len(lista)
 
 for elemento in range(cantidad):
-    # Imprimimos el último elento 2 veces
-    if elemento == cantidad-1:
+    # Imprimimos el primer elemento 2 veces y el último elento 2 veces
+    if elemento == cantidad-1 or elemento == 0:
         print(lista[elemento])
-
-    # Imprimimos el primer elemento 2 veces
-    if elemento == 0:
-        print(lista[elemento])
-    print(lista[elemento])
-
-
-
