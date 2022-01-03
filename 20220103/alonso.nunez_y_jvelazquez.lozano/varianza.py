@@ -12,18 +12,19 @@ from math import pow
 lista = [] #Creando lista vacia
 sumatoria = 0 #incializamos variable sumatoria 
 desviacion = 0 #inicializamos variable desviacion 
+tam = int(input('Ingrese el numero de elementos de la varianza: ')) #Tamaño de la lista
 
-for x in range(0, 7):
-    elementos = int(input("Ingrese un valor: "))
+for x in range(0, tam):
+    elementos = int(input(f"Ingrese valor {x + 1}: ")) #Uso un fstring para enumerar el elemento agregado a la lista
     sumatoria += elementos #realizando sumatoria
     lista.append(elementos) #añadiendo elementos a la lista
 
-media = sumatoria/7 #calculando media
+media = sumatoria / tam #calculando media
 
-for y in range(0, 7):
-    desviacion += pow(y - media, 2) 
+for y in range(0, tam):
+    desviacion += pow(lista[y] - media, 2) #Calculo de la desviación
 
-varianza = desviacion/7
+varianza = desviacion / tam
 
-print(varianza)
+print(f"La varianza es de: {varianza}")
 
