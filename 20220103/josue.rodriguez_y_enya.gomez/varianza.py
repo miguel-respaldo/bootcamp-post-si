@@ -7,22 +7,30 @@
 """
 Ejemplo de un modulo
 """
-import math
 
-a = input("inserte primer número")
-b = input("inserte segundo número")
-c = input("inserte tercer número")
-d = input("inserte cuarto número")
-e = input("inserte quinto numero")
-f = input("inserte sexto número")
-g = input("inserte septimo número")
+a = float(input("inserte el primer valor:"))  #pedimos los valores al usuario
+b = float(input("inserte el segundo valor:"))
+c = float(input("inserte el tercer valor:"))
+d = float(input("inserte el cuarto valor:"))
+e = float(input("inserte el quinto valor:"))
+f = float(input("inserte el sexto valor:"))
+g = float(input("inserte el septimo valor:"))
 
-n = 7
-promedio = (a+b+c+d+e+f+g)/n
-valores = [a,b,c,d,e,f,g]
-a - promedio
-for xi in valores:
-    print xi
+n =int(7)                     #Definimos el numero de elementos totales 
+promedio = (a+b+c+d+e+f+g)/n  #calculamos el promedio 
+  
+valores = [a,b,c,d,e,f,g]     #hacemos una lista con los valores 
+
+tam=len(valores)              #calculamos el tamaño de la lista
+print(tam)
+sumatoria=0                   #inicializamos la variable sumatoria
+for xi in range(tam):         #iteramos en cada elemento de la lista "valores" 
+   suma=((xi+1)-promedio)**2  #calculamos el primer xi-promedio
+   sumatoria=sumatoria+suma   #hacemos la sumatoria de (xi-promedio)**2
+
+varianza=(sumatoria/(n-1))    #realizamos el calculo de la varianza 
+print("La varianza es =", varianza) # imprimos el valor de la varianza 
+
 
 
 
