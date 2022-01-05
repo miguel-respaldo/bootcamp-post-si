@@ -12,7 +12,10 @@ import math
 
 def main():
     suma=0
-    lista = [2,4.6,3.6,2.4,7.6,8.9,10]
+    for i in range(0,7):
+        cont = float(input("Ingrese numero: "))
+        lista = [cont]
+#lista = [2,4.6,3.6,2.4,7.6,8.9,10]
     for i in lista:
         suma = suma + i     # Hace la suma de elementos
 
