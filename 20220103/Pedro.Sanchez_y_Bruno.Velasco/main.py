@@ -5,7 +5,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 """
-Varianza muestreal
+Varianza muestreal s²
 """
 
 def main():
@@ -25,10 +25,9 @@ def main():
     promedio = suma / n
     
     for i in range(n):
-        #print((x[i] - promedio))
         sumatoria += (x[i] - promedio) ** 2
 
-    print(sumatoria/n)
+    print(sumatoria/n-1)
 
 
 
