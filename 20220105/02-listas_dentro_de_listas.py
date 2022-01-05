@@ -10,6 +10,11 @@ matriz = [[1,2],[3,4]]
 # 0 [ 1, 2 ]  
 # 1 [ 3, 4 ]
 
+matriz[0][0] = 5
+matriz[0][1] = 6
+matriz[1][0] = 7
+matriz[1][1] = 8
+
 print(matriz[0][0]) # 1
 print(matriz[0][1]) # 2
 print(matriz[1][0]) # 3
