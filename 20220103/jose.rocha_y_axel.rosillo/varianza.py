@@ -12,10 +12,13 @@ import math
 
 def main():
     suma=0
+    lista=[]
     for i in range(0,7):
-        cont = float(input("Ingrese numero: "))
-        lista = [cont]
-#lista = [2,4.6,3.6,2.4,7.6,8.9,10]
+        cont = float(input("Ingrese un numero: "))
+        lista.append(cont)
+        
+    #lista = [2,4.6,3.6,2.4,7.6,8.9,10]
+    
     for i in lista:
         suma = suma + i     # Hace la suma de elementos
 
@@ -24,7 +27,6 @@ def main():
     sumatoria=0
     for i in lista:
         sumatoria = sumatoria + ( ( i - media ) ** 2 ) # Hace la sumatoria
-
 
     varianza = sumatoria / ( len(lista) - 1 )   # Calcula la varianza
 
