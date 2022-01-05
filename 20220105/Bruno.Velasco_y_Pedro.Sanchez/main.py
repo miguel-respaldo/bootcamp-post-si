@@ -5,14 +5,47 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 """
-Ejemplo de un modulo
+Matriz espiral
 """
 
 def main():
     """
-    Comentario de la función
+    main
     """
-    print("Hola Mundo")
+    
+
+    #n = eval(input("Ingrese n para la matriz: "))
+    n=6
+
+    matriz = []
+
+    for i in range(n):
+        matriz.append([])
+        for j in range(n):
+            matriz[i].append(0)
+    
+    contador = 1
+    for a in range(n):
+        # Primer fila
+        for b in range(n):
+            matriz[a][b] = contador
+            contador+=1
+        
+        #for c in range():
+        #    matriz[][] = contador
+        #    contador+=1
+
+        
+    
+
+    for i in range(len(matriz)):
+        print("[ ", end="")
+        for j in range(len(matriz[i])):
+            print(matriz[i][j], end=" ")
+        print("]")
+
+
+
 
 
 if __name__ == "__main__":
