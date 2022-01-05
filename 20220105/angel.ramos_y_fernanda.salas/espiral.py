@@ -8,7 +8,7 @@
 #matriz = [[1,2],[3,4]]
 matriz = []
 #matriz = list()
-n = input("ingrese tamaño matriz")
+n = eval(input("ingrese tamaño matriz"))
 
 for i in range(n): # 1
     matriz.append([])
