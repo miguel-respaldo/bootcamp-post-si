@@ -7,14 +7,16 @@
 """
 Ejemplo de un modulo
 """
-n = int(input("Ingresa el tamano de la matriz n*n"))
+n = int(input("Ingresa el tamano de la matriz n*n: "))
+numero = 0
 
 matriz = []
-for i in range(2): # 1
+
+for i in range(n): # 1
     matriz.append([])
-    for j in range(2):
-    numero = eval(input("Ingresa un número para la posición de la matriz: "))
-    matriz[i].append(numero)
+    for j in range(n):
+        numero += 1
+        matriz[i].append(numero)
 
 for i in range(len(matriz)):
     print("[ ", end="")
