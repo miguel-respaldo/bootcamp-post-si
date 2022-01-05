@@ -4,6 +4,7 @@ Hacer un programa que haga un cuadrado en con números consecutivos en espiral.
 
 Ejemplo:
 
+```
 n = 1
 
 1
@@ -25,4 +26,4 @@ n = 4
 12 13 14 5
 11 16 15 6
 10 9  8  7
-
+```
