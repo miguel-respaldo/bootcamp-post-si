@@ -14,4 +14,3 @@ Las variables son:
 * Navidad ->  on/off   128
 
 
-
