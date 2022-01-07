@@ -21,6 +21,6 @@ for i in range(n): # 1
 for i in range(len(matriz)):
     print("[ ", end="")
     for j in range(len(matriz[i])):
-        print(matriz[i][j], end=" ")
+        print("\t",matriz[i][j],end="\t")
     print("]")
 
