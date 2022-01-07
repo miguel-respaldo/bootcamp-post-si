@@ -14,11 +14,11 @@ Las variables son:
 * Navidad ->  on/off   128
 
 
+```
 00000000  =  0
 00000010  =  2  -> Casa
 10001001  =  137  -> carro on, gato on, navidad on
 
-```
 multivariable = int(0)
 
 carro = 1
