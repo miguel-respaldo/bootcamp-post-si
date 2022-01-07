@@ -35,3 +35,5 @@ si multivariable = carro y multivariable = pez y multivariable = navidad hacer
   un carro conducido por un pez en navidad
 
 ```
+
+Para el miercoles antes de la case.
