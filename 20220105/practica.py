@@ -21,8 +21,9 @@ for i in range(tamanio):
 
 
 # Imprimir la matriz resultante
-for i in range(tamanio):
+for fila in range(tamanio):
     print("[", end=" ")
-    for j in range(tamanio):
-        print("{:3d} ".format(matriz[i]))
+    for columna in range(tamanio):
+        print("{:3d} ".format(matriz[fila][columna]), end="")
     print("]")
+
