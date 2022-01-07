@@ -8,8 +8,21 @@
 # inicializamos la matriz
 matriz = list()
 
+direccion = "derecha"
+
+# posiciones de la matriz en "x" y "y"
+pos_x = 0
+pos_y = 0
+
 # Pedimos el tamaño del cuadrado al usuario
 tamanio = int(input("Escribe el tamaño del cuadrado: "))
+
+# Limites de la matriz para la dirección
+max_x = tamanio
+max_y = tamanio
+min_x = 1
+min_y = 0
+
 
 # Genero una matriz con ceros del tamaño nxn
 for i in range(tamanio):
@@ -18,6 +31,43 @@ for i in range(tamanio):
         matriz[i].append(0)
 
 
+# Llenamos la matriz
+for contador in range(tamanio*tamanio):
+
+    # Asignamos el valor a la posición
+    matriz[pos_x][pos_y] = contador + 1
+    #print(f"({pos_x},{pos_y}) = {contador} -> {direccion}")
+
+    # avanzamos en la matriz
+    if  direccion == "derecha":
+        pos_y += 1
+    elif direccion == "abajo":
+        pos_x += 1
+    elif direccion == "izquierda":
+        pos_y -= 1
+    elif direccion == "arriba":
+        pos_x -= 1
+
+    # cambiamos de dirección
+    if pos_y == max_y and direccion == "derecha":
+        pos_y -= 1
+        pos_x += 1
+        max_y -= 1
+        direccion = "abajo"
+
+    if pos_x == max_x and direccion == "abajo":
+        pos_x -= 1
+        pos_y -= 1
+        max_x -= 1
+        direccion = "izquierda"
+
+    if pos_y == min_y and direccion == "izquierda":
+        min_y += 1
+        direccion = "arriba"
+
+    if pos_x == min_x and direccion == "arriba":
+        min_x += 1
+        direccion = "derecha"
 
 
 # Imprimir la matriz resultante
