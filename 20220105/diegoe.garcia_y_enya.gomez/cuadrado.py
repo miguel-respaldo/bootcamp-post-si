@@ -1,13 +1,15 @@
 #matriz = [[1,2],[3,4]]
 
 #matriz = list(
-matriz  = int(input("Ingrese el tamaño deseado para su matriz: "))
+m = int(input("Ingrese el tamaño deseado para su matriz: "))
 
 #matriz con 0
-arr = [[0 for i in range(matriz)] for j in range (n)]
+arr = [[0 for i in range(m)] for j in range (m)]
 nivel = 0
 val = 0
-while pos < matriz * matriz
+while val < m * m:
+    num = m - (nivel * 2) - 1
+    valq = val
 
 
 for i in range(matriz): # 1
