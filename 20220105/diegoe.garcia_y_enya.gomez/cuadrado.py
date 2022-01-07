@@ -3,7 +3,11 @@
 #matriz = list(
 matriz  = int(input("Ingrese el tamaño deseado para su matriz: "))
 
-contador = int(input("Ingrese desde que número comenzara su matriz: "))
+#matriz con 0
+arr = [[0 for i in range(matriz)] for j in range (n)]
+nivel = 0
+val = 0
+while pos < matriz * matriz
 
 
 for i in range(matriz): # 1
