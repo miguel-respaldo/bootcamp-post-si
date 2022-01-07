@@ -14,3 +14,14 @@ Las variables son:
 * Navidad ->  on/off   128
 
 
+```
+carro = 1
+navidad = 128
+
+si multivariable  = carro hacer
+  algo
+
+si multivariable = navidad hacer
+  otra cosa
+
+```
