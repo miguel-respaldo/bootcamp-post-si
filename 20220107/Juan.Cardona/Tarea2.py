@@ -90,16 +90,6 @@ if columna_matriz1 == fila_matriz2:
 else:    
     print('No se puede realizar el producto de matrices\n')
 
-'''
-for i in range(fila_matriz1*columna_matriz1):  'Generar n numeros random
-para la matriz A ' 
-...     matrizA.append(random.randrange(0, 100, 1))  'Agregar los numeros a la
-matriz A entre 0 y 100 '
-
-print(matrizA)
-'''
-
-
 
 if __name__ == "__main__":
     main()
