@@ -10,27 +10,26 @@ Varianza muestreal s²
 
 def main():
     
-    x = []
-    sumatoria = 0.0
+    vector = []         # Declaración del vector de valores
+    sumatoria = 0.0     # Declación de variables para el cálculo
     suma = 0.0
     promedio = 0.0
 
-    n = int(input("Cantidad de muestras: "))
-    for i in range(n):
+    tamanio = int(input("Cantidad de muestras: "))      # tamaño del vector
+    for i in range(tamanio):
         entrada = float(input("Ingrese la entrada {}: ".format(i+1)))
-        x.append(entrada)
+        vector.append(entrada)
 
-    for i in range(n):
-        suma += x[i]
-    promedio = suma / n
+    for i in range(tamanio):        # Cálculo de la media del vector 
+        suma += vector[i]
+    promedio = suma / tamanio
     
-    for i in range(n):
-        sumatoria += (x[i] - promedio) ** 2
+    for i in range(tamanio):        # Calculo de la sumatoria de las distancias
+        sumatoria += (vector[i] - promedio) ** 2
 
-    print(sumatoria/n-1)
+    print(sumatoria/tamanio-1)      # Muestra del resultado de la varianza
 
 
 
 if __name__ == "__main__":
     main()
-
