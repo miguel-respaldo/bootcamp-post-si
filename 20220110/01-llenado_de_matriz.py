@@ -7,6 +7,7 @@
 
 import random
 
+# matriz de nxm
 n = 3
 m = 2
 
@@ -19,6 +20,9 @@ matriz.append(8)
 matriz.append("hola")
 matriz.append(list())
 matriz.append([ 2 , 3, "bu"])
+matriz.insert(4,100)
+matriz.insert(5,[1,2,3])
+matriz.insert(0,[0,0,0])
 
 # Imprimir la matriz resultante
 for fila in range(n):
