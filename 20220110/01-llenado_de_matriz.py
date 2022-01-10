@@ -13,6 +13,13 @@ m = 2
 # Generación de la matriz con ceros de forma comprimida
 matriz = [[random.randrange(1,100) for columna in range(m)] for fila in range(n)]
 
+# [ [ 2  4 ], [ 4  2 ], [ 2  1 ]]
+
+matriz.append(8)
+matriz.append("hola")
+matriz.append(list())
+matriz.append([ 2 , 3, "bu"])
+
 # Imprimir la matriz resultante
 for fila in range(n):
     print("[", end=" ")
@@ -20,4 +27,5 @@ for fila in range(n):
         print("{:3d} ".format(matriz[fila][columna]), end="")
     print("]")
 
+print(matriz)
 
