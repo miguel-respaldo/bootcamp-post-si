@@ -11,7 +11,7 @@ n = 3
 m = 2
 
 # Generación de la matriz con ceros de forma comprimida
-matriz = [[random.randrage(1,100) for columna in range(n)] for fila in range(m)]
+matriz = [[random.randrange(1,100) for columna in range(n)] for fila in range(m)]
 
 # Imprimir la matriz resultante
 for fila in range(n):
