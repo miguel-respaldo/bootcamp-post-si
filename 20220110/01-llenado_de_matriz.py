@@ -14,9 +14,9 @@ m = 2
 matriz = [[random.randrage(1,100) for columna in range(n)] for fila in range(m)]
 
 # Imprimir la matriz resultante
-for fila in range(tamanio):
+for fila in range(n):
     print("[", end=" ")
-    for columna in range(tamanio):
+    for columna in range(m):
         print("{:3d} ".format(matriz[fila][columna]), end="")
     print("]")
 
