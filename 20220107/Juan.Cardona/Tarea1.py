@@ -27,24 +27,25 @@ def main():
         resto.append(Multivariable %2) # guardamos el módulo calculado en orden 
         Multivariable //=2  #asignar el nuevo valor despues de la division 
         print(resto)
+        print(len(resto))
 
-        for i in range (len(resto)):
-            if resto[0] == 1:               #bit menos significativo 
-                print('Se encendio el carro\n')
-            if resto[1] == 1:
-                print('Se encendio la moto\n')
-            if resto[2] == 1:
-                print('Se abrio el porton electrico\n')
-            if resto[3] == 1:
-                print('Se abrio la puerta principal\n')
-            if resto[4] == 1:
-                print('El encendio las luces\n')
-            if resto[5] == 1:
-                print('Se activo el aire condicionado\n')
-            if resto[6] == 1:
-                print('Se encendio la Television\n')
-            if resto[7] == 1:               #bit mas significativo 
-                print('Se activaron las luces navidennas\n')
+    for i in range (len(resto)):
+        if resto[0] == 1:               #bit menos significativo 
+            print('Se encendio el carro\n')
+        if resto[1] == 1:
+            print('Se encendio la moto\n')
+        if resto[2] == 1:
+            print('Se abrio el porton electrico\n')
+        if resto[3] == 1:
+            print('Se abrio la puerta principal\n')
+        if resto[4] == 1:
+            print('El encendio las luces\n')
+        if resto[5] == 1:
+            print('Se activo el aire condicionado\n')
+        if resto[6] == 1:
+            print('Se encendio la Television\n')
+        if resto[7] == 1:               #bit mas significativo 
+            print('Se activaron las luces navidennas\n')
 
 if __name__ == "__main__":
     main()
