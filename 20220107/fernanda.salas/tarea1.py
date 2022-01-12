@@ -19,7 +19,7 @@ variables = ["Carro", "Casa", "Perro", "Gato", "Pez", "Moto", "Zapato", "Navidad
 multivariable = int(input("Ingrese un numero entero: "))
 
 bin = "{:b}".format(multivariable) #transformamos los numeros a binario
-print(multivariable)
+print(bin)
 
 #hacemos las iteraciones
 for i in range(8):
