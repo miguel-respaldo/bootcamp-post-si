@@ -12,7 +12,7 @@ import time
 
 inicio=time.time()
 lista = [random.randint(1,1000) for x in range(10000)]
-print(lista)
+
 lista.sort()
 print(lista)
 fin=time.time()
