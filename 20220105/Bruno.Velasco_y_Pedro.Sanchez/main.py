@@ -13,7 +13,7 @@ def main():
     main
     """
     
-    n=12
+    n=15
     #n = eval(input("Ingrese n para la matriz: "))
     
 
@@ -34,7 +34,7 @@ def main():
         for j in range(n):
             matriz[j][i] = contador
             contador += 1
-    imprimir(matriz)
+    #imprimir(matriz)
 
     contador = 1
     for i in range(n):
