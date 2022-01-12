@@ -11,8 +11,8 @@
 
 multivariable = int(0)
 """
-variables = ['Carro','Casa','Perro','Gato','Pez','Moto','Zapato','Navidad']
-comparador = int(1)
+variables = ['Carro','Casa','Perro','Gato','Pez','Moto','Zapato','Navidad'] # se declara lista de variables
+compara = int(1)     # se declara una variable que funciona como comparador para encender las variables 
 
 print("Este programa almacena hasta 8 variables boleanas en un entero\n")
 print('''Las variables son:
@@ -29,10 +29,17 @@ Navidad ->  on/off  128 ->  10000000
 multivariable = int(input("Ingresa un numero para encender o apagar variables: ")) 
 print("Activaste las variables de salida: {0:08b}\n".format(multivariable))
 
-for x in range (8):
-    if(multivariable&comparador):  
-        print(variables[x],"is on")
-    comparador <<= 1
+if((multivariable < 0) or (multivariable >255)):
+        print("El dato ingresado es incorrecto, vuelve a intentarlo")
+
+else:
+    for x in range (8): # se hace bucle de iteraciones igual al numero de variables almacenadas
+
+        # Se hace un AND entre el dato ingresado y el comparador para detectar cual variable se encendio
+        # si el resultado es diferente de 0 entonces se imprime la variable de la lista
+        if(multivariable & compara):
+            print(variables[x],"is on") # imprime la variable que se encendio
+        compara <<= 1                   # recorre el 1 del comparador un bit a la izquierda
 
 
 
