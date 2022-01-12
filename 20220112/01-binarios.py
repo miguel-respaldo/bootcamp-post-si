@@ -9,14 +9,16 @@ frutas = 0
 animales = 0
 frutas_y_animales = 0
 
-MANZANA = 1
-PERA    = 2
-MANGO   = 4
-NARANJA = 8
-GUAYABA = 16
-PERRO   = 32
-GATO    = 64
-TIBURON = 128
+MANZANA = 1   # 1
+PERA    = 2   # 1 << 1
+MANGO   = 4   # 1 << 2
+NARANJA = 8   # 1 << 3
+GUAYABA = 16  # 1 << 4
+PERRO   = 32  # 1 << 5
+GATO    = 64  # 1 << 6
+TIBURON = 128 # 1 << 7
+BURRO   = 1 << 8
+CABALLO = 2**9 # 1 << 9
 
 
 frutas |= MANZANA
@@ -59,6 +61,16 @@ else:
 
 animales ^= PERRO
 print("Animales = {} = {:b}".format(animales, animales))
+
+if animales & PERRO == PERRO:
+    print("Si compre un perrro")
+else:
+    print("No compre un perrro")
+
+animales |= PERRO
+animales &= ~PERRO
+print("Animales = {} = {:b}".format(animales, animales))
+print("perro = {} = {:b}".format(PERRO, PERRO))
 
 if animales & PERRO == PERRO:
     print("Si compre un perrro")
