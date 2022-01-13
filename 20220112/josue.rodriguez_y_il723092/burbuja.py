@@ -18,9 +18,8 @@ def bubbleSort(array):
             if array[j] > array[j+1]:
                 array[j], array[j+1] = array[j+1], array[j]
 
-array = [random.randint(1,1000)for x in range(10000)]
-
 inicio=time.time()
+array = [random.randint(1,1000)for x in range(10000)]
 bubbleSort(array)
 print(array)
 fin=time.time()
