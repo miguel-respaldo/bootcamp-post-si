@@ -7,14 +7,19 @@
 """
 Ejemplo de un modulo
 """
+import random
+import time
 
-def main():
-    """
-    Comentario de la función
-    """
-    print("Hola Mundo")
+tiempo_ejecucion = time.time() #Tiempo de ejecución
+lista = [random.randint(1, 50) for x in range(10)] #Generando lista random
+print('Lista en desorden: ', lista)
+n = len(lista) #Determinando largo de lista
 
-
-if __name__ == "__main__":
-    main()
+for i in range(n):
+    for j in range(0, n - 1):
+        if lista[j] > lista[j + 1]:
+            lista[j], lista[j + 1] = lista[j + 1], lista[j]
+print('')
+print('Lista ordenada:', lista)
+print(f'Tiempo de ejecucion total: {time.time() - tiempo_ejecucion} seg.')
 
