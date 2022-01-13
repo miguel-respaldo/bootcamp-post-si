@@ -16,12 +16,7 @@ timestart = time.time()
 print ('lista desordenada es esta: ')
 print (lista)
 
-for i in range(sutano-1):
-    for o in range(sutano-1):
-        if lista[o] > lista[o+1]:
-            fulano = lista[o]
-            lista[o] = lista[o+1]
-            lista[o+1] = fulano
+lista.sort()
         
 print ('Esta es la lista ordenadita')
 print (lista)
