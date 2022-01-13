@@ -9,13 +9,13 @@ Tarea: Multivariable
 """
 
 def main():
-    multivariable = int(input("Ingrese un numero: "))
-    lista = ["Navidad","Zapato","Moto","Pez","Gato","Perro","Casa","Carro"]
-    binario = format ( multivariable , "08b" )
+    multivariable = int(input("Ingrese un numero: ")) #Se solicita el numero
+    lista = ["Navidad","Zapato","Moto","Pez","Gato","Perro","Casa","Carro"] #Se declara la lista de variables
+    binario = format ( multivariable , "08b" ) #Se convierte el numero a binario
     
     print(binario)
     
-    for i in range(8):
+    for i in range(8): #Se imprime la lista de objetos
         if (int(binario[i]) == 1):
             print ( lista[i], end=" ")
             

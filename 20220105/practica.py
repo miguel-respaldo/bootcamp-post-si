@@ -25,11 +25,13 @@ min_y = 0
 
 
 # Genero una matriz con ceros del tamaño nxn
-for i in range(tamanio):
+for filas in range(tamanio):
     matriz.append(list())
-    for j in range(tamanio):
-        matriz[i].append(0)
+    for columnas in range(tamanio):
+        matriz[filas].append(0)
 
+# Generación de la matriz con ceros de forma comprimida
+#matriz = [[0 for columnas in range(tamanio)] for filas in range(tamanio)]
 
 # Llenamos la matriz
 for contador in range(tamanio*tamanio):
