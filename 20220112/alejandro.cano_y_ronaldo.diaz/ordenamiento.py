@@ -8,9 +8,9 @@
 import random
 
 # Genera matriz random
-matriz = [random.randint(1,50) for x in range(10000)]
+matriz = [random.randint(1,100) for x in range(10000)]
 #print(matriz)
-#matriz.sort()              # Ordenamiento con funcion sort
+matriz.sort()              # Ordenamiento con funcion sort
 
 def bubbleSort(matriz): # Ordenamiento con metodo burbuja
     n = len(matriz)
