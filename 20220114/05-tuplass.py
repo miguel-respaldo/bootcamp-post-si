@@ -8,8 +8,8 @@
 tuplaX= (1,2,3)
 tuplaY=(2,3,4)
 
-for x in range(3):
-    print(tuplaX[x]*tuplaY[x])
+tupla = 3 * tuplaX
+print(tupla)
     
 # que pasa si "sumo" dos tuplas (t3 = t1 + t2)
 # que pasa si "multiplico" una tupla  ( t3 = 3 * t1)
