@@ -15,4 +15,7 @@ tupla_3 = tupla + tupla_varios_datos
 print("Tupla 1 + Tupla 2:", tupla_3)
 
 
-
+#tupla = ("manzana", "platano", "naranja")
+#tupla2 = ("manzana", "platano", "naranja")
+#tupla -= tupla2
+# unsupported operand type(s) for -=: 'tuple' and 'tuple'
