@@ -21,7 +21,7 @@ timestart = time.time() #funcion para el tiempo
 print ('Primer array', array)
 
 for i in range(tam-1):
-    for j in range (tam - 1):
+    for j in range (tam-1):
             if array[j] > array[j+1]: #si el valor del array en esa posicion es mayor que la sig posicion, cambia
                 aux = array[j]  # aux que guarda el valor elemento actual
                 array[j] = array[j+1] # se guarda el valor de la sig posición 
