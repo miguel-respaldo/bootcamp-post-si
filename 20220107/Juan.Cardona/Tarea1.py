@@ -26,8 +26,8 @@ def main():
     while Multivariable != 0: # Hacer mientras el número de sea diferente de cero
         resto.append(Multivariable %2) # guardamos el módulo calculado en orden 
         Multivariable //=2  #asignar el nuevo valor despues de la division 
-        print(resto)
-        print(len(resto))
+        #print(resto)
+       #print(len(resto))
 
     for i in range (len(resto)):
         if resto[0] == 1:               #bit menos significativo 
