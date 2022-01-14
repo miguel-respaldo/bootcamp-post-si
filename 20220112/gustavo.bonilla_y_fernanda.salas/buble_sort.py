@@ -19,7 +19,11 @@ def bubbleSort(array):
                 array[j], array[j+1] = array[j+1], array[j]
 
 
+beginning = time.time()
 bubbleSort(array)
+end = time.time()
+elapsed_time = round((end-beginning)*1000, 3)
 
-print(array)
-print(time.time())
+print("\nLista ordenada:\n\n", array)
+
+print("\nTiempo de ejecución del ordenamiento burbuja:", elapsed_time, "milisegundos\n")
