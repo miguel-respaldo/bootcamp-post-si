@@ -28,7 +28,7 @@ tupla =  tuple(lista)
 print(tupla)
 
 melon = ("melon",)
-tupla + = melon
+tupla += melon
 
 print(tupla)
 
@@ -36,10 +36,10 @@ print(tupla)
 print(cadena)
 print(entero)
 
-for x in tupla_varios_dtos:
+for x in tupla_varios_datos:
     print(x)
 
-for i in range(len(tupla))
+for i in range(len(tupla)):
     print(tupla[i])
 
 # que pasa si "sumo" dos tuplas (t3 = t1 + t2)
