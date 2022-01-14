@@ -4,9 +4,10 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 diccionario = {
+#        key : value ,
         "marca": "Ford",
         "modelo": "Mustang",
-        "año": 1964
+        "año": 1964,
         "colores": ["rojo", "blanco", "azul"]
         }
 
@@ -25,6 +26,8 @@ diccionario.update({"año": 2022})
 
 
 diccionario["puertas"] = 2
+diccionario.update({"puertas": 2})
+diccionario.update({"llantas": 4})
 print(diccionario)
 
 diccionario.update({"radio": "AM/FM"})
@@ -49,48 +52,13 @@ for x,y in diccionario.items():
     print(x,y)
 
 
-tupla = ("manzana", "platano", "naranja")
-print(tupla)
+# Aqui se copia el puntero/referencia del diccionario
+otro_diccionario = diccionario
 
+# Aqui se hace una copia
+otro_diccionario = diccionario.copy()
 
+otro_diccionario = dict(diccionario)
 
-solo_uno = ("manzana", )
-print(type(solo_uno))
-
-no_es_tupla = ("manzana")
-print(type(no_es_tupla))
-
-tupla_varios_datos = ("abc", 33, True, 3.1416, "def")
-
-# Constructor
-una_tupla = tuple(("manzana", "platano", "naranja"))
-
-print(una_tupla[1])
-
-print("Actualizar tupla")
-# Actualizar una tupla
-lista = list(tupla)
-lista[1] = "kiwi"
-tupla =  tuple(lista)
-
-print(tupla)
-
-melon = ("melon",)
-tupla + = melon
-
-print(tupla)
-
-(cadena, entero, boleano, flotante, cadena2)  = tupla_varios_datos
-print(cadena)
-print(entero)
-
-for x in tupla_varios_dtos:
-    print(x)
-
-for i in range(len(tupla))
-    print(tupla[i])
-
-# que pasa si "sumo" dos tuplas (t3 = t1 + t2)
-# que pasa si "multiplico" una tupla  ( t3 = 3 * t1)
 
 
