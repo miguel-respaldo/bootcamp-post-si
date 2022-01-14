@@ -10,8 +10,12 @@ import time
 
 lista = [random.randint(1,50) for x in range(10000)]
 
+beginning = time.time()
 lista.sort()
-print(lista)
+end = time.time()
+elapsed_time = round((end-beginning)*1000, 3)
 
-print(time.time())
+print("\nLista ordenada:\n\n", lista)
+
+print("\nTiempo de ejecución del ordenamiento por defecto en python:", elapsed_time, "milisegundos")
 
