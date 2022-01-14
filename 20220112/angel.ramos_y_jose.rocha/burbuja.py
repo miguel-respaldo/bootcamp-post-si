@@ -9,8 +9,8 @@ def burbuja(A): #ordena la lista A
                 A[j+1]=aux
     print("lista ordenada")
     print(A)
-tamanio=int(input("ingerse el tamaño de la lista a ordenar\n"))
+tamanio=int(input("ingrese el tamaño de la lista a ordenar: \n"))
 A=[random.randrange(1,50) for i in range (tamanio)] #genera lista de valores random
-print("lista random")
-print(A)
-burbuja(A)
+print("lista random") 
+print(A) 
+burbuja(A #Muestra la lista ordenada)
