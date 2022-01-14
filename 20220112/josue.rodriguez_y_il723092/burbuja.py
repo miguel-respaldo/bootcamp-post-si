@@ -4,22 +4,26 @@
 # :indentSize=4:tabSize=8:noTabs=true:
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
-
+"""
+Ejemplo de ordenamiento burbuja
+"""
 import time
-import random
-
-array = [random.randint(1,50) for x in range(10000)]
+import random 
 
 def bubbleSort(array):
-    tam = len(array)
+    n = len(array)
 
-    for i in range(0, tam):
-        for j in range(0, tam-1):
+    for i in range(n):
+        for j in range(0, n-i-1):
             if array[j] > array[j+1]:
                 array[j], array[j+1] = array[j+1], array[j]
 
-
+inicio=time.time()
+array = [random.randint(1,1000)for x in range(10000)]
 bubbleSort(array)
-
 print(array)
-print(time.time())
+fin=time.time()
+print("tiempo de ejecución: {:.5} segundos".format(fin-inicio))
+
+
+
