@@ -28,8 +28,11 @@ print("naranaja" in un_conjunto)
 un_conjunto.add("kiwi")
 print(un_conjunto)
 
-
+lista = ["manzana", "platano", "manzana"]
+tupla = ("manzana", "platano", "manzana")
 set_varios_datos.update(un_conjunto) # un_conjunto puede ser otro tipo iterable
+set_varios_datos.update(lista) # un_conjunto puede ser otro tipo iterable
+set_varios_datos.update(tupla) # un_conjunto puede ser otro tipo iterable
 print(set_varios_datos)
 
 
@@ -38,6 +41,4 @@ set_varios_datos.remove("def")
 print(set_varios_datos)
 
 set_varios_datos.discard("abc") # No da error si no existe
-
-
 
