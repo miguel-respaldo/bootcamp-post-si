@@ -4,17 +4,22 @@
 # :indentSize=4:tabSize=8:noTabs=true:
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
-"""
-Ejemplo de un modulo
-"""
 
-def main():
-    """
-    Comentario de la función
-    """
-    print("Hola Mundo")
+import time
+import random
+
+array = [random.randint(1,50) for x in range(10000)]
+
+def bubbleSort(array):
+    tam = len(array)
+
+    for i in range(0, tam):
+        for j in range(0, tam-1):
+            if array[j] > array[j+1]:
+                array[j], array[j+1] = array[j+1], array[j]
 
 
-if __name__ == "__main__":
-    main()
+bubbleSort(array)
 
+print(array)
+print(time.time())
