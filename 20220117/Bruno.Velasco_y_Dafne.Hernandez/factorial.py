@@ -5,17 +5,19 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 """
-Ejemplo de un modulo
+Factorial
 """
-import funciones
+import operaciones
 
 def main():
-    n = int(input('Ingrese un numero: '))
-
-    x = funciones.fibonacci(n)
-
-    print(f'La posición {n} de fibonacci es {x}')
+    """
+    Los wafles son hotcakes musculosos
+    """
+    n = 5
+    res = operaciones.factorial(n)
+    print(res)
 
 
 if __name__ == "__main__":
     main()
+
