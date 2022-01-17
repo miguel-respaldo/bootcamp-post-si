@@ -10,9 +10,15 @@ def mi_funcion(n3,n2,n1):
 
 
 def mi_funcion2():
-    print("hola")
+    print("hola 2")
+
+
+def mi_funcion3():
+    print("hola 3")
+    return "adios"
 
 print(mi_funcion("uno", n1=2, n2="algo"))
 print(mi_funcion2())
+print(mi_funcion3())
 
 
