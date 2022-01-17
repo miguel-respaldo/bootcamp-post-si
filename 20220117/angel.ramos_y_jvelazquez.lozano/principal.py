@@ -4,20 +4,20 @@
 # :indentSize=4:tabSize=8:noTabs=true:
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
-"""
-Ejemplo de un modulo
-"""
-#print(fib(8))
+
+import funciones
 
 
-def main():
-    """
-    y van muy bien con cafe en la noche
-    """
-    n = 8
-    res = operaciones.fibonnaci(n)
-    print(res)
+def principal():
 
+    n = eval(input("Escribe un número: "))
+
+    res = funciones.fib(n)
+    print(f"El resultado fib es: {res}")
+
+    res= funciones.fact(n)
+    print(f"El factorial es: {res}")
 
 if __name__ == "__main__":
-    main()
+    principal()
+

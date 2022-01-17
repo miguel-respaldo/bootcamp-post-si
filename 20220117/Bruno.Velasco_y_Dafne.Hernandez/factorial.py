@@ -5,19 +5,19 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 """
-Ejemplo de un modulo
+Factorial
 """
-#print(fib(8))
-
+import operaciones
 
 def main():
     """
-    y van muy bien con cafe en la noche
+    Los wafles son hotcakes musculosos
     """
-    n = 8
-    res = operaciones.fibonnaci(n)
+    n = 5
+    res = operaciones.factorial(n)
     print(res)
 
 
 if __name__ == "__main__":
     main()
+

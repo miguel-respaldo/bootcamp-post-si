@@ -5,19 +5,19 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 """
-Ejemplo de un modulo
+funcion de recurcion para el factorial
 """
-#print(fib(8))
 
+import funciones
 
 def main():
-    """
-    y van muy bien con cafe en la noche
-    """
-    n = 8
-    res = operaciones.fibonnaci(n)
-    print(res)
+    print("Hola ingresa el numero de veces a realizar el factorial")
+    num=int(input("numero: "))
+    
+    res=funciones.factorial(num)
+    print(f"El resultado es: {res}")
 
 
 if __name__ == "__main__":
     main()
+

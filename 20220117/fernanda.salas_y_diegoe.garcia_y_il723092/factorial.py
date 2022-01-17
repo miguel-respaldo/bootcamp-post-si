@@ -7,17 +7,17 @@
 """
 Ejemplo de un modulo
 """
-#print(fib(8))
-
+import funciones
 
 def main():
     """
-    y van muy bien con cafe en la noche
+    Comentario de la función
     """
-    n = 8
-    res = operaciones.fibonnaci(n)
-    print(res)
+    n = int(input("Ingresa el tamaño del factorial: "))
+    x = funciones.factorial(n)
+    print(f"El resultado es {x}")
 
 
 if __name__ == "__main__":
     main()
+

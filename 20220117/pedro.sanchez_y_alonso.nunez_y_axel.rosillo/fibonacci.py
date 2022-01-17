@@ -7,16 +7,14 @@
 """
 Ejemplo de un modulo
 """
-#print(fib(8))
-
+import funciones
 
 def main():
-    """
-    y van muy bien con cafe en la noche
-    """
-    n = 8
-    res = operaciones.fibonnaci(n)
-    print(res)
+    n = int(input('Ingrese un numero: '))
+
+    x = funciones.fibonacci(n)
+
+    print(f'La posición {n} de fibonacci es {x}')
 
 
 if __name__ == "__main__":
