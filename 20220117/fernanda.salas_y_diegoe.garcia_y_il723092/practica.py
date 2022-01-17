@@ -9,7 +9,20 @@ Ejemplo de un modulo
 """
 
 def fibonacci(n):
-    
+   
+    n=int(input("Ingresa el tamaño de la serie 'n': "))
+#first two terms are first and second
+    valor1=0
+    valor2=1
+    sum=0
+    count=1
+    print("Fibonacci Sequence: ")
+    while(count<=n):    
+        print(sum)
+        count+=1
+        valor1=valor2
+        valor2=sum
+        sum=valor1+valor2
 
 def factorial(n):
     producto=1
