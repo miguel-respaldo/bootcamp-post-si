@@ -27,14 +27,6 @@ def fibonacci_recursivo(posicion):
         return posicion
     return fibonacci_recursivo(posicion - 1) + fibonacci_recursivo(posicion - 2)
 
-
-
-# Imprimir sin importar el resultado
-#print(f"Imprimiendo serie hasta posición {posicion}")
-#fibonacci_iterativo(posicion, True)
-# Obtener valor pero no imprimir
-#valor = fibonacci_iterativo(posicion, False)
-#print(f"\nFibonacci de {posicion} con método iterativo es {valor}")
 # Lo mismo de arriba pero con el método iterativo
 valor = fibonacci_recursivo(posicion)
 print(f"Fibonacci de {posicion} con método recursivo es {valor}")
