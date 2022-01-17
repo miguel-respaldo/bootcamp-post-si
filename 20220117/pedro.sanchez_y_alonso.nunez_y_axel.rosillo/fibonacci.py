@@ -12,9 +12,10 @@ import funciones
 def main():
     n = int(input('Ingrese un numero: '))
 
-    print(funciones.fibonacci(n))
+    x = funciones.fibonacci(n)
+
+    print(f'La posición {n} de fibonacci es {x}')
 
 
 if __name__ == "__main__":
     main()
-
