@@ -7,14 +7,17 @@
 """
 Ejemplo de un modulo
 """
+#print(fib(8))
+
 
 def main():
     """
-    Comentario de la función
+    y van muy bien con cafe en la noche
     """
-    print("Hola Mundo")
+    n = 8
+    res = operaciones.fibonnaci(n)
+    print(res)
 
 
 if __name__ == "__main__":
     main()
-
