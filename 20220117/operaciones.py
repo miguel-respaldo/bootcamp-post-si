@@ -20,3 +20,10 @@ def division(n1, n2):
         return 0
     return n1 / n2
 
+
+if __name__ == "__main__":
+    print("Este es un modulo, no un programa")
+
+print("***** Este es un modulo, no un programa +++++")
+
+
