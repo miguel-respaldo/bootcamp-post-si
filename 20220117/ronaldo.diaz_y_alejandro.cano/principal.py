@@ -27,7 +27,8 @@ def principal():
     '''
 
     n = eval(input("Introduce el numero para Fibonacci: "))
-    #fibonacci(n)
+    res = operaciones.fibonacci(n)
+    print(f"El resultado de fibonacci es: {res}")
 
 if __name__ == "__main__":
     principal()
