@@ -11,7 +11,13 @@ def principal():
     """
     Practica: Fibonacci y Factorial
     """
-    
+    num = eval(input("Escribe un numero: "))
+    if num < 0:
+        print("No existe factorial para ese numero")
+    elif num == 0:
+        print("Factorial de 0 es 1")
+    else:
+        print( num, "! = ", operaciones.factorial(num))
     '''
     n1 = eval(input("Escribe un número: "))
     n2 = eval(input("Escribe otro número: "))

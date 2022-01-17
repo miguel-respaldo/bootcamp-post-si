@@ -15,10 +15,11 @@ def multiplicacion(n1, n2):
     return n1 * n2
 
 
-def division(n1, n2):
-    if n2 == 0:
-        return 0
-    return n1 / n2
+def factorial(num):
+    if num == 1:
+        return num
+    else:
+        return num*factorial(num-1)
 
 
 if __name__ == "__main__":
