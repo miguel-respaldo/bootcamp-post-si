@@ -12,7 +12,7 @@ from funciones import factorial
 
 def main():
     """
-    Ejecución de factorial
+        Ejecución de factorial
     """
 
     print("\nHola!!, Este script calcula el facorial de un número.")
