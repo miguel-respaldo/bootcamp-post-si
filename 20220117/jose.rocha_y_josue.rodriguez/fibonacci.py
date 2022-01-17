@@ -7,19 +7,18 @@
 """
 Ejemplo de un modulo
 """
-def fibonacci(n): 
-    if n <=1:
-        return n
+
+import operaciones
+
+def main():
+
+    n1 = eval(input("Inserte el número para la Sucesión Fibonacci: "))
+    if n1 <=0:
+        print("Ingrese un entero positivo: ")
     else:
-        return(fibonacci(n-1) + fibonacci(n-2))
+        print("Sucesión de Fibonacci: ")
+    for i in range(n1):
+        print(operaciones.fibonacci(i))
 
-nterminos=10 #nota: cambiarlo para ponerle un input
-
-#checando que el número de términos es válido
-if nterminos <=0:
-    print("Ingrese un entero positivo: ")
-else:
-    print("Sucesión de Fibonacci: ")
-for i in range(nterminos):
-    print(fibonacci(i))
-
+if __name__ == "__main__":
+    main()

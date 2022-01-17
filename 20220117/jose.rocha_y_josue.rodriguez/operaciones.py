@@ -15,7 +15,11 @@ def factorial(n1):
     else:
       return 0
 
-def fibonacci(n1)
+def fibonacci(n1):
+    if n1 <=1:
+        return n1
+    else:
+        return(fibonacci(n1-1) + fibonacci(n1-2))
 
 def resta(n1, n2):
     return n1 - n2
