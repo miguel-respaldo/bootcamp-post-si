@@ -9,13 +9,15 @@ Ejemplo de un modulo
 """
 #print(fib(8))
 
+import operaciones
 
 def main():
     """
     y van muy bien con cafe en la noche
     """
-    n = 8
-    res = operaciones.fibonnaci(n)
+    n = int(input("Ingrese un numero para fibonacci: "))
+
+    res = operaciones.fib(n)
     print(res)
 
 
