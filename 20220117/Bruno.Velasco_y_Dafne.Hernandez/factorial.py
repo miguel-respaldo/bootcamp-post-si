@@ -7,14 +7,14 @@
 """
 Factorial
 """
-import operaciones
+from operaciones import factorial
 
 def main():
     """
     Los wafles son hotcakes musculosos
     """
-    n = 5
-    res = operaciones.factorial(n)
+    n = int(input("Ingrese un numero para factorial: "))
+    res = factorial(n)
     print(res)
 
 

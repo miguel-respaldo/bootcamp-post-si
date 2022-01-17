@@ -7,19 +7,14 @@
 """
 Ejemplo de un modulo
 """
-#print(fib(8))
-
 import operaciones
 
 def main():
-    """
-    y van muy bien con cafe en la noche
-    """
-    n = int(input("Ingrese un numero para fibonacci: "))
-
-    res = operaciones.fib(n)
-    print(res)
-
+    
+    n1=eval(input("Inserte el factorial:"))
+    res=operaciones.factorial(n1)
+    print ("El resultado de {} factorial es: {}".format(n1,res))
 
 if __name__ == "__main__":
     main()
+
