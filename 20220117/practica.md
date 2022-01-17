@@ -1,4 +1,4 @@
-# Funciones
+# Funciones y modulos
 
 1. Hacer un programa que haga una funcion de factorial en manera recurisva.
 
@@ -14,3 +14,7 @@
    Escribe un número: 6
    La posición 6 de fibonacci es 8
    ```
+### Archivos a usar
+* opeciones o funciones
+* factiral
+* fibonacci
