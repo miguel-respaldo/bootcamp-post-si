@@ -21,15 +21,7 @@ def fibonacci(n):
     if n == 1:
         return 1
     return fibonacci(n-1) + fibonacci(n-2)
-
-     
-def main():
-    n = int(input("Ingrese un numero: "))
-    
-    print(factorial(n))
-    
-    print(fibonacci(n))
-    
+ 
 
 
 if __name__ == "__main__":
