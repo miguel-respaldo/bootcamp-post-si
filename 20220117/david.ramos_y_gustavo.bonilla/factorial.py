@@ -5,19 +5,19 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 """
-Ejemplo de un modulo
+    Factorial
 """
-#print(fib(8))
-
 
 def main():
     """
-    y van muy bien con cafe en la noche
+    Ejecución de factorial
     """
-    n = 8
-    res = operaciones.fibonnaci(n)
-    print(res)
+
+    print("\nHola!!, Este script calcula el facorial de un número.")
+    num = eval(input("\nIntroducir el número del que se descea su factorial: "))
+    print("Hola Mundo")
 
 
 if __name__ == "__main__":
     main()
+

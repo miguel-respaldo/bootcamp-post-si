@@ -10,7 +10,6 @@ Ejemplo de un modulo
 
 def fibonacci(n):
    
-    n=int(input("Ingresa el tamaño de la serie 'n': "))
 #first two terms are first and second
     valor1=0
     valor2=1
@@ -27,5 +26,5 @@ def fibonacci(n):
 def factorial(n):
     producto=1
     for i in range(n):
-        producto *=i
+        producto *=(i+1)
     return producto
