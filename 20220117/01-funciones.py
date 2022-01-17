@@ -11,6 +11,8 @@ def mi_funcion(n3,n2,n1):
     print(f"n2 = {n2}")
 
 
+#mi_funcion(n3="uno", 2, "algo") # marca error
+
 mi_funcion("uno", n1=2, n2="algo")
 
 print("sin salto de linea", end="")
