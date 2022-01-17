@@ -7,25 +7,10 @@
 """
 Ejemplo de un modulo
 """
-posicion = int(input("Ingrese la cantidad de valores:  "))
+from operaciones import fibonacci_recursivo
 
+numero = int(input("Ingrese la cantidad de valores:  "))
 
-def fibonacci_iterativo(posicion, debe_imprimir):
-    actual = 0
-    siguiente = 1
-    for x in range(posicion + 1):
-        if debe_imprimir:
-            print(str(actual) + ",", end="")
-        temporal = actual
-        actual = siguiente
-        siguiente = siguiente + temporal
-    return temporal
-
-
-def fibonacci_recursivo(posicion):
-    if posicion < 2:
-        return posicion
-    return fibonacci_recursivo(posicion - 1) + fibonacci_recursivo(posicion - 2)
 
 
 
@@ -36,5 +21,5 @@ def fibonacci_recursivo(posicion):
 #valor = fibonacci_iterativo(posicion, False)
 #print(f"\nFibonacci de {posicion} con método iterativo es {valor}")
 # Lo mismo de arriba pero con el método iterativo
-valor = fibonacci_recursivo(posicion)
-print(f"Fibonacci de {posicion} con método recursivo es {valor}")
+valor = fibonacci_recursivo(numero)
+print(f"Fibonacci de {numero} con método recursivo es {valor}")
