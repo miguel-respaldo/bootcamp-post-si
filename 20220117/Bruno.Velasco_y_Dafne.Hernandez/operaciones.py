@@ -20,7 +20,14 @@ def division(n1, n2):
         return 0
     return n1 / n2
 
-
+def factorial(n):
+    if n < 1:
+        return 1
+    else:
+        #r = factorial(n-1) * n
+        r = multiplicacion(factorial(n-1), n)
+        return r
+    
 if __name__ == "__main__":
     print("Este es un modulo, no un programa")
 
