@@ -8,16 +8,17 @@
     Factorial
 """
 
+from funciones import factorial
+
 def main():
     """
     Ejecución de factorial
     """
 
     print("\nHola!!, Este script calcula el facorial de un número.")
-    num = eval(input("\nIntroducir el número del que se descea su factorial: "))
-    print("Hola Mundo")
+    num = eval(input("\nIntroduce el número del que desceas su factorial: "))
+    print(f"\nEl resultado es: {factorial(num)}\n")
 
 
 if __name__ == "__main__":
     main()
-
