@@ -24,6 +24,6 @@ def division(n1, n2):
 if __name__ == "__main__":
     print("Este es un modulo, no un programa")
 
-print("***** Este es un modulo, no un programa +++++")
+#print("***** Este es un modulo, no un programa +++++")
 
 
