@@ -7,9 +7,9 @@
 
 archivo = open("demo2.txt", "a")
 
-archivo.write("Linea 1")
-archivo.write(" Linea 2")
-archivo.write(" Linea 3")
+archivo.write("Linea 1\n")
+archivo.write("Linea 2\n")
+archivo.write("Linea 3\n")
 
 archivo.close()
 
