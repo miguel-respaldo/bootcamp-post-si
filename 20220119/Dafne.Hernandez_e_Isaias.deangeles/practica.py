@@ -1,19 +1,23 @@
-
-
-
 import os
-
 
 archivo = input("Introduce el nombre del archivo que quieras copiar -> ")
 
 
 if os.path.exists(archivo):
-    contenido = open(archivo, "r")
-    copia = open("copia.txt", "x")
-    copia.write(contenido)
-    copia.close()
+    f = open(archivo, "r")
+    contenido = f.read()  # se guarda en una variable
+    f.close()
 
-    os.remove(archivo)
+    f = open("copia2.txt","w")
+    f.write(contenido) # se escribe contenido
+    print("se copio")
+    f.close()
+
+    f  = open("copia2.txt")
+
+    for x in f:
+        print(x.strip())
+
 else:
-    print("El archivo no existe")
 
+    print("El archivo no existe")
