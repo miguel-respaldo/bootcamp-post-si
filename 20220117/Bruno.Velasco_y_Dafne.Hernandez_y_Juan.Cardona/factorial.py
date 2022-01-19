@@ -13,9 +13,10 @@ def main():
     """
     Los wafles son hotcakes musculosos
     """
-    n = int(input("Ingrese un numero para factorial: "))
+    n = int(input("Ingrese un numero para factorial:\n "))
     res = factorial(n)
-    print(res)
+    print(f"El factorial del numero ingresado es: {factorial(n)}\n")
+
 
 
 if __name__ == "__main__":

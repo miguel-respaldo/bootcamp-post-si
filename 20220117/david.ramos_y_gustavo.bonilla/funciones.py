@@ -15,6 +15,8 @@ def factorial(num):
     
     if(num == 0): return 1
 
+    if(num < 0): return "ERROR :("
+
     if(num > 1):
         result = num * factorial(num-1)
     else:
@@ -36,12 +38,10 @@ def fibonacci(num1, num2, num3, num4):
     if(num3 > 2):
         fibonacci(num2, num1+num2, num3, num4+1)
 
-
-
     return result
 
 
-def fibonacci_2(num1):
+def fibonacci_2(num):
     """
         Función fibonacci
     """
@@ -50,8 +50,9 @@ def fibonacci_2(num1):
 
     if(num==1 or num==2):
         result = 1
-    
-    if(num > 2):
+    elif(num > 2):
         result = fibonacci_2(num-1)+fibonacci_2(num-2)
+    else:
+        return "ERROR :("
 
     return result

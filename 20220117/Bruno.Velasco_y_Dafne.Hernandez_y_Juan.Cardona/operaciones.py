@@ -21,6 +21,8 @@ def division(n1, n2):
     return n1 / n2
 
 def factorial(n):
+    if n < 0:
+        return "ERROR"
     if n < 1:
         return 1
     else:
