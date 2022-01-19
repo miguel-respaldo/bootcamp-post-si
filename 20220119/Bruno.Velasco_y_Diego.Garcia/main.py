@@ -23,8 +23,7 @@ def añadirCopiaAlFinal(arg):
 
 
 def main():
-    nombre = "demo.txt"
-    #nombre = input("Ingrese el nombre del archivo a copia: ")
+    nombre = input("Ingrese el nombre del archivo a copia: ")
     
     if path.exists(nombre):
         archivo = open(nombre, 'r')
