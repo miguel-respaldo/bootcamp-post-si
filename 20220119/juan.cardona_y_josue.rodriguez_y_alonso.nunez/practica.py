@@ -9,17 +9,15 @@ Ejemplo de un modulo
 """
 import os
 
-nombre = input('Introduzca el nombre del archivo a copiar: ')
+nombre = input("Introduzca el nombre del archivo a copiar: ")
 nombre_copia = nombre.strip('.txt')
 
-if os.path.exist(nombre):
-    f = open(f'{nombre}', 'r')
-    f.close()
-    f1 = open(f'{nombre_copia}', 'a')
-    f1.write(f'{f}')
+if os.path.exists(nombre):
+    f = open(nombre, 'r')
+    f1 = open(nombre_copia+"-copia.txt", 'w')
+    f1.write(f.read())
     f1.close()
-
-    print(f'copie el contenido de {nombre}, en |')
+    print(f'copie el contenido de {nombre}, en {nombre_copia}-copia.txt')   
+    f.close()
 else:
-    #archivo no existe
-
+    print("el archivo no existe")
