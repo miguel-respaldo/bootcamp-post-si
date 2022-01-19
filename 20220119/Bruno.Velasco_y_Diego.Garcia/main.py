@@ -7,12 +7,39 @@
 """
 Ejemplo de un modulo
 """
+from os import path
+
+def añadirCopiaAlFinal(arg):
+    new = arg.split('.')
+    indexPunto = len(new)
+    new.insert(indexPunto-1," - copia.")
+    
+    final = ""
+    for i in new:
+        final += i
+    
+    return final
+
+
 
 def main():
-    """
-    Comentario de la función
-    """
-    print("Hola Mundo")
+    nombre = "demo.txt"
+    #nombre = input("Ingrese el nombre del archivo a copia: ")
+    
+    if path.exists(nombre):
+        archivo = open(nombre, 'r')
+        
+        new = añadirCopiaAlFinal(nombre)
+        
+        copia = open(new, 'w')
+        copia.write(archivo.read())
+
+        print("Archivo copiado en ...")
+
+        archivo.close()
+        copia.close()
+    else:
+        print("Archivo inexistente :/")
 
 
 if __name__ == "__main__":
