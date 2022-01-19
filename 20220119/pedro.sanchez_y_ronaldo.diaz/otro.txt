@@ -1,0 +1,4 @@
+Este es otro archivo de prueba
+debe copiar este contenido al otro archivo
+fin
+

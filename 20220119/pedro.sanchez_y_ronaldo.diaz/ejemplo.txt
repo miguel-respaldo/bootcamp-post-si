@@ -1,0 +1,6 @@
+Este es el archivo que se crea con el contenido 
+del archivo ingresado: 
+Este es otro archivo de prueba
+debe copiar este contenido al otro archivo
+fin
+
