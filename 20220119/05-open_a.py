@@ -13,6 +13,14 @@ archivo.write("Linea 3\n")
 
 archivo.close()
 
+archivo = open("demo2.txt", "a")
+
+archivo.write("Linea 4\n")
+archivo.write("Linea 5\n")
+archivo.write("Linea 6\n")
+
+archivo.close()
+
 archivo = open("demo2.txt", "r")
 print(archivo.read())
 archivo.close()
