@@ -12,3 +12,7 @@ archivo.write(" Linea 2")
 archivo.write(" Linea 3")
 
 archivo.close()
+
+archivo = open("demo2.txt", "r")
+print(archivo.read())
+archivo.close()
