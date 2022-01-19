@@ -4,7 +4,7 @@
 import os
 
 
-archivo = input("Introduce el nombre del archivo que quieras copiar")
+archivo = input("Introduce el nombre del archivo que quieras copiar -> ")
 
 
 if os.path.exists(archivo):
