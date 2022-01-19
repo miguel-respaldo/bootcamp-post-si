@@ -12,10 +12,19 @@ def main():
     #print("Hola Mundo")
     
     f = input("Introduce el nombre del archivo (con extension) a copiar: ")
+    demo = open(f, "rt") 
+    a = demo.read()
+    demo.close()
+    
     archivo = open("ejemplo.txt", "w") # para que reescriba si existe
-
+    archivo.write("\nEste es el archivo que se crea con el contenido \n")
+    archivo.write("del archivo ingresado: \n")
+    archivo.write(a)
+    archivo.close()
     
-    
+    demo = open("ejemplo.txt","rt")
+    print(demo.read())
+    demo.close()
 
 if __name__ == "__main__":
     main()
