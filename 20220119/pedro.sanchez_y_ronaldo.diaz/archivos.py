@@ -12,11 +12,16 @@ def main():
     #print("Hola Mundo")
     
     f = input("Introduce el nombre del archivo (con extension) a copiar: ")
+    
+    ext="_copy.txt"
+    nom=f[:f.index('.')]
+    nombre=nom+ext
+
     demo = open(f, "rt") 
     a = demo.read()
     demo.close()
     
-    archivo = open("ejemplo.txt", "w") # para que reescriba si existe
+    archivo = open(nombre, "w") # para que reescriba si existe
     archivo.write("\nEste es el archivo que se crea con el contenido \n")
     archivo.write("del archivo ingresado: \n")
     archivo.write(a)
