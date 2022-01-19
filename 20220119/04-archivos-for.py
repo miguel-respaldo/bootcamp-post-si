@@ -8,4 +8,4 @@
 archivo = open("demo.txt", "r")
 
 for linea in archivo:
-    print(linea)
+    print(linea.strip())
