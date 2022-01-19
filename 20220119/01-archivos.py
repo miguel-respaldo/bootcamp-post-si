@@ -6,5 +6,5 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 f = open("demo.txt", "r")
-print(f.read())
+print(f.read(), end="")
 
