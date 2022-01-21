@@ -7,15 +7,19 @@
 
 import os
 
-archivo = "algo.otro.nose.t"
-nuevo   = "algo.otro.nose-copia.t"
-
+archivo = "algo..otro-nose_otro.mas.py"
+#nuevo  = "algo..otro-nose_otro.mas-copia.docx"
+# 1er metodo
 lista = archivo.split(".")
-
-lista.insert(-1,"-copia.")
-
-nuevo = "".join(lista)
+lista[-2] += "-copia"
+nuevo = ".".join(lista)
 
 print(archivo)
 print(nuevo)
+
+# 2do metodo
+punto = archivo.rfind(".")
+nuevo = archivo[:punto] + "-copia" + archivo[punto:]
+print(nuevo)
+
 
