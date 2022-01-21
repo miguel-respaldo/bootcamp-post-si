@@ -8,13 +8,11 @@
 Ejemplo de un modulo
 """
 
-def main():
-    """
-    Comentario de la función
-    """
-    print("Hola Mundo")
+f = open('/proc/cpuinfo', 'r') #abrimos cpuinfo en modo lectura
+f1 = open('cpuinfo_copia.txt', 'w')
+f1.write(f.read())
+f1.close()
+f.close() 
 
-
-if __name__ == "__main__":
-    main()
-
+#Hice la parte que copia el archivo 'cpuinfo', falta especificar el
+#contenido que especifica la practica.
