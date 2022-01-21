@@ -5,24 +5,31 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 """
-Practica de archivos
+    Práctica de archivos
 """
+
+import os.path
 
 def main():
     original = "demo.txt"
-    copia = "demo-copia.txt"
-    archivo = open(original, "r")
-    texto = archivo.read()
-    
-    print("\n###### Contenido del archivo: ######")
-    print(texto)
-    print("####################################\n")
-    
-    archivo_copia = open(copia,"w")
-    archivo_copia.write(texto)
+    original = input("\nIntrodusca el nombre del archivo a copiar: ")
+    copia = original + "copia.txt"
+
+    if os.path.isfile(original):
+        archivo = open(original, "r")
+        texto = archivo.read()
+
+        print("\n###### Contenido del archivo: ######")
+        print(texto)
+        print("####################################\n")
         
-    archivo.close()
-    archivo_copia.close()
+        archivo_copia = open(copia, "w")
+        archivo_copia.write(texto)  
+        
+        archivo.close()
+        archivo_copia.close()
+    else:
+        print("\nERROR: Archivo solicitado no existe:(\n")
 
 
 if __name__ == "__main__":
