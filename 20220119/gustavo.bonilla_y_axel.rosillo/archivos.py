@@ -9,23 +9,21 @@ Practica de archivos
 """
 
 def main():
-    original="demo.txt"
-    copia="demo-copia.txt"
-
-    archivo = open(original,"r")
-    print(archivo.read())
-    texto=archivo.read()
+    original = "demo.txt"
+    copia = "demo-copia.txt"
+    archivo = open(original, "r")
+    texto = archivo.read()
     
+    print("\n###### Contenido del archivo: ######")
+    print(texto)
+    print("####################################\n")
     
-    
-
-    
-    archivo_copia = open(copia,"a")
-    for linea in archivo:
-        archivo_copia.write(linea.strip())
+    archivo_copia = open(copia,"w")
+    archivo_copia.write(texto)
         
     archivo.close()
     archivo_copia.close()
+
 
 if __name__ == "__main__":
     main()
