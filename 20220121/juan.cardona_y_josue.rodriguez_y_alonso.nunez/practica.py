@@ -14,24 +14,43 @@ f1.write(f.read())
 f1.close()
 f.close() 
 
-#---------------------------------------------
+#---------ABRIMOS EL ARCHIVO---------------------#
 informacion=open("/proc/cpuinfo")
 texto= str(informacion.read())
-posicion=texto.find("model name")
-#print(posicion)
-posicion2=texto.find("\nstepping")
-#print(posicion2)
 
 print("CPU INFO:")
-#---------Nombre del procesador--------
+#---------Nombre del procesador------------------#
+posicion=texto.find("model name")
+posicion2=texto.find("\nstepping")
+
 for x in range(posicion,posicion2):
      print(texto[x],end="")
 print()
 
-#---------Numero de procesadores--------
-processor=texto.count("processor")
-print("processors number:",processor)
+#---------Numero de procesadores lógicos---------#
+procesador=int(texto.count("processor"))
+print("logic processors number:",procesador)
 
+#---------CPU CORES------------------------------#
+
+posicion=texto.find("cpu cores")
+posicion2=texto.find("\napicid")
+
+for x in range(posicion,posicion2):
+     print(texto[x],end="")
+cores=int(texto[posicion2-1])
+print()
+#---------NUMERO DE PROCESADORES FISICOS---------#
+posicion=texto.rfind("physical id")
+posicion2=texto.rfind("siblings")
+#print(posicion)
+#print(posicion2)
+for x in range(posicion,posicion2):
+     print(texto[x],end="")
+#---------NUMERO DE HILOS------------------------#
+
+hilos=int(procesador/cores)
+print("Threads per core:",hilos)
 informacion.close()
 
 #Yo armé esto banda hasta ahorita solo jala el nombre del procesador y el número de procesadores chequen si jala en su compu 
