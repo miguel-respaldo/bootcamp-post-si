@@ -1,7 +1,8 @@
 
-Este archivo contiene la informacion de tu maquina 
-AMD A6-9225 RADEON R4, 5 COMPUTE CORES 2C+3G
-1
-1
-1
-1.0
+Este archivo contiene la informacion de tu maquina: 
+
+Modelo del procesador: Intel(R) Core(TM) i7-2640M CPU @ 2.80GHz
+Numero de procesadores fisicos: 4
+Numero de procesadores logicos: 4
+Numero de cores: 4
+Hilos por core: 1.0
