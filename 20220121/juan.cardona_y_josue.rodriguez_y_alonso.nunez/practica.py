@@ -53,6 +53,9 @@ hilos=int(procesador/cores)
 print("Threads per core:",hilos)
 informacion.close()
 
+#Lo ejecute en mi computadora y todo funciona correctamente. -Alonso 
+
+#------------------------------------------------#
 #Yo armé esto banda hasta ahorita solo jala el nombre del procesador y el número de procesadores chequen si jala en su compu 
  
 #----------------------------------------------
