@@ -8,16 +8,18 @@
 Practica: Obtener informacion de un archivo y obtener informacion de el.
 """
 
-f = open('/proc/cpuinfo', 'r') #abrimos cpuinfo en modo lectura
+#f = open('/proc/cpuinfo', 'r') #abrimos cpuinfo en modo lectura
+f=open('/home/josuec/Documentos/Python/bootcamp-post-si/20220121/juan.cardona_y_josue.rodriguez_y_alonso.nunez/cpuinfo','r') 
 f1 = open('cpuinfo_copia.txt', 'w')
 f1.write(f.read())
 f1.close()
 f.close() 
 
 #---------ABRIMOS EL ARCHIVO---------------------#
-informacion=open("/proc/cpuinfo")
-texto= str(informacion.read())
+#informacion=open("/proc/cpuinfo")
+informacion=open("cpuinfo")
 
+texto= str(informacion.read())
 print("CPU INFO:")
 #---------Nombre del procesador------------------#
 posicion=texto.find("model name")
