@@ -5,7 +5,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 """
-Ejemplo de un modulo
+Practica: Obtener informacion de un archivo y obtener informacion de el.
 """
 
 f = open('/proc/cpuinfo', 'r') #abrimos cpuinfo en modo lectura
@@ -62,3 +62,4 @@ informacion.close()
 
 #Hice la parte que copia el archivo 'cpuinfo', falta especificar el
 #contenido que especifica la practica.
+#Finalizada.
