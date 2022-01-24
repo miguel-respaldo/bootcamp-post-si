@@ -9,6 +9,9 @@ archivo = open("/proc/cpuinfo")
 
 for linea in archivo:
     if "spectre" in linea:
-        print(linea)
+        lista = linea.split(" ")
+        for palabra in lista:
+            if palabra != "":
+                print(palabra)
 
 archivo.close()
