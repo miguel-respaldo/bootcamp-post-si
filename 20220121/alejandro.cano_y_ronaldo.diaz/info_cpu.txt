@@ -1,7 +1,8 @@
 
-Este archivo contiene la informacion de tu maquina 
+Este archivo contiene la informacion de tu maquina: 
+
 Intel(R) Core(TM) i7-2640M CPU @ 2.80GHz
-4
-4
-4
-1.0
+Numero de procesadores fisicos: 4
+Numero de procesadores logicos: 4
+Numero de cores: 4
+Hilos por core: 1.0
