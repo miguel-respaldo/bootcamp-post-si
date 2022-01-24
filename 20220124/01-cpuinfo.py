@@ -10,3 +10,5 @@ archivo = open("/proc/cpuinfo")
 for linea in archivo:
     if "spectre" in linea:
         print(linea)
+
+archivo.close()
