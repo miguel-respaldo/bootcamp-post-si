@@ -9,29 +9,36 @@ script para obtener informacion del cpuinfo
 """
 
 def main():
-    archivo = open("/proc/cpuinfo",'r') #Abre la informacion del sistema
-    #texto = archivo.read()
-    #print(texto)
+    archivo = open("/proc/cpuinfo",'r') #Abre el archivo
     
-    #Realiza la busqueda de las palabras que comiencen con lo que se necesita del archivo
-    for palabras in archivo: 
+    #Busqueda de las palabras con la especificación requerida
+    while(True):
+        palabras=archivo.readline()
         if palabras.startswith("model name"):
             nombre_procesador=(palabras[palabras.find(":")+1:-1])
-            print("Nombre del procesador:"+nombre_procesador) 
+     
         if palabras.startswith("physical id"):
             physical_id=(palabras[palabras.find(":")+1:-1])
-            print("Procesadores fisicos:"+physical_id)
+    
         if palabras.startswith("cpu cores"):
             cpu_cores=(palabras[palabras.find(":")+1:-1])
-            print("Numero de cores:"+cpu_cores)
+    
         if palabras.startswith("stepping"):
             stepping=(palabras[palabras.find(":")+1:-1])
-            print("Hilos por core:"+stepping)
+    
         if palabras.startswith("siblings"):
             siblings=(palabras[palabras.find(":")+1:-1])
-            print("Procesadores logicos:"+siblings)
+        if not palabras:
+            break
             
-  
+    
+    print("Nombre del procesador:"+nombre_procesador) 
+    print("Procesadores fisicos:"+physical_id)
+    print("Numero de cores:"+cpu_cores)
+    print("Hilos por core:"+stepping)
+    print("Procesadores logicos:"+siblings)
+    
+    #Cierra el archivo
     archivo.close()
 
 if __name__ == "__main__":
