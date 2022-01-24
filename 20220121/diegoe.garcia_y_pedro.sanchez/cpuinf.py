@@ -10,8 +10,8 @@ script para obtener informacion del cpuinfo
 
 def main():
     #path="/proc/cpuinfo"
-    path="/home/pedrodsg/Documents/GitHub/bootcamp-post-si/20220124/cpuinfo-2"
-    #path="/home/pedrodsg/Documents/GitHub/bootcamp-post-si/20220124/cpuinfo"
+    path="../../20220124/cpuinfo-2"
+    #path="../../20220124/cpuinfo"
     archivo = open(path,'r') #Abre el archivo
 
     #Busqueda de las palabras con la especificación requerida
