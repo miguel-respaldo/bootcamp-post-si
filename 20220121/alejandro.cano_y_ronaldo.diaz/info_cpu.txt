@@ -1,7 +1,7 @@
 
 Este archivo contiene la informacion de tu maquina: 
 
-Intel(R) Core(TM) i7-2640M CPU @ 2.80GHz
+Modelo del procesador: Intel(R) Core(TM) i7-2640M CPU @ 2.80GHz
 Numero de procesadores fisicos: 4
 Numero de procesadores logicos: 4
 Numero de cores: 4

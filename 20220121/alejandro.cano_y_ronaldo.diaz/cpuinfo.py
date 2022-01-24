@@ -41,7 +41,7 @@ def main():
     # Crear el archivo para copiar la informacion
     info = open("info_cpu.txt", "w")    # si existe se reescribe
     info.write("\nEste archivo contiene la informacion de tu maquina: \n\n")
-    info.write(cpu_modelo+"\n")
+    info.write("Modelo del procesador: "+cpu_modelo+"\n")
     info.write("Numero de procesadores fisicos: "+str(cpu_pfisicos)+"\n")
     info.write("Numero de procesadores logicos: "+cpu_plogicos+"\n")
     info.write("Numero de cores: "+cpu_cores+"\n")
