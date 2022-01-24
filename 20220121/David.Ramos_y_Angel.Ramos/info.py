@@ -8,7 +8,9 @@
 import os
 actual=0
 proce=0
-file = open('/proc/cpuinfo', 'r')
+#file = open('/proc/cpuinfo', 'r')
+#file = open('cpuinfo', 'r')
+file = open('cpuinfo-2', 'r')
 flag= [True,True,True,True]
 
 for x in file:
