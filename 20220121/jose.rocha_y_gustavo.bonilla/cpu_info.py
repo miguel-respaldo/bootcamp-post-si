@@ -22,20 +22,21 @@ def main():
     feature_contents = list()
     cpu_info_splitted = cpu_info.split("\n")
 
-    #for line in cpu_info_splitted: print(line)
+    for line in cpu_info_splitted: print(line)
 
     for feature in feature_names: 
         for line in cpu_info_splitted:
             # Do a split with ":"
-            line_splitted = line.split(": ")
-            feature_name = line_splitted[0]
-            feature_content = line_splitted[1] # Preguntar por el segundo elemento del split que no identifica 
+            if ": " in line:
+                line_splitted = line.split(": ")
+                feature_name = line_splitted[0]
+                feature_content = line_splitted[1] # Preguntar por el segundo elemento del split que no identifica 
 
-            # Look for keywords
-            if(feature in feature_name):
-                feature_contents.append(feature_content)
-                #print(feature_content)
-                break
+                # Look for keywords
+                if(feature in feature_name):
+                    feature_contents.append(feature_content)
+                    #print(feature_content)
+                    break
 
     #number_of_dices = 
 
