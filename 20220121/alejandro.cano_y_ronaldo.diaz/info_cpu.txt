@@ -1,8 +1,8 @@
 
 Este archivo contiene la informacion de tu maquina: 
 
-Modelo del procesador: Intel(R) Core(TM) i7-2640M CPU @ 2.80GHz
-Numero de procesadores fisicos: 4
-Numero de procesadores logicos: 4
-Numero de cores: 4
-Hilos por core: 1.0
+Modelo del procesador: Intel(R) Xeon(R) CPU E5-2699 v3 @ 2.30GHz
+Numero de procesadores fisicos: 72
+Numero de procesadores logicos: 36
+Numero de cores: 18
+Hilos por core: 2.0
