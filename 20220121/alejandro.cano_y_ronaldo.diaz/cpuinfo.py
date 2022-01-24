@@ -13,7 +13,40 @@ def main():
     Se obtiene la informacion del archivo /proc/cpuinfo
     """
     print("Este programa obtiene informacion de los procesadores en tu maquina")
+   
+    cpu = open("/proc/cpuinfo", 'r') # Abrir para eer archivo
+    #cpu_info = str(cpu.read())
+    #print(cpu_info)
     
+    cpu_pfisicos = int(0)
+
+    for linea in cpu:
+        if "model name" in linea:
+            cpu_modelo = linea[linea.find(":")+2 :-1]
+        if "physical id" in linea:
+            cpu_pfisicos += 1;     # suma el numero de procesadores fisicos
+        if "siblings" in linea:
+            cpu_plogicos = (linea[linea.find(":")+2:-1])
+        if "cpu cores" in linea:
+            cpu_cores = (linea[linea.find(":")+2:-1])
+    
+    cpu.close()
+    '''
+    print(cpu_modelo)
+    print(cpu_pfisicos)
+    print(cpu_plogicos)
+    print(cpu_cores)
+    print(int(cpu_pfisicos)/int(cpu_plogicos))
+    '''
+    
+    info = open("info_cpu.txt", "w") # para que reescriba si existe
+    info.write("\nEste archivo contiene la informacion de tu maquina \n")
+    info.write(cpu_modelo+"\n")
+    info.write(str(cpu_pfisicos)+"\n")
+    info.write(cpu_plogicos+"\n")
+    info.write(cpu_cores+"\n")
+    info.write(str(int(cpu_pfisicos)/int(cpu_plogicos))+"\n")
+    info.close()
 
 if __name__ == "__main__":
     main()
