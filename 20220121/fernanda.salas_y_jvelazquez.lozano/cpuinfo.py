@@ -6,15 +6,15 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 
+import string
 
-opc = eval(input("Opcion 1 Archivo externo| any: el del sistema; "))
-
+opc = eval(input("\nOpcion 1 Archivo externo| any: el del sistema: "))
 file="/proc/cpuinfo"
 if opc==1:
     file="cpuinfo"
 
 
-target_lines = ("model name","processor","cpu cores","siblings") # cadenas a buscar
+target_lines = ("model name","processor","cpu cores","siblings","physical id") # cadenas a buscar
 cpu_specs = [] # lista para guardar busqueda
 
 print("CPU INFO")
@@ -27,10 +27,10 @@ with open(file) as f:
         elif target_lines[1] in line: # solo acutalizamos los procesadores logicos
             cpu_specs[0]=line.strip(target_lines[1])
 
-
-
-print("Numero de Procesadores logicos ",cpu_specs[0])
+physical = int(cpu_specs[0].strip(" :\n\t"))
+print("Numero de Procesadores logicos: ",physical+1)
+print("\nPysical Id ",cpu_specs[2])
 print("Nombre del Procesador ",cpu_specs[1])
-print("Numero de siblings ",cpu_specs[2])
-print("Numero de Cores ",cpu_specs[3])
+print("Numero de siblings ",cpu_specs[3])
+print("Numero de Cores ",cpu_specs[4])
 
