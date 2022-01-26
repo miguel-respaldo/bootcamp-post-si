@@ -64,15 +64,31 @@ def main():
 
                             break
 
+    idx = 0
+    cores_total = 0
+    threads_total = 0
+    logic_total = 0
+
     for dice in dice_contents:
-        print("")
+        print("\nInformación del dice:", idx, "\n")
+        idx += 1
         print("Nombre del procesador:", dice[0])
         print("No. de procesadores fisicos:", physical_cores)
         print("No. Cores:", dice[2])
+        cores_total += int(dice[2])
         print("No. Hilos:", int(dice[1])-int(dice[2]))
+        threads_total += int(dice[1])-int(dice[2])
         print("No. de procesadores lógicos:", dice[1])
+        logic_total += int(dice[1])
         # print(feature_contents)
         print("")
+
+    print("\n///////////////////////////////////\n\nInformación general:", idx, "\n")
+    print("No. de procesadores fisicos:", physical_cores)
+    print("No. total de Cores:", cores_total)
+    print("No. total de Hilos:", threads_total)
+    print("No. total de procesadores lógicos:", logic_total)
+    print("")
 
 
 if __name__ == "__main__":
