@@ -5,19 +5,30 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
+def f1(funcion):
+    def wrapper():
+        print("Bienvenido")
+        funcion()
+        print("Vuelve pronto")
 
+    return wrapper
+
+@f1
 def f():
-    print("Hola")
+    print("Hola Mundo")
 
+@f1
+def d():
+    print("Saludos")
 
-# function aliasing
-con_otro_nombre = f
+#cualquier_nombre = f1(d)
+#cualquier_nombre()
 
-#f()
-#print(f)
+#f = f1(f) #  --> @f1
+f()
 
-con_otro_nombre()
-
+#d = f1(d) #  --> @f1
+d()
 
 
 

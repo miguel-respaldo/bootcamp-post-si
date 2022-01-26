@@ -9,9 +9,12 @@
 def f():
     print("Hola")
 
+def otra(una_fun):
+    una_fun()
 
 # function aliasing
 con_otro_nombre = f
+otra(f)
 
 #f()
 #print(f)
