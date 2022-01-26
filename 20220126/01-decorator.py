@@ -6,3 +6,12 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 
+def f():
+    print("Hola")
+
+
+f()
+
+
+
+
