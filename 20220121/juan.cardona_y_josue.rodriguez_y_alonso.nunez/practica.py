@@ -30,11 +30,11 @@ while(i < idx):
     posicion2=texto.find("\nstepping")
     for x in range(posicion,posicion2):
         print(texto[x],end="")
-        print()
+
 
 #---------Numero de procesadores lógicos---------#
     procesador=int(texto.count("processor"))
-    print("logic processors number:",procesador)
+    print("\nlogic processors number:",procesador)
 
 #---------CPU CORES------------------------------#
 
@@ -58,7 +58,7 @@ while(i < idx):
     print("Threads per core:",hilos)
     informacion.close()
     i += 1
-
+    print("\n Informacion del procesador numero: ",i)
 #Lo ejecute en mi computadora y todo funciona correctamente. -Alonso 
 
 #------------------------------------------------#
