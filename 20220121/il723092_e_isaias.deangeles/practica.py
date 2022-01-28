@@ -2,7 +2,7 @@
 import os 
 
 
-text = open("/proc/cpuinfo","r")
+text = open("cpuinfo","r")
 lineas = text.readlines()
 
 

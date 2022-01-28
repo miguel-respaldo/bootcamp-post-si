@@ -1,8 +1,0 @@
-
-Este archivo contiene la informacion de tu maquina: 
-
-Modelo del procesador: Intel(R) Core(TM) i5-10400 CPU @ 2.90GHz
-Numero de procesadores fisicos: 6
-Numero de procesadores logicos: 6
-Numero de cores: 6
-Hilos por core: 1.0
