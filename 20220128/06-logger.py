@@ -11,7 +11,7 @@ import time
 def log(funcion):
     def wrapper(*args, **kwargs):
         f = open("log.txt","a")
-        f.write("La función con argumentos: " + " ".join([str(arg) for arg in args]) + "fue llamada  a las " + str(datetime.datetime.now()) + "\n")
+        f.write("La función con argumentos: " + " ".join([str(arg) for arg in args]) + " fue llamada  a las " + str(datetime.datetime.now()) + "\n")
         f.close()
         res = funcion(*args, **kwargs)
         return res
