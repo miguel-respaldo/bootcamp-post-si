@@ -8,7 +8,7 @@ import datetime
 import time
 import random
 
-f = open("log.txt","a")
+f = open("log.txt","w")
 
 def log(funcion):
     def wrapper(args):
