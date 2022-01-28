@@ -7,13 +7,21 @@
 """
 Esta practica es para obtener info del CPU
 """
+import os
+
 def main():
     """
     Se obtiene la informacion del archivo /proc/cpuinfo
     """
     print("Este programa obtiene informacion de los procesadores en tu maquina")
-    print("Puedes consultar esa informacion en el archivo generado")
-    cpu = open("/proc/cpuinfo", 'r') # Abrir para eer archivo
+    #print("Puedes consultar esa informacion en el archivo generado")
+    buscar = input("Ingresa el nombre del archivo, direccion/extension: \n")
+    if not os.path.exists(buscar):
+        print("El archivo no existe")
+    else:
+        cpu = open(buscar, 'r')
+        print("Puedes consultar esa informacion en el archivo generado")
+    #cpu = open("/proc/cpuinfo", 'r') # Abrir para eer archivo
     #cpu_info = str(cpu.read())
     #print(cpu_info)
     
