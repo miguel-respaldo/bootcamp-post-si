@@ -37,7 +37,7 @@ def main():
                     feature_contents.append(feature_content)
                     #print(feature_content)
                     break
-
+    cpu_id = 
     #number_of_dices = 
 
     print("Nombre del procesador:", feature_contents[0])
