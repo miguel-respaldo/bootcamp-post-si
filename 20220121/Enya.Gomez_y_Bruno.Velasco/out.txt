@@ -1,0 +1,6 @@
+Nombre del procesador: Intel(R) Core(TM) i5-10400 CPU @ 2.90GHzNo. Cores: 3No. de procesadores fisicos: 0No. Hilos: 6No. de procesadores lógicos: 6
+Nombre del procesador: Intel(R) Core(TM) i5-10400 CPU @ 2.90GHzNo. Cores: 3No. de procesadores fisicos: 0No. Hilos: 6No. de procesadores lógicos: 6
+Nombre del procesador: Intel(R) Core(TM) i5-10400 CPU @ 2.90GHzNo. Cores: 3No. de procesadores fisicos: 0No. Hilos: 6No. de procesadores lógicos: 6
+Nombre del procesador: Intel(R) Core(TM) i5-10400 CPU @ 2.90GHzNo. Cores: 3No. de procesadores fisicos: 0No. Hilos: 6No. de procesadores lógicos: 6
+Nombre del procesador: Intel(R) Core(TM) i5-10400 CPU @ 2.90GHzNo. Cores: 3No. de procesadores fisicos: 0No. Hilos: 6No. de procesadores lógicos: 6
+Nombre del procesador: Intel(R) Core(TM) i5-10400 CPU @ 2.90GHzNo. Cores: 3No. de procesadores fisicos: 0No. Hilos: 6No. de procesadores lógicos: 6
