@@ -7,16 +7,16 @@
 """
 Practica de Decoradores
 """
-
 import random
 
 # Genera matriz random
 matriz = [random.randint(1,100) for x in range(1000)]
 
+def sort(*args):        # Ordenamiento con la funcion sort
+    matriz.sort()
+    print(matriz)
 
-matriz.sort()               # Ordenamiento con funcion sort
-
-def bubbleSort(matriz):     # Ordenamiento con metodo burbuja
+def bubble(*args):     # Ordenamiento con metodo burbuja
     n = len(matriz)
 
     # Se recorren todos los elementos
@@ -29,8 +29,16 @@ def bubbleSort(matriz):     # Ordenamiento con metodo burbuja
             if matriz[j] > matriz[j + 1] :
                 matriz[j], matriz[j + 1] = matriz[j + 1], matriz[j]
 
-bubbleSort(matriz)
+    print ("La matriz arreglado: ")
+    for i in range(len(matriz)):
+        print (matriz[i],end=" ")
 
-print ("La matriz arreglado: ")
-for i in range(len(matriz)):
-    print (matriz[i],end=" ")
+print("Este programa tiene dos tipos de ordenamiento\n(1)-Sort\n(2)-Bubble")
+menu = int(input("Ingresa el tipo de ordenamiento que deseas utilizar: "))
+
+if menu == 1:
+    sort(matriz)
+elif menu == 2:
+    bubble(matriz)
+else:
+    print("La funcion ingresada es incorrecta\n")
