@@ -3,15 +3,15 @@ import time
 import os
 
 
-def f1(funcion):
+def f1(rata):
     def wrapper(*args, **kwargs):
-        print("La lista ordenada con el metodo seleccionado es:   ")
+        print("La lista default es:  ")
         print(lista)
         nuevo = "Log.txt"
         f = open(nuevo,"w")
         start_time = time.time()
-        res = funcion(*args, **kwargs)
-        f.write(f"El tiempo logrado fue de {time.time() - start_time} segundos")
+        res = rata(*args, **kwargs)
+        f.write(f"El tiempo logrado con {funcion} fue de {time.time() - start_time} segundos \n")
         return res
 
     return wrapper
@@ -25,6 +25,7 @@ def burbuja(*args):  #Ordenamiento con Burbuja
                 temp = lista[j]
                 lista[j]=lista[j+1]
                 lista[j+1]=temp
+    print("La lista ordenada es:  ")
     print(lista)
 
 @f1
