@@ -18,12 +18,18 @@ def log(funcion):
     inicio = datetime.datetime.now()
     def wrapper(*args, **kwargs):
         elementos = len(args[0])
-        logs = open("log.txt","a")
+        logs = open("log.txt","w")
         logs.write("Funcion con "+str(elementos)+" elementos ")
         logs.write("inicio a las "+str(inicio)+"\n")
-        #logs.close()
-        
+        logs.close()
         res = funcion(*args, **kwargs)
+        '''
+        fin = datetime.datetime.now()
+        logs = open("log.txt","a")
+        logs.write("Termina la funcion a las "+str(fin))
+        logs.write(" y tardo "+str(fin-inicio)+" segundos\n")
+        logs.close()
+        '''
         return res
     return wrapper
 
@@ -32,6 +38,7 @@ def log(funcion):
 def sort(*args):        # Ordenamiento con la funcion sort
     matriz.sort()
     print(matriz)
+
 
 @log
 def bubble(*args):     # Ordenamiento con metodo burbuja
@@ -50,6 +57,7 @@ def bubble(*args):     # Ordenamiento con metodo burbuja
     print ("La matriz arreglada: ")
     for i in range(len(matriz)):
         print (matriz[i],end=" ")
+    
 
 print("Este programa tiene dos tipos de ordenamiento\n(1)-Sort\n(2)-Bubble")
 menu = int(input("Ingresa el tipo de ordenamiento que deseas utilizar: "))
