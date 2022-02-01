@@ -12,4 +12,5 @@ git merge NOMBRE_BRANCH
 
 
 git push -u NOMBRE_REMOTO NOMBRE_BRANCH
+git push
 
