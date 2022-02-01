@@ -1,0 +1,15 @@
+git remote -v
+git remote add NOMBRE_REMOTO URL/SSH
+git fech NOMBRE_REMOTO
+git branch -r  # remotos
+git branch -a  # todos (all)
+git checkout -b NUEVO_BRANCH NOMBRE_REMOTO/__el__branch__
+git checkout -b NUEVO_BRANCH # usa el branch actual
+
+
+git checkout main
+git merge NOMBRE_BRANCH
+
+
+git push -u NOMBRE_REMOTO NOMBRE_BRANCH
+
