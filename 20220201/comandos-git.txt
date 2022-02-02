@@ -14,3 +14,8 @@ git merge NOMBRE_BRANCH
 git push -u NOMBRE_REMOTO NOMBRE_BRANCH
 git push
 
+
+git rebase main
+git checkout main
+git merge proyecto
+
