@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 
 -------
 Fernanda <fernanda.salas@iteso.mx>
 
 Javier <jvelazquez.lozano@iteso.mx>
+=======
+fernanda <fernanda.salas@iteso.mx>
+javier <jvelazquez.lozano>
+>>>>>>> ecedf4779da88f60e0bdb1f3d0cb1e40809cda9d
