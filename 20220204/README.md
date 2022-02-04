@@ -30,3 +30,9 @@ $ pip install numpy
 ```
 $ pip list
 ```
+
+* para desactivar el entorno virtual
+
+```
+$ deactivate
+```
