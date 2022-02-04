@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 Enya <enya.gomez@iteso.mx>
+=======
+Enya Gomez Romero <enya.gomez@iteso.mx>
+>>>>>>> 886010661372ecb4af66c1ca3a324b30c0451e4e
 Gustavo Adolfo Bonilla González <gustavo.bonilla@iteso.mx>

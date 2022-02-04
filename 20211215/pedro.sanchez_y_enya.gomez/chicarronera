@@ -1,0 +1,13 @@
+from math import sqrt
+
+a = int(input("Ingrese el coeficiente de la variable cuadratica"))
+b = int(input("Ingrese el coeficiente de la variable lineal"))
+c = int(input("Ingrese el coeficiente de la variable independiente"))
+
+x1 = 0+0j
+x2 = 0+0j
+
+
+
+
+
