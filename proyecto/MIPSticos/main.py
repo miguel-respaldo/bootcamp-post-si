@@ -41,7 +41,19 @@ def generate_type_I(line): # GENERA TIPOS I
     rt = bin(registers[trinity[1]])[2:].zfill(5)
     immte = bin(int(trinity[2]))[2:].zfill(16)
 
-        
+def generate_type_R(line):
+    line = line.strip()
+    line = line.split(" ")
+    setInst = identify_instr(line[0])
+    opc = bin(setInst[1])[2:].zfill(6)
+    trinity = line[1].split(",")
+    rs = bin(registers[trinity[0]])[2:].zfill(5)
+    rt = bin(registers[trinity[1]])[2:].zfill(5)
+    rd = bin(registers[trinity[2]])[2:].zfill(5)
+
+    shamt = bin(0)[2:].zfill(5)
+    fnct = bin(funct["add"])[2:].zfill(6)
+  
     
 lines_of_file= read_assembly("caliz.asm")
 
@@ -51,3 +63,4 @@ print(instrType)
 print(lines_of_file[0])
 generate_type_I(lines_of_file[0])
 
+generate_type_R(lines_of_file[4])
