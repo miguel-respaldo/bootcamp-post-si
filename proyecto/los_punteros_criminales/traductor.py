@@ -1,9 +1,8 @@
-import os
 import sys
-
 from mnemonicos import instr_decode 
 from registerlist import reg_decode 
-
+import os
+import argparse
 
 def readFile(fileName):
     fileObj = open(fileName, "r") 
@@ -73,43 +72,49 @@ def convertir(code):
            
     return
 
-os.system("clear")
-print("Ingresar nombre del archivo y su extension")
-print("Ejemplo: codigo1.txt") 
-filename = input("Archivo:   ") 
-file1 = readFile(filename)
 
-arguments = []
+def main():
+	os.system("clear")
+	parser = argparse.ArgumentParser()
+	parser.add_argument("archivo", help="Archivo de entrada")
+	args = parser.parse_args()
+	
+	if not os.path.exists(args.archivo):
+        	print(f"No se encuentra el archivo {args.archivo}")
+        	exit(1)
+        
+	file1 = readFile(args.archivo)
+	arguments = []
+	codigo = [] 
+	codigo2 = [] 
+	val_tag = []
+	tags = {}
+	
+
+	for j in range(len(file1)):
+		if(":" in file1[j]):
+			val_tag.append(j+1)
+			codigo.extend(file1[j].split(":"))
+			codigo2.append(codigo[j])
+			del codigo[j]
+		else:
+			codigo.extend(file1[j].split(":"))
+
+	for j in range (len(codigo2)):
+		tags[codigo2[j]] = val_tag[j]	
+
+	orig_stdout = sys.stdout 
+
+	file_path = 'output.txt'
+	sys.stdout = open(file_path, "w") 
 
 
-codigo = [] 
-codigo2 = [] 
-val_tag = []
-tags = {}
+	for x in range(len(codigo)-1):
+	    file1[x] = convertir(codigo[x])
 
-for j in range(len(file1)):
-	if(":" in file1[j]):
-		val_tag.append(j+1)
-		codigo.extend(file1[j].split(":"))
-		codigo2.append(codigo[j])
-		del codigo[j]
-	else:
-		codigo.extend(file1[j].split(":"))
+	sys.stdout.close()
+	sys.stdout = orig_stdout 
 
 
-for j in range (len(codigo2)):
-	tags[codigo2[j]] = val_tag[j]	
-
-
-
-orig_stdout = sys.stdout 
-
-file_path = 'output.txt'
-sys.stdout = open(file_path, "w") 
-
-for x in range(len(codigo)-1):
-    
-    file1[x] = convertir(codigo[x])
-
-sys.stdout.close()
-sys.stdout = orig_stdout 
+if __name__ == "__main__":
+    main()

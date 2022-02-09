@@ -5,67 +5,24 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-
+tipo_instrucciones={
+    "add" : ["r",0x0],
+    "addi": ["i",0x1],
+    "and":  ["r",0x2],
+    "andi": ["i",0x3],
+    "beq":  ["b",0x4],
+    "bne":  ["b",0x5],
+    "j":    ["j",0x6],
+    "jal":  ["j",0x7],
+    "jr":   ["r",0xa],
+    "lb":   ["i",0xb],
+    "or":   ["r",0xc],
+    "sb":   ["i",0xd],
+    "sll":  ["r",0xe],
+    "srl":  ["r",0xf]
+}
 
 def instr_decode(instr):
-    if instr == "add":
-        func_type = "r"
-        opcode = 0
-        
-    elif instr == "addi":
-        func_type = "i"
-        opcode = 0x1
-    
-    elif instr == "and":
-        func_type = "r"
-        opcode = 2
-
-    elif instr == "andi":
-        func_type = "i"
-        opcode = 0x3
-        
-    elif instr == "beq":
-        func_type = "b"
-        opcode = 0x4
-        
-    elif instr == "bne":
-        func_type = "b"
-        opcode = 0x5
-        
-    elif instr == "j":
-        func_type = "j"
-        opcode = 0x6
-           
-    elif instr == "jal":
-        func_type = "j"
-        opcode = 0x7
-    
-    elif instr == "jr":
-        func_type = "r"
-        opcode = 0xa
-     
-    elif instr == "lb":
-        func_type = "i"
-        opcode = 0xb
-        
-    elif instr == "or":
-        func_type = "r"
-        opcode = 0xc
-        
-    elif instr == "sb":
-        func_type = "i"
-        opcode = 0xd
-        
-    elif instr == "sll":
-        func_type = "r"
-        opcode = 0xe
-    
-    elif instr == "srl":
-        func_type = "r"
-        opcode = 0xf
-        
-    else:
-        func_type = None
-        opcode = None
-    
+    func_type=tipo_instrucciones[instr][0]
+    opcode=tipo_instrucciones[instr][1]
     return [func_type, opcode]

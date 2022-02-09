@@ -23,12 +23,11 @@ labels = {
     "EXIT" : 15
 }
 
+
+
 def reg_decode(func_type, instr, regs):
     
-    
     if func_type == "r":   
-        
-     
         if (instr == "sll") or (instr == "srl"): 
             try:
                 if (regs[0] < regs[1]):
@@ -39,16 +38,14 @@ def reg_decode(func_type, instr, regs):
                     return [registers[regs[0]], registers[regs[1]], registers[regs[0]], 0] 
             except:
                 return None                
-
-       
+   
         if (instr == "jr"): 
             try:
                 
                 return [registers[regs[0]], 0, 0, 0]
             except:
                 return None   
-            
-             
+           
         try:   
                
             return[registers[regs[1]], registers[regs[2]], registers[regs[0]], 0]
@@ -60,8 +57,7 @@ def reg_decode(func_type, instr, regs):
             return [registers[regs[0]], registers[regs[1]], labels[regs[2]]]    
         except:
             return None
-
-    
+   
     elif func_type == "i":
             
         if (instr == "sb") or (instr == "lb"):
@@ -69,27 +65,21 @@ def reg_decode(func_type, instr, regs):
                 if len(regs[1]) > 1 and regs[1][1] == "x":
                     imm = int(regs[1], base=16)
                 else:
-                    imm = int(regs[1])
-            
+                    imm = int(regs[1])     
                    
                 return[registers[regs[2]], registers[regs[0]], imm]
             except:
-                return None
-                          
-            
+                return None                               
         try:
             if len(regs[2]) > 1 and regs[2][1] == "x":
                 imm = int(regs[2], base=16)
             else:
                 imm = int(regs[2])
-        
-            
+                 
             return [registers[regs[1]], registers[regs[0]], imm]
         except:
-            return None       
-        
-    
-    
+            return None            
+
     elif func_type == "j":
         return [labels[regs[0]]]
       
