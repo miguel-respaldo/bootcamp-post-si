@@ -1,7 +1,7 @@
 from nemonicList import *
 
 class input:
-    def __init__(self,instruction, tag, nemonic, rs, rt, rd, imm, addres, pc, tipo, machineCode):
+    def __init__(self,instruction, tag, nemonic, rs, rt, rd, imm, address, pc, tipo, machineCode):
         self.instruction = instruction
         self.tag = tag
         self.nemonic = nemonic
@@ -9,7 +9,7 @@ class input:
         self.rt = rt
         self.rd = rd
         self.imm = imm
-        self.addres = addres
+        self.address = address
         self.pc = pc
         self.tipo = tipo
         self.machineCode = machineCode
@@ -25,9 +25,9 @@ class input:
             print(self.tag, self.nemonic, self.rt, self.rs, self.imm, "\t", f"{self.pc:#x}", end="\t")
 
         if getType(self.nemonic) == 'J': 
-            print(self.tag, self.nemonic, f"{self.addres:#x}", "\t", f"{self.pc:#x}", end="\t")
+            print(self.tag, self.nemonic, f"{self.address:#x}", "\t", f"{self.pc:#x}", end="\t")
         
-        #print(self.tag, self.nemonic, self.rs, self.rt, self.imm, f"{self.addres:#x}","\t", f"{self.pc:#x}", end="\t")
+        #print(self.tag, self.nemonic, self.rs, self.rt, self.imm, f"{self.address:#x}","\t", f"{self.pc:#x}", end="\t")
 
         print(f"{self.machineCode:032b}")
         
@@ -71,14 +71,15 @@ def instructionI(nemonic, rt, rs, imm):
     out = out << 5
     out += rt
     out = out << 16
-    out += imm
+    if imm < 0: out += imm + (1 << 16)
+    else: out += imm
+    
     return out
 
 def instructionJ(nemonic, address):
     out = 0
     op = jType[nemonic]
     address = address >> 2
-
     out += op
     out = out << 26
     out += address

@@ -1,7 +1,8 @@
+from pickletools import uint1
 from utilities import *
 
 def main():
-    file = open("codigo3.txt", 'r')
+    file = open("codigo1.txt", 'r')
     
     cola = []
     
@@ -14,7 +15,7 @@ def main():
         instruccion = None
         rs, rt, rd  = None, None, None
         imm = 0
-        addres = 0
+        address = 0
         codigoMaquina = 0
 
         # Limpia el texto de caracteres no deseados
@@ -97,7 +98,6 @@ def main():
                 imm = argumentos[2]
                 
                 codigoMaquina = instructionI(nemonico, rt, rs, imm)
-                #print(f"{codigoMaquina:032b}")
 
 
         # Si es una instruccion tipo J se hace lo siguente
@@ -105,7 +105,7 @@ def main():
             # Separar los argumentos de la instruccion y vaciarlos a una lista
             argumentos = linea.split(',')
 
-            addres = argumentos[1]
+            address = argumentos[1]
             
             
 
@@ -115,31 +115,31 @@ def main():
 
 
         # Agreamos a una clase que guarda la informacion de cada instruccion
-        cola.append(input(instruccion, tag, nemonico, rs, rt, rd, imm, addres, pc, tipo, codigoMaquina))
+        cola.append(input(instruccion, tag, nemonico, rs, rt, rd, imm, address, pc, tipo, codigoMaquina))
         
         pc += 4 # Se incremente el Program Counter 4 bytes
 
 
     
     for i in cola:
-        if i.addres != None:
+        if i.address != None:
             for j in cola:
-                if i.addres == j.tag: # Aquí solo entran las instrucciones de tipo J
-                    i.addres = j.pc
-                    i.addres = i.addres >> 2
-                    
-                    i.machineCode = instructionJ(i.nemonic, addres)
+                if i.address == j.tag: # Aquí solo entran las instrucciones de tipo J
+                    i.address = j.pc
+                    i.address = i.address
+                    i.machineCode = instructionJ(i.nemonic, i.address)
+                    break
                     
 
                 
                 if i.imm == j.tag: # Aqui entran los bne y beq
-                    #print(i.imm, j.tag)
-                    i.imm = (j.pc >> 2) - (i.pc >> 2)
                     
-                    i.machineCode = instructionI(i.nemonic, i.rt, i.rs, i.imm)
-                    
+                    i.imm = j.pc - i.pc - 4
+                    i.imm = i.imm >> 2
+                    i.machineCode = instructionI(i.nemonic, i.rs, i.rt, i.imm)
+                    break
 
-        i.imprimir()
+        i.imprimir()   
     
     
 
