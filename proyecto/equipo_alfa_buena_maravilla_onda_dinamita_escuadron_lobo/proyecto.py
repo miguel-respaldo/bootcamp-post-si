@@ -46,21 +46,23 @@ def main():
       contador = 0
       j=0
       for linea in archivo:
+          #separamos los argumentos con una coma
           lista=linea.split(",")
-          #print(str(lista[0]))
+          #ejecutamos la funcion mnemonicos para obtener todos los opcode y tipo de función de cada instruccion en el archivo            
           opcode_tipo=mnemonic.mnemonicos(lista[0])
-          tipo_instruccion=opcode_tipo[1]
-
-          print(opcode_tipo)
+          #obtenemos el tipo de instruccion de cada instrucción del archivo
+          tipo_instruccion=opcode_tipo[1]  
+          #print(opcode_tipo)
           #print() 
+
           if(tipo_instruccion=="r"):
-              print("holis soy r",lista[0])
+              print("mi opcode es",opcode_tipo[0])
           
           if(tipo_instruccion=="i"):
-              print("holis soy i",lista[0])
+              print("mi opcode es",opcode_tipo[0])
 
           if(tipo_instruccion=="j"):
-              print("holis soy j",lista[0])
+              print("mi opcode es",opcode_tipo[0])
 
       archivo.close()
 
