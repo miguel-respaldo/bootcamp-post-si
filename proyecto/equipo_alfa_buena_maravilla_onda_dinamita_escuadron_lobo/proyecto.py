@@ -13,7 +13,7 @@ Equipo:
 import mnemonic
 import os
 import argparse
-
+import numpy as np
 ####Se abre el archivo###
 
 #print (mnemonic.mnemonicos("add"))
@@ -44,25 +44,25 @@ def main():
     else:
       archivo = open(args.archivo)
       contador = 0
-      numero_instrucciones = int(args.archivo.count("v0"))
+      j=0
       for linea in archivo:
-         lista=linea.split(",") 
-         contador = 0
-         for valor in lista:
-            print("v{}".format(contador)," = ",valor.strip(),end="; ")
-            contador += 1
-         for i in range(numero_instrucciones):
-                matriz[i].append(valor.strip())
-         print()
-         print(matriz)
-            #print(val)
-            #for i in range(numero_instrucciones):
-            #   matriz.append([])
-            #   for j in range(4):
-            #     matriz[i].append(val)
-         #print(matriz)
-      archivo.close()
+          lista=linea.split(",")
+          #print(str(lista[0]))
+          opcode_tipo=mnemonic.mnemonicos(lista[0])
+          tipo_instruccion=opcode_tipo[1]
 
+          print(opcode_tipo)
+          #print() 
+          if(tipo_instruccion=="r"):
+              print("holis soy r",lista[0])
+          
+          if(tipo_instruccion=="i"):
+              print("holis soy i",lista[0])
+
+          if(tipo_instruccion=="j"):
+              print("holis soy j",lista[0])
+
+      archivo.close()
 
     print("Archivo:",args.archivo)
     print("Salida:",args.nombre_de_salida)
@@ -73,3 +73,5 @@ def main():
 if __name__ == "__main__":
     main()
 
+#print(a)
+print(mnemonic.mnemonicos("addi"))
