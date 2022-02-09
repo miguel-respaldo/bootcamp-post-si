@@ -8,12 +8,37 @@
 Ejemplo de un modulo
 """
 
-def main():
-    """
-    Comentario de la función
-    """
-    print("Hola Mundo")
+class lacoordenada():
 
+def _ini_(self)
+	pass
+	self.listinstruc = list()
+
+def openfile:
+	pass	
+	while not os.path.isfile(nombrear):
+    		nombrear = input("Ingrese el nombre del archivo (.txt): ")
+    		if not ".txt" in nombrear:
+        	nombrear += ".txt"
+	file = open(nombrear,"r")
+	for linea in file:
+	self.listintric.append(linea)
+
+def ini_decode:
+	pass
+
+
+def i_inst:
+	pass
+def r_inst:
+	pass
+def j_inst:
+	pass
+
+def main():
+    coordenada = lacoordenada()
+
+    print("Hola 
 
 if __name__ == "__main__":
     main()
