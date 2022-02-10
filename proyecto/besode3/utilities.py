@@ -17,19 +17,19 @@ class input:
     def imprimir(self):
         if getType(self.nemonic) == 'R': 
             if self.nemonic == 'jr':
-                print(self.tag, self.nemonic, self.rs, "\t", f"{self.pc:#x}", end="\t")
+                print(self.tag, self.nemonic, self.rs, "\t", f"{self.pc}", end="\t")
             else:
-                print(self.tag, self.nemonic, self.rs, self.rt, self.rd, "\t", f"{self.pc:#x}", end="\t")
+                print(self.tag, self.nemonic, self.rs, self.rt, self.rd, "\t", f"{self.pc}", end="\t")
         
         if getType(self.nemonic) == 'I': 
-            print(self.tag, self.nemonic, self.rt, self.rs, self.imm, "\t", f"{self.pc:#x}", end="\t")
+            print(self.tag, self.nemonic, self.rt, self.rs, self.imm, "\t", f"{self.pc}", end="\t")
 
         if getType(self.nemonic) == 'J': 
-            print(self.tag, self.nemonic, f"{self.address:#x}", "\t", f"{self.pc:#x}", end="\t")
+            print(self.tag, self.nemonic, f"{self.address:#x}", "\t", f"{self.pc}", end="\t")
         
         #print(self.tag, self.nemonic, self.rs, self.rt, self.imm, f"{self.address:#x}","\t", f"{self.pc:#x}", end="\t")
 
-        print(f"{self.machineCode:032b}")
+        print(f"{self.machineCode:018b}")
         
 
 # Si un nemonico pertenece a algun tipo, retorna el tipo al que pertencece
@@ -42,21 +42,19 @@ def getType(nemonic):
 # R[rd] = R[rs] + R[rt]
 def instructionR(nemonic, rs, rt, rd):
     out = 0
-    op = 0b000000
-    funct = rType[nemonic]
+    op = 0b0000
+    op = rType[nemonic]
     
-    out = out << 6
+    out = out << 4
     out += op
-    out = out << 5
+    out = out << 3
     out += rs
-    out = out << 5
+    out = out << 3
     out += rt
-    out = out << 5
+    out = out << 3
     out += rd
     out = out << 5
     out += 0b00000
-    out = out << 6
-    out += funct
 
     return out
 
@@ -66,12 +64,12 @@ def instructionI(nemonic, rt, rs, imm):
     op = iType[nemonic]
 
     out += op
-    out = out << 5
+    out = out << 3
     out += rs
-    out = out << 5
+    out = out << 3
     out += rt
-    out = out << 16
-    if imm < 0: out += imm + (1 << 16)
+    out = out << 8
+    if imm < 0: out += imm + (1 << 8)
     else: out += imm
     
     return out
@@ -79,9 +77,8 @@ def instructionI(nemonic, rt, rs, imm):
 def instructionJ(nemonic, address):
     out = 0
     op = jType[nemonic]
-    address = address >> 2
     out += op
-    out = out << 26
+    out = out << 14
     out += address
     
     return out
