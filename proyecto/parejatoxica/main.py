@@ -65,13 +65,16 @@ def main():
                 #print(type_opcode)
                 valor = type_opcode[1]       # asignamos el valor del opcode
             
-            # Mandamos el tipo de instruccion y el valor de los registros
-            if ((type_opcode[0] == "b") or (type_opcode[0] == "j")):
-                memonicos.write_output(type_opcode[0],valor,etiqueta)
-            else:
-                memonicos.write_output(type_opcode[0], valor)
+            #if ((type_opcode[0] == "j") or (type_opcode[0] == "b")):
+                
+                #for val_eti in etiqueta:
+                    #print(val_eti)
+                    #if valor == "INC":
+                        #valor = "chupala"
+                    
+            #memonicos.write_output(type_opcode,valor)
 
-            #print("v{}".format(elemento),"=",valor,end="; ")
+            print("v{}".format(elemento),"=",valor,end="; ")
 
             elemento += 1
         print("Esta es la linea:",linea_codigo)

@@ -30,7 +30,12 @@ def instruction_decode(instruccion):
     return [func_type, opcode]
 
 
-def write_output(*args):
+def write_output(tipo,val):
+    
+    print("\n")
+    #print(tipo,end="; ")
+    #print(val,end="; ")
+    #print(eti,end="; ")
 
-    print(valor)
+
 
