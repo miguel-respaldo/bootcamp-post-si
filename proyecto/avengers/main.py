@@ -15,7 +15,7 @@ class lacoordenada():
 	file_name = "codigo1.txt"
 	opcodes_dic = {	"R":{"add":"0000", "and":"0010", "jr":"1010", "or":"1100", "sll":"1110", "srl":"1111"}, 
 					"J":{"j":"0110", "jal":"0111"}, 
-					"I":{"addi":"0001", "andi":"0011", "beq":"0100", "bne":"0101", "lb":"1011", "sb":"1110"}}
+					"I":{"addi":"0001", "andi":"0011", "beq":"0100", "bne":"0101", "lb":"1011", "sb":"1110"} }
 
 	def __init__(self):
 		self.listinstruc = list()
@@ -52,26 +52,30 @@ class lacoordenada():
 				opcode = splitted_line[0].strip()
 
 				if opcode in self.opcodes_dic["I"]:
-					print("Encontré un opcode I:", opcode)
-					self.i_inst(opcode, line)
+					#print("Encontré un opcode I:", opcode)
+					self.i_inst(opcode, splitted_line)
 				elif opcode in self.opcodes_dic["R"]:
-					print("Encontré un opcode R:", opcode)
-					self.i_inst(opcode, line)
+					#print("Encontré un opcode R:", opcode)
+					self.i_inst(opcode, splitted_line)
 				elif opcode in self.opcodes_dic["J"]:
-					print("Encontré un opcode J:", opcode)
-					self.i_inst(opcode, line)
+					#print("Encontré un opcode J:", opcode)
+					self.i_inst(opcode, splitted_line)
+				else:
+					print("El opcode no pertenece al ISA :(")
 
 		return
 					
 
-	def i_inst(self, opcode, line):
-
+	def i_inst(self, opcode, splitted_line):
+		rs = algo
+		rt = algo
+		immediate = algo
 		pass
 
-	def r_inst(self, opcode, line):
+	def r_inst(self, opcode, splitted_line):
 		pass
 
-	def j_inst(self, opcode, line):
+	def j_inst(self, opcode, splitted_line):
 		jmp_addr = line[1].strip()
 		#line_result = x
 		#self.inst_integrator(line_result)
