@@ -130,6 +130,30 @@ def main():
         pc += 1 # Se incremente el Program Counter 
 
 
+    # Las funciones de salto como 'j', 'jal', 'beq' y 'bnq' necesitan saber a que linea saltar
+    # buscará la instruccion con la etiquta a donde salta para igualar el PC a donde debe saltar
+    for i in cola:
+        if i.address != None:
+            for j in cola:
+                if i.address == j.tag: 
+                    # Aquí solo entran las instrucciones de tipo J
+                    i.address = j.pc
+                    i.address = i.address + 1
+                    i.machineCode = instructionJ(i.nemonic, i.address)
+                    break
+                    
+
+                
+                if i.imm == j.tag: 
+                    # Aqui entran los bne y beq
+                    i.imm = j.pc - i.pc
+                    i.machineCode = instructionI(i.nemonic, i.rs, i.rt, i.imm)
+                    break
+
+        print(f"{i.machineCode:018b}")
+    
+    
+
 if __name__ == "__main__":
     main()
 
