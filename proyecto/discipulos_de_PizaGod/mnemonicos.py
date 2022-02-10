@@ -8,6 +8,17 @@ def instr_decode(instr):
     if instr in tipoR:
         opcode = tipoR[instr]
         func_type = "r"
+    elif instr in tipoI:
+        opcode = tipoI[instr]
+        func_type = "i"    
+    elif instr in tipoB:
+        opcode = tipoB[instr]
+        func_type = "b"    
+    elif instr in tipoJ:
+        opcode = tipoJ[instr]
+        func_type = "j"
     else:
         func_type = None
         opcode = None
+    
+    return [func_type, opcode]
