@@ -11,6 +11,15 @@ MNEMONIC
 
 #####Aqui se definen los Mnemonicos####
 
+registers = {'x0':0,
+        'x1':1,
+        'x2':2,
+        'x3':3,
+        'x4':4,
+        'x5':5,
+        'x6':6,
+        'x7':7,}
+
 def mnemonicos(mnemonic):
     if mnemonic=="add":
         op=0x0
@@ -74,3 +83,22 @@ def mnemonicos(mnemonic):
     
     return(op,tipo_instruccion)
 
+def decode_r(inst):
+    rd = format(registers[inst[1].strip()],"03b")
+    rs = format(registers[inst[2].strip()],"03b")
+    rt = format(registers[inst[3].strip()],"03b")
+    binary=rs+rt+rd+'00000'
+    return binary
+
+def decode_i(inst):
+    rt = format(registers[inst[1].strip()],"03b")
+    rs = format(registers[inst[2].strip()],"03b")
+    imm = format(int(inst[3].strip()),"08b")
+    binary=rs+rt+imm
+    print( binary)
+
+list_i = ['addi', 'x1','x7','1\n']
+list_r = ['and','x7','x4','x3\n']
+list_j = []
+
+decode_i(list_i)
