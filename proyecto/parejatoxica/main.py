@@ -34,6 +34,7 @@ def main():
     etiqueta = []
     n_etiqueta = []
     c_etiqueta = 0
+    type_opcode = []
 
     for linea in programa:
         lista = linea.split(",")
@@ -54,19 +55,25 @@ def main():
                 c_etiqueta += 1
 
                 valor = separador[1]            # el segundo elemento es instruccion
-                valor = valor.strip()       # quita espacios
-                print("v{}".format(elemento),"=",valor,end="; ")
-
+                valor = valor.strip()           # quita los espacios
             else:
-                valor = valor.strip()       # quita espacios
-                print("v{}".format(elemento),"=",valor,end="; ")
-                             
-            if elemento == 0:
-                memonicos.instruction_decode(valor)   #mandar a llamar funcion
+                valor = valor.strip()           # quita los espacios
             
+            # Obtenemos el tipo de instruccion y su opcode
+            if elemento == 0:
+                type_opcode = memonicos.instruction_decode(valor)   #mandar a llamar funcion
+                #print(type_opcode)
+                valor = type_opcode[1]       # asignamos el valor del opcode
+            
+            # Mandamos el tipo de instruccion y el valor de los registros
+            if ((type_opcode[0] == "b") or (type_opcode[0] == "j")):
+                memonicos.write_output(type_opcode[0],valor,etiqueta)
+            else:
+                memonicos.write_output(type_opcode[0], valor)
+
+            #print("v{}".format(elemento),"=",valor,end="; ")
+
             elemento += 1
-
-
         print("Esta es la linea:",linea_codigo)
     print("\nEl codigo tiene:",linea_codigo)
     

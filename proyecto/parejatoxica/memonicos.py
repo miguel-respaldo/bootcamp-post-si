@@ -5,7 +5,7 @@ def instruction_decode(instruccion):
     tipoB = {'beq' : 0x4 , 'bne' : 0x5 } #Tipo Branch
     tipoJ = {'j' : 0x6 , 'jal' : 0x7 } #Tipo J
     
-    print("Se recibe la instruccion:",instruccion)
+    #print("Se recibe la instruccion:",instruccion)
 
     if instruccion in tipoR:
         opcode = tipoR[instruccion]
@@ -28,3 +28,9 @@ def instruction_decode(instruccion):
         func_type = None
 
     return [func_type, opcode]
+
+
+def write_output(*args):
+
+    print(valor)
+
