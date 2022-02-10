@@ -8,6 +8,7 @@
 Proyecto
 """
 import os
+import memonicos 
 
 def main():
     
@@ -49,24 +50,24 @@ def main():
 
                 etiqueta[c_etiqueta].append(separador[0]) # guarda etiqueta
                 n_etiqueta[c_etiqueta].append(linea_codigo)  # guarda la linea actual
-                print("Etiqueta",etiqueta[c_etiqueta],"en",n_etiqueta[c_etiqueta],end=("; "))
+                #print("Etiqueta",etiqueta[c_etiqueta],"en",n_etiqueta[c_etiqueta],end=("; "))
                 c_etiqueta += 1
 
                 valor = separador[1]            # el segundo elemento es instruccion
                 valor = valor.strip()       # quita espacios
                 print("v{}".format(elemento),"=",valor,end="; ")
-                elemento += 1               # aumenta el contador del valor
 
             else:
                 valor = valor.strip()       # quita espacios
                 print("v{}".format(elemento),"=",valor,end="; ")
-                elemento += 1               # aumenta el contador del valor
+                             
+            if elemento == 0:
+                memonicos.instruction_decode(valor)   #mandar a llamar funcion
+            
+            elemento += 1
+
 
         print("Esta es la linea:",linea_codigo)
-        
-        if elemento == 0:
-            instruccion_decode(valor)   #mandar a llamar funcion
-        
     print("\nEl codigo tiene:",linea_codigo)
     
     programa.close()

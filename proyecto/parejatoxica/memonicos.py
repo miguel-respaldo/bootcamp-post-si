@@ -1,28 +1,30 @@
 
-def instr_decode(instr):
+def instruction_decode(instruccion):
     tipoR = {'add' : 0 , 'and' : 2, 'jr' : 0xa, 'or' : 0xc, 'sll' : 0xe, 'slr' : 0xf } #Tipo R 
     tipoI = {'addi' : 0x1 , 'andi' : 0x3, 'lb' : 0xb, 'sb' : 0xd } #Tipo I
     tipoB = {'beq' : 0x4 , 'bne' : 0x5 } #Tipo Branch
     tipoJ = {'j' : 0x6 , 'jal' : 0x7 } #Tipo J
-   
-    if instr in tipoR:
-        opcode = tipoR[instr]
+    
+    print("Se recibe la instruccion:",instruccion)
+
+    if instruccion in tipoR:
+        opcode = tipoR[instruccion]
         func_type = "r"
 
-    elif instr in tipoI:
-        opcode = tipoI[instr]
+    elif instruccion in tipoI:
+        opcode = tipoI[instruccion]
         func_type = "i"
 
-    elif instr in tipoB:
-        opcode = tipoI[instr]
+    elif instruccion in tipoB:
+        opcode = tipoB[instruccion]
         func_type = "b"
 
-    elif instr in tipoJ:
-        opcode = tipoJ[instr]
+    elif instruccion in tipoJ:
+        opcode = tipoJ[instruccion]
         func_type = "j"
 
     else:
-        func_type = None
         opcode = None
+        func_type = None
 
     return [func_type, opcode]
