@@ -65,12 +65,10 @@ class lacoordenada():
 
 		return
 					
-
 	def i_inst(self, opcode, splitted_line):
-		rs = algo
-		rt = algo
-		immediate = algo
-		pass
+		reg_s = splitted_line[1].strip()
+		reg_t = splitted_line[2].strip()
+		immediate_val = splitted_line[3].strip()
 
 	def r_inst(self, opcode, splitted_line):
 		pass
