@@ -28,42 +28,49 @@ def main():
     
     #---------------------- GUARDAR CADA INSTRUCCION --------------------------
     programa = open(archivo,'r')
-    contador = 0
-    lineas_codigo = 0
-
-    # Crear el archivo para copiar la informacion
-    code_output = open("output.txt", "w")    # si existe se reescribe
-    code_output.write("\nEste archivo contiene la informacion de tu maquina: \n\n")
+    elemento = 0
+    linea_codigo = 0
+    etiqueta = []
+    n_etiqueta = []
+    c_etiqueta = 0
 
     for linea in programa:
         lista = linea.split(",")
-        contador = 0
-        lineas_codigo += 1
-        
+        elemento = 0
+        linea_codigo += 1                   # cuenta la linea de codigo actual
+        etiqueta.append([])
+        n_etiqueta.append([])
+
         for valor in lista:
-
+            
+            # Aqui se deben separar las etiquietas de los valores reales
             if (valor.find(":") != -1):     # busca si hay etiquetas
-                salto = valor.split(":")    # crea un arreglo y separa 
-                etiqueta = salto[0]         # el primer elemento es etiqueta
-                valor = salto[1]            # el segundo elemento es instruccion
-                valor = valor.strip()       # quita espacios
-                print(etiqueta,end=(" / "))
-                #print("v{}".format(contador),"=",valor,end="; ")
+                separador = valor.split(":")    # crea un arreglo y separa 
 
-                #mandar llamar funcion
-                contador += 1               # aumenta el contador del valor
+                etiqueta[c_etiqueta].append(separador[0]) # guarda etiqueta
+                n_etiqueta[c_etiqueta].append(linea_codigo)  # guarda la linea actual
+                print("Etiqueta",etiqueta[c_etiqueta],"en",n_etiqueta[c_etiqueta],end=("; "))
+                c_etiqueta += 1
+
+                valor = separador[1]            # el segundo elemento es instruccion
+                valor = valor.strip()       # quita espacios
+                print("v{}".format(elemento),"=",valor,end="; ")
+                elemento += 1               # aumenta el contador del valor
+
             else:
                 valor = valor.strip()       # quita espacios
-                #print("v{}".format(contador),"=",valor,end="; ")
+                print("v{}".format(elemento),"=",valor,end="; ")
+                elemento += 1               # aumenta el contador del valor
 
-                #mandar llamar funcion
-                contador += 1               # aumenta el contador del valor
-
-        print("Esta es la linea:",lineas_codigo)
-    print("\nEl codigo tiene:",lineas_codigo)
+        print("Esta es la linea:",linea_codigo)
+        
+        if elemento == 0:
+            instruccion_decode(valor)   #mandar a llamar funcion
+        
+    print("\nEl codigo tiene:",linea_codigo)
     
     programa.close()
-
+    
 
 
 if __name__ == "__main__":
