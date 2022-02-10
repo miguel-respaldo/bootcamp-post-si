@@ -5,49 +5,85 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 """
-Ejemplo de un modulo
+	Binary Code Generator
 """
 
+import os
+
+
 class lacoordenada():
+	file_name = "codigo1.txt"
+	opcodes_dic = {	"R":{"add":"0000", "and":"0010", "jr":"1010", "or":"1100", "sll":"1110", "srl":"1111"}, 
+					"J":{"j":"0110", "jal":"0111"}, 
+					"I":{"addi":"0001", "andi":"0011", "beq":"0100", "bne":"0101", "lb":"1011", "sb":"1110"}}
 
-def _ini_(self)
-	pass
-	self.listinstruc = list()
-	openfile()
-	ini_decode()
+	def __init__(self):
+		self.listinstruc = list()
+		self.openfile()
+		self.ini_decode()
 
-def openfile:
-	pass
-	print ("Bienvenido, te saludo por si no te habia saludado")
-	print ("Ingrese el nombre del archivo a decodificar")
-	nombrear = input	
-	while not os.path.isfile(nombrear):
-    		nombrear = input("Ingrese el nombre del archivo (.txt): ")
-    		if not ".txt" in nombrear:
-        	nombrear += ".txt"
-	file = open(nombrear,"r")
-	for linea in file:
-	self.listintric.append(linea)
-	file.close()
+	def openfile(self):
+		print ("Bienvenido, te saludo por si no te habia saludado")
+		print ("Ingrese el nombre del archivo a decodificar")
+		#nombrear = input()
+		nombrear = self.file_name
 
-def ini_decode:
-	pass
+		while not os.path.isfile(nombrear):
+	    		nombrear = input("Ingrese el nombre del archivo (.txt): ")
+	    		if not ".txt" in nombrear:
+	        		nombrear += ".txt"
+
+		file = open(nombrear,"r")
 		
+		for linea in file:
+			self.listinstruc.append(linea)
+		
+		file.close()
 
+	def ini_decode(self):
+		for line in self.listinstruc:
+			print(line)
 
-def i_inst:
-	pass
-def r_inst:
-	pass
-def j_inst:
-	pass
+			# Agregar el uso de etiquetas
+
+			if line.count(","):
+				# Ver qué opcode es
+				splitted_line = line.split(",")
+				opcode = splitted_line[0].strip()
+
+				if opcode in self.opcodes_dic["I"]:
+					print("Encontré un opcode I:", opcode)
+					self.i_inst(opcode, line)
+				elif opcode in self.opcodes_dic["R"]:
+					print("Encontré un opcode R:", opcode)
+					self.i_inst(opcode, line)
+				elif opcode in self.opcodes_dic["J"]:
+					print("Encontré un opcode J:", opcode)
+					self.i_inst(opcode, line)
+
+		return
+					
+
+	def i_inst(self, opcode, line):
+
+		pass
+
+	def r_inst(self, opcode, line):
+		pass
+
+	def j_inst(self, opcode, line):
+		jmp_addr = line[1].strip()
+		#line_result = x
+		#self.inst_integrator(line_result)
+		
+	def inst_integrator(self, line):
+		pass
+
 
 def main():
     coordenada = lacoordenada()
+    print("Hola :), se acabó")
 
-    print("Hola ")
 
 if __name__ == "__main__":
     main()
-
-hola
