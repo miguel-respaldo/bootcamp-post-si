@@ -95,7 +95,7 @@ def decode_i(inst):
     rs = format(registers[inst[2].strip()],"03b")
     imm = format(int(inst[3].strip()),"08b")
     binary=rs+rt+imm
-    print( binary)
+    return binary
 
 list_i = ['addi', 'x1','x7','1\n']
 list_r = ['and','x7','x4','x3\n']
