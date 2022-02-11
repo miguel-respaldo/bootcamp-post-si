@@ -73,25 +73,28 @@ def main():
             
             # Obtenemos el tipo de instruccion y su opcode
             if contador == 0:
-                type_opcode = memonicos.instruction_decode(valor)   #mandar a llamar funcion
-                #print(type_opcode)
-                valor = type_opcode[1]       # asignamos el valor del opcode
-            
-            if valor in etiqueta:
-                valor = n_etiqueta[etiqueta.index(valor)]
+                opcode_type = memonicos.instruction_decode(valor)   #mandar a llamar funcion
+                tipo = opcode_type[0]
+                valor = opcode_type[1]       # asignamos el valor del opcode
+            else:
+                if (valor.find("0x") != -1):
+                    valor = int(valor,16)
 
-            #memonicos.write_output(type_opcode,valor)
+                valor = memonicos.registro_decode(valor)
+
+                if valor in etiqueta:
+                    valor = n_etiqueta[etiqueta.index(valor)]
+            
+            #memonicos.write_output(tipo,valor)
             print("V",contador,"=",valor,end=("; "))
             contador += 1
         print("")
     
     print("\n")
-    print(n_etiqueta)
-    print(etiqueta)
+    #print(n_etiqueta)
+    #print(etiqueta)
     #print(lista_linea)
     programa.close()
     
-
-
 if __name__ == "__main__":
     main()

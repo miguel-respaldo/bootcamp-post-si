@@ -1,4 +1,3 @@
-
 def instruction_decode(instruccion):
     tipoR = {'add' : 0 , 'and' : 2, 'jr' : 0xa, 'or' : 0xc, 'sll' : 0xe, 'srl' : 0xf } #Tipo R 
     tipoI = {'addi' : 0x1 , 'andi' : 0x3, 'lb' : 0xb, 'sb' : 0xd } #Tipo I
@@ -29,6 +28,15 @@ def instruction_decode(instruccion):
 
     return [func_type, opcode]
 
+def registro_decode(registro):
+    reg = {'x0':0, 'x1':1, 'x2':2, 'x3':3, 'x4':4, 'x5':5, 'x6':6, 'x7':7, 'x8':8, 'x9':9}
+    
+    if registro in reg:
+        val_reg = reg[registro]
+    else:
+        val_reg = registro
+    
+    return val_reg
 
 def write_output(tipo,val):
     
