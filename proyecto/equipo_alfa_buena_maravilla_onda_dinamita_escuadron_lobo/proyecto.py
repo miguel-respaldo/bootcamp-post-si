@@ -21,7 +21,6 @@ import argparse
 #num_etiquetas=[]
 PC=1
 etiquetas={}
-lineas_bin=[]
 
 #Aqui se define la funcion para poder dar el numero de registro para cada función
 def linea_instruccion(opcode,rs,rt,rd):
@@ -135,6 +134,18 @@ def linea_instruccion(opcode,rs,rt,rd):
         linea += "00000"
     return linea
 
+#Función de escriturade archivos
+def write_file(lineas_bin, filename, es_texto):
+    archivo = open(filename, 'w')
+    if es_texto:
+        for linea in lineas_bin:
+            archivo.write(linea)
+            archivo.write('\n')
+    else:
+        pass
+    archivo.close()
+
+
 #Aqui vamos a encontrar el valor de las etiquetas
 def obtener_etiquetas(etiqueta):
     linea=-1
@@ -163,6 +174,7 @@ def main():
                         help="Nombre de archivo de salida")
 
     args = parser.parse_args()
+    lineas_bin=[]
     
     if not os.path.exists(args.archivo):
         print(f"No se encuentra el archivo {args.archivo}")
@@ -178,7 +190,7 @@ def main():
         rs=0
         #abrimos el archivo a leer    
         archivo = open(args.archivo)
-        
+        '''
         separacion=args.nombre_de_salida.split(".")
         extension=separacion[len(separacion)-1] 
         print(extension)
@@ -188,6 +200,7 @@ def main():
             modo = "wb"
 
         archivo_salida=open(args.nombre_de_salida, modo)
+        '''
         for linea1 in archivo:
             #se buscan las etiquetas que existan en el texto
             if ":" in linea1:
@@ -240,10 +253,14 @@ def main():
             
             binario=linea_instruccion(opcode,rd,rs,rt)
             lineas_bin.append(binario)
+            '''
             archivo_salida.write(binario)
             archivo_salida.write("\n")
+            '''
             print(binario)
+        '''
         archivo_salida.close()
+        '''
         archivo.close()
 
     print("Archivo:",args.archivo)
@@ -251,6 +268,7 @@ def main():
     print("en texto:",args.gen_texto)
     print(etiquetas)
     print(lineas_bin)
+    write_file(lineas_bin, args.nombre_de_salida, args.gen_texto)
 
 
 
