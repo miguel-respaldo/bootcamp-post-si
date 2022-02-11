@@ -13,3 +13,11 @@ if instr in tipoR:
     elif instr in tipoB:
         opcode = tipoB[instr]
         func_type = "b"    
+    elif instr in tipoJ:
+        opcode = tipoJ[instr]
+        func_type = "j"
+    else:
+        func_type = None
+        opcode = None
+    
+    return [func_type, opcoe]
