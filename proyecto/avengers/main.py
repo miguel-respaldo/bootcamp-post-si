@@ -56,10 +56,10 @@ class lacoordenada():
 					self.i_inst(opcode, splitted_line)
 				elif opcode in self.opcodes_dic["R"]:
 					#print("Encontré un opcode R:", opcode)
-					self.i_inst(opcode, splitted_line)
+					self.r_inst(opcode, splitted_line)
 				elif opcode in self.opcodes_dic["J"]:
 					#print("Encontré un opcode J:", opcode)
-					self.i_inst(opcode, splitted_line)
+					self.j_inst(opcode, splitted_line)
 				else:
 					print("El opcode no pertenece al ISA :(")
 
@@ -79,21 +79,39 @@ class lacoordenada():
 			immediate_val = immediate_val.replace("x", "")
 			immediate_val = int(immediate_val,base=16)
 
-		immediate_val = format(int(immediate_val), "08b")
+		if int(immediate_val) < 0:
+			immediate_val = format(0xFF+1+int(immediate_val), "08b") 
+		else:	
+			immediate_val = format(int(immediate_val), "08b")
 	    
+		opcodes_i = self.opcodes_dic["I"]
+		result_bin += opcodes_i[opcode]
 		result_bin += format(int(reg_t), "03b")
 		result_bin += format(int(reg_s), "03b")
 		result_bin += immediate_val
 
 		print(result_bin)
 
-                         
-
 	def r_inst(self, opcode, splitted_line):
-		reg_s = splitted_line[1].strip()
-		reg_t = splitted_line[2].strip()
-		reg_d = splitted_line[3].strip()
+		reg_s = splitted_line[2].strip()
+		reg_s = reg_s[1:]
+		
+		reg_t = splitted_line[3].strip()
+		reg_t = reg_t[1:]
+		
+		reg_d = splitted_line[1].strip()
+		reg_d = reg_d[1:]
+		result_bin = ""
+		opcodes_r = self.opcodes_dic["R"]
+		result_bin += opcodes_r[opcode]
+		result_bin += format(int(reg_t), "03b")
+		result_bin += format(int(reg_s), "03b")
+		result_bin += format(int(reg_d), "03b")
+		result_bin += "00000"
+		
 
+		print(result_bin)
+		
 	def j_inst(self, opcode, splitted_line):
 		jmp_addr = line[1].strip()
 		#line_result = x
