@@ -17,9 +17,11 @@ import registros
 import os
 import argparse
 
-etiquetas_archivo=[]
-num_etiquetas=[]
+#etiquetas_archivo=[]
+#num_etiquetas=[]
 PC=1
+etiquetas={}
+
 #Aqui se define la funcion para poder dar el numero de registro para cada función
 def linea_instruccion(opcode,rs,rt,rd):
         
@@ -177,8 +179,9 @@ def main():
         for linea1 in archivo:
             #se buscan las etiquetas que existan en el texto
             if ":" in linea1:
-                etiquetas_archivo.append(linea1.split(":")[0].strip())
-                num_etiquetas.append(PC)
+                etiquetas[linea1.split(":")[0].strip()]=PC
+                #etiquetas_archivo.append(linea1.split(":")[0].strip())
+                #num_etiquetas.append(PC)
             PC+=1
         
         #se regresa al principio del archivo 
@@ -194,7 +197,11 @@ def main():
             #separamos los argumentos con una coma aqui ya no hay etiquetas ni espacios
             lista_sin_etiquetas = linea1.split(",")
             for x in range(len(lista_sin_etiquetas)):
-                lista_sin_etiquetas[x]=lista_sin_etiquetas[x].strip()
+                val = lista_sin_etiquetas[x].strip()
+                if val in etiquetas:
+                    lista_sin_etiquetas[x]=etiquetas[val]
+                else:
+                    lista_sin_etiquetas[x]=val
             print (lista_sin_etiquetas)
             #ejecutamos la funcion mnemonicos para obtener todos los opcode y tipo de función de cada instruccion en el archivo            
             for x in range(len(lista_sin_etiquetas)):
@@ -219,6 +226,7 @@ def main():
     print("Archivo:",args.archivo)
     print("Salida:",args.nombre_de_salida)
     print("en texto:",args.gen_texto)
+    print(etiquetas)
 
 
 
