@@ -214,19 +214,19 @@ def main():
                     opcode=mnemonic.mnemonicos(lista_sin_etiquetas[0])
                     print(opcode)
                 elif x==1:
-                    rd=registros.registros(lista_sin_etiquetas[1])
+                    rd=int(registros.registros(lista_sin_etiquetas[1]))
                     if rd==-1:
-                       rd=lista_sin_etiquetas[1]
+                       rd=int(lista_sin_etiquetas[1])
                     print(rd)
                 elif x==2:
-                    rs=registros.registros(lista_sin_etiquetas[2])
+                    rs=int(registros.registros(lista_sin_etiquetas[2]))
                     if rs==-1:
-                       rs=lista_sin_etiquetas[2]
+                       rs=int(lista_sin_etiquetas[2])
                     print(rs)
                 elif x==3:
-                    rt=registros.registros(lista_sin_etiquetas[3])  
+                    rt=int(registros.registros(lista_sin_etiquetas[3]))  
                     if rt==-1:
-                       rt=lista_sin_etiquetas[3]
+                       rt=int(lista_sin_etiquetas[3])
                     print(rt)
             binario=linea_instruccion(opcode,rd,rs,rt)
             lineas_bin.append(binario)
