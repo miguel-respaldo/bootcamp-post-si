@@ -66,12 +66,28 @@ class lacoordenada():
 		return
 					
 	def i_inst(self, opcode, splitted_line):
+		result_bin = ""
 		reg_s = splitted_line[1].strip()
+		reg_s = reg_s[1:]
+		
 		reg_t = splitted_line[2].strip()
+		reg_t = reg_t[1:]
 		immediate_val = splitted_line[3].strip()
+		
+		if line.count("x"):
+		    immediate_val = immediate_val.replace("0x", "")
+		    immediate_val = int(immediate_val, base=16)
+	        immediate_val = format(immediate_val, "08b")
+                resul_bin += reg_t
+                resul_bin += reg_s
+                resul_bin += immediate_val
+                print (resul_bin)
+                         
 
 	def r_inst(self, opcode, splitted_line):
-		pass
+		reg_s = splitted_line[1].strip()
+		reg_t = splitted_line[2].strip()
+		reg_d = splitted_line[3].strip()
 
 	def j_inst(self, opcode, splitted_line):
 		jmp_addr = line[1].strip()
