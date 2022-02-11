@@ -1,0 +1,12 @@
+MAIN:addi,	x2,	x0,	0x05
+	addi,	x3,	x0,	0x01
+	jal,	FUNC		
+INC	:add, 	x0,	x0,	x0
+	add, 	x0,	x0,	x0
+	add, 	x0,	x0,	x0
+	j,	MAIN		
+FUNC:add, 	x0,	x0,	x0
+	add, 	x0,	x0,	x0
+	add, 	x0,	x0,	x0
+	add,	x4,	x3,	x2
+	jr,	x7		
