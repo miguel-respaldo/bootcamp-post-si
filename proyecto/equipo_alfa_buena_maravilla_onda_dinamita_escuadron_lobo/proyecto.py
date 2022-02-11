@@ -37,8 +37,8 @@ def linea_instruccion(opcode,rs,rt,rd):
         linea += "{:04b}".format(opcode)
         linea += "{:03b}".format(rs)
         linea += "{:03b}".format(rt)
-        if rd < 0:
-            rd=(rd^0xff + 1) & 0xff
+        if int(rd) < 0:
+            rd=(int(rd)^0xff + 1) & 0xff
             linea+="{:08b}".format(rd)
         else:
             linea+="{:08b}".format(rd)
@@ -52,8 +52,8 @@ def linea_instruccion(opcode,rs,rt,rd):
         linea += "{:04b}".format(opcode)
         linea += "{:03b}".format(rs)
         linea += "{:03b}".format(rt)
-        if rd<0:
-            rd=(rd^0xff + 1) & 0xff
+        if int(rd)<0:
+            rd=(int(rd)^0xff + 1) & 0xff
             linea+="{:08b}".format(rd)
         else:
             linea+="{:08b}".format(rd)
@@ -61,8 +61,8 @@ def linea_instruccion(opcode,rs,rt,rd):
         linea += "{:04b}".format(opcode)
         linea += "{:03b}".format(rs)
         linea += "{:03b}".format(rt)
-        if rd < PC:
-            rd=-rd
+        if int(rd) < PC:
+            rd=-int(rd)
             rd=(rd^0xff + 1) & 0xff
             linea+="{:08b}".format(rd)
         else:
@@ -72,13 +72,13 @@ def linea_instruccion(opcode,rs,rt,rd):
         linea += "{:04b}".format(opcode)
         linea += "{:03b}".format(rs)
         linea += "{:03b}".format(rt)
-        if rd < PC:
-            rd=-rd
+        if int(rd) < PC:
+            rd=-int(rd)
             rd=(rd^0xff + 1) & 0xff
             linea+="{:08b}".format(rd)
         else:
-            rd-=rd
-            linea+="{:08b}".format(rd)
+            rd-=int(rd)
+            linea+="{:08b}".format(int(rd))
 
     elif(opcode==6): #j
         linea += "{:04b}".format(opcode)
@@ -97,11 +97,11 @@ def linea_instruccion(opcode,rs,rt,rd):
         linea += "{:04b}".format(opcode)
         linea += "{:03b}".format(rs)
         linea += "{:03b}".format(rd)
-        if rt<0:
+        if int(rt)<0:
             rt=(rt^0xff+1) &0xff
-            linea += "{:08}".format(rt)
+            linea += "{:08}".format(int(rt))
         else:
-            linea += "{:08}".format(rt)
+            linea += "{:08}".format(int(rt))
 
     elif(opcode==12): #or
         linea += "{:04b}".format(opcode)
@@ -114,11 +114,11 @@ def linea_instruccion(opcode,rs,rt,rd):
         linea += "{:04b}".format(opcode)
         linea += "{:03b}".format(rs)
         linea += "{:03b}".format(rd)
-        if rt<0:
+        if int(rt)<0:
             rt=(rt^0xff+1) &0xff
-            linea += "{:08}".format(rt)
+            linea += "{:08}".format(int(rt))
         else:
-            linea += "{:08}".format(rt)
+            linea += "{:08}".format(int(rt))
 
     elif(opcode==14): #sll
         linea += "{:04b}".format(opcode)
