@@ -18,6 +18,11 @@ def readFile(filen): #Function that reads a file
     f.close()
     return content
 
+print("Ingrese el nombre de archivo con extensión, ejemplo: codigo2.txt")
+archivo = input("Archivo:  ") 
+archivo = readFile(archivo)
+
+
 print("El archivo generado se llama conversion.txt")
 
 orig_stdout = sys.stdout #guarda console original
