@@ -18,4 +18,9 @@ def readFile(filen): #Function that reads a file
     f.close()
     return content
 
-# the main conversion function
+print("El archivo generado se llama conversion.txt")
+
+orig_stdout = sys.stdout #guarda console original
+
+file_path = 'conversion.txt'
+sys.stdout = open(file_path, "w") #imprime a archivo
