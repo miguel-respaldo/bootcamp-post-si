@@ -178,7 +178,16 @@ def main():
         rs=0
         #abrimos el archivo a leer    
         archivo = open(args.archivo)
-       
+        
+        separacion=args.nombre_de_salida.split(".")
+        extension=separacion[len(separacion)-1] 
+        print(extension)
+        if extension == "txt":
+            modo="wt"
+        else:
+            modo = "wb"
+
+        archivo_salida=open(args.nombre_de_salida, modo)
         for linea1 in archivo:
             #se buscan las etiquetas que existan en el texto
             if ":" in linea1:
@@ -228,10 +237,13 @@ def main():
                     if rt==-1:
                        rt=int(lista_sin_etiquetas[3])
                     print(rt)
+            
             binario=linea_instruccion(opcode,rd,rs,rt)
             lineas_bin.append(binario)
+            archivo_salida.write(binario)
+            archivo_salida.write("\n")
             print(binario)
-
+        archivo_salida.close()
         archivo.close()
 
     print("Archivo:",args.archivo)
