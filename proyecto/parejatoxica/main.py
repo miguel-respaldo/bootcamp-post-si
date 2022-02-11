@@ -11,7 +11,8 @@ import os
 import memonicos 
 
 def main():
-    
+    os.system("clear")
+
     #--------------------- LEE EL ARCHIVO Y TIPO DE SALIDA --------------------
     archivo = input("Introduzca el nombre del programa MIPS: ")
     while not os.path.exists(archivo):
@@ -62,39 +63,61 @@ def main():
         linea_codigo += 1
     
     print("\nEl codigo tiene:",linea_codigo)
+    programa.close()                            # cerramos el programa 
+
+    #------------------------------- PROCESAMIENTO DE DATOS ---------------------------
+    archivo = open("salida.o","w")
+    archivo.write("Codigo de salida: \n")
+    archivo.close()
     
-
-    #--------------------- LEE LOS DATOS DEL ARREGLO Y MANDA A SALIDA --------------------
+    linea_codigo = 0
+    reorder = []
+    
     for linea in lista_linea:
-        #print(linea)
         contador = 0
-
+        reorder.append([])
+        
         for valor in linea:
             
             # Obtenemos el tipo de instruccion y su opcode
             if contador == 0:
-                opcode_type = memonicos.instruction_decode(valor)   #mandar a llamar funcion
-                tipo = opcode_type[0]
-                valor = opcode_type[1]       # asignamos el valor del opcode
-            else:
-                if (valor.find("0x") != -1):
+                valor = memonicos.instruction_decode(valor)   # asigna tipo y opcode
+                
+            else: 
+
+                if "0x" in valor:
                     valor = int(valor,16)
-
-                valor = memonicos.registro_decode(valor)
-
-                if valor in etiqueta:
+                                
+                elif "-" in valor:
+                    valor = int(valor)
+                
+                elif valor in etiqueta:
                     valor = n_etiqueta[etiqueta.index(valor)]
+
+                else:
+                    valor = memonicos.registro_decode(valor)
+
+            #memonicos.write_output(archivo,tipo,valor)
+            #print("V",contador,"=",valor,end=("; "))
             
-            #memonicos.write_output(tipo,valor)
-            print("V",contador,"=",valor,end=("; "))
+            reorder[linea_codigo].append(valor)
             contador += 1
-        print("")
+
+        linea_codigo += 1
     
-    print("\n")
+    #------------------- LEE LOS DATOS DEL ARREGLO Y MANDA A SALIDA --------------------
+    archivo = open("salida.o","a")
+
+    for linea in reorder:
+        memonicos.write_output(archivo,linea)
+        archivo.write("\n")
+
+    archivo.close()
+
     #print(n_etiqueta)
     #print(etiqueta)
-    #print(lista_linea)
-    programa.close()
+    #print(reorder)
     
+    os.system("cat salida.o")
 if __name__ == "__main__":
     main()

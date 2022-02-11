@@ -28,6 +28,7 @@ def instruction_decode(instruccion):
 
     return [func_type, opcode]
 
+
 def registro_decode(registro):
     reg = {'x0':0, 'x1':1, 'x2':2, 'x3':3, 'x4':4, 'x5':5, 'x6':6, 'x7':7, 'x8':8, 'x9':9}
     
@@ -38,12 +39,33 @@ def registro_decode(registro):
     
     return val_reg
 
-def write_output(tipo,val):
-    
-    print("\n")
-    #print(tipo,end="; ")
-    #print(val,end="; ")
-    #print(eti,end="; ")
 
+def write_output(salida,val):
+
+    #print(val[0][0])
+    
+    if val[0][0] == "r":
+        #print("Instruccion tipo R")
+        
+        opcode = '{0:06b}'.format(0)
+        
+        salida.write(opcode)
+        
+        #None
+
+    if val[0][0] == "r":
+        #print("Instruccion tipo R")
+
+        None
+    
+    if val[0][0] == "r":
+        #print("Instruccion tipo R")
+
+        None
+
+    if val[0][0] == "r":
+        #print("Instruccion tipo R")
+        
+        None
 
 
