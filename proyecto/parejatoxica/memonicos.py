@@ -42,15 +42,24 @@ def registro_decode(registro):
 
 def write_output(salida,val):
 
-    #print(val[0][0])
+    print(val)
     
     if val[0][0] == "r":
         #print("Instruccion tipo R")
         
+        shamt = 0
+        if (val[0][1] == 14 or (val[0][1] == 15)):
+            shamt = val[3]
+
         opcode = '{0:06b}'.format(0)
-        
-        salida.write(opcode)
-        
+        rd = '{0:06b}'.format(val[1])
+        rs = '{0:05b}'.format(val[2])
+        rt = '{0:05b}'.format(val[3])
+        shamt = '{0:05b}'.format(shamt)
+        funct = '{0:06b}'.format(val[0][1])
+
+        saquesemorro = opcode + rs + rt + rd + shamt + funct
+        salida.write(saquesemorro) 
         #None
 
     if val[0][0] == "r":
