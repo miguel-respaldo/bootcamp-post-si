@@ -17,12 +17,12 @@ import registros
 import os
 import argparse
 
-#etiquetas_archivo=[]
-#num_etiquetas=[]
+#Inicializamos el PC en la posicion 1
 PC=1
+#inicializamos un diccionario de etiquetas
 etiquetas={}
 
-#Aqui se define la funcion para poder dar el numero de registro para cada función
+#Aqui se define la funcion para asignar en binario cada uno de los opcode, registros y etiquetas
 def linea_instruccion(opcode,rs,rt,rd):
     linea= ""
         
@@ -134,31 +134,45 @@ def linea_instruccion(opcode,rs,rt,rd):
         linea += "00000"
     return linea
 
-#Función de escriturade archivos
+#obtenemos las lineas en bytes para guardar el archivo en binario
+def obtener_linea_bytes(strbin):
+    #numero de bytes necesarios
+    num_bytes=len(strbin)//8+1
+    retorno=bytearray(num_bytes)
+
+    for b in range(num_bytes):
+        if b==0:
+            octeto=strbin[-8:]
+        elif b==num_bytes-1:
+            fin=len(strbin)%8
+            octeto=strbin[:fin]
+        else:
+            ini=-8*(b+1)
+            fin=-8*b
+            octeto=strbin[ini:fin]
+        #invertimos la cadena
+        octeto=octeto[::-1]
+        for bit in range(len(octeto)):
+            if "1" == octeto[bit]:
+                retorno[b] |=1<<bit
+
+    return retorno
+
+#Función de escritura de archivos
 def write_file(lineas_bin, filename, es_texto):
-    archivo = open(filename, 'w')
     if es_texto:
+        archivo = open(filename, 'w')
         for linea in lineas_bin:
             archivo.write(linea)
             archivo.write('\n')
+        archivo.close()
     else:
-        pass
-    archivo.close()
+        archivo = open(filename, 'wb')
+        for linea in lineas_bin:
+            archivo.write(obtener_linea_bytes(linea))
+        archivo.close()
 
-
-#Aqui vamos a encontrar el valor de las etiquetas
-def obtener_etiquetas(etiqueta):
-    linea=-1
-    for i in range(len(etiquetas)):
-        if etiquetas[i].lower()==etiqueta.strip().lower():
-            linea=num_etiquetas[i]
-            break
-    return linea
-
-
-####Se abre el archivo###
-
-#####PRIMERO SE LEE LA ENTRADA DEL ARCHIVO####
+#####FUNCION PRINCIPAL####
 
 def main():
     """
@@ -175,7 +189,7 @@ def main():
 
     args = parser.parse_args()
     lineas_bin=[]
-    
+    # Verificamos si el archivo de entrada se encuentra en el directorio 
     if not os.path.exists(args.archivo):
         print(f"No se encuentra el archivo {args.archivo}")
         exit(1)
@@ -184,35 +198,26 @@ def main():
         global PC
         global etiquetas
         global num_etiquetas
+        #inicializamos las variables para opcode,rd,rt y rs en 0
         opcode=0
         rd=0
         rt=0
         rs=0
         #abrimos el archivo a leer    
         archivo = open(args.archivo)
-        '''
-        separacion=args.nombre_de_salida.split(".")
-        extension=separacion[len(separacion)-1] 
-        print(extension)
-        if extension == "txt":
-            modo="wt"
-        else:
-            modo = "wb"
 
-        archivo_salida=open(args.nombre_de_salida, modo)
-        '''
+        #recorremos el archivo 
         for linea1 in archivo:
             #se buscan las etiquetas que existan en el texto
             if ":" in linea1:
+                #se guarda el numero de etiqueta
                 etiquetas[linea1.split(":")[0].strip()]=PC
-                #etiquetas_archivo.append(linea1.split(":")[0].strip())
-                #num_etiquetas.append(PC)
             PC+=1
         
         #se regresa al principio del archivo 
         archivo.seek(0)
         PC=1
-
+        
         for linea1 in archivo:
             linea1=linea1.strip()
             #busca etiquetas
