@@ -1,12 +1,12 @@
 from utilities import *
 
 def main():
-    file = open("codigo4.txt", 'r')
+    file = open("codigo2.txt", 'r')
     
     cola = []
-    
-    pc = 0
-    
+    n = 1
+    pc = 1
+    error = False
     
 
     for linea in file:
@@ -41,77 +41,27 @@ def main():
 
 
 
-
         # Si es una instruccion tipo R se hace lo siguente
         if tipo == 'R':
             # Separar los argumentos de la instruccion y vaciarlos a una lista
             argumentos = linea.split(",")
             argumentos.pop(0)
 
-            # Las instrucciones "jr" solo usan rs; el resto ocupan rs, rt, rd
-            if nemonico == "jr":
-                rs = int(argumentos[0][1: ])
-                rt, rd = 0, 0
-            elif nemonico == 'sll' or nemonico == 'srl':
-                rd = int(argumentos[0][1: ])
-                rt = int(argumentos[1][1: ])
-                rs = int(argumentos[2][1: ])
-            else:
-                rd = int(argumentos[0][1: ])
-                rs = int(argumentos[1][1: ])
-                rt = int(argumentos[2][1: ])
+            rs, rt, rd = convertArgumentsR(nemonico, argumentos)
 
             codigoMaquina = instructionR(nemonico, rs, rt, rd)
 
-            
-
-
-
-
+        
         # Si es una instruccion tipo I se hace lo siguente
         if tipo == 'I':
             # Separar los argumentos de la instruccion y vaciarlos a una lista
             argumentos = linea.split(',')
             argumentos.pop(0)
             
-            # Convertir en numeros los argumentos
-            for i in range(len(argumentos)):
-                if argumentos[i].isnumeric(): # Para numeros positivos
-                    argumentos[i] = int(argumentos[i]) 
-                elif argumentos[i].startswith('-') and argumentos[i][1:].isnumeric(): # Para numeros negativos
-                    argumentos[i] = int(argumentos[i][1:]) 
-                    argumentos[i] *= -1
-                    argumentos[i] = argumentos[i] + (1 << 8)
-                elif argumentos[i].startswith('x'): # Para numeros los registros
-                    argumentos[i] = int(argumentos[i][1 :])
-                elif argumentos[i].startswith('0x'): # Para numeros hexadecimales
-                    argumentos[i] = int(argumentos[i], 16)
-                elif argumentos[i].startswith('0b'): # Para numeros binarios
-                    argumentos[i] = int(argumentos[i], 2)
-            
-            
-            
+            rt, rs, imm = convertArgumentsI(nemonico, argumentos)
+
             if nemonico != 'beq' and nemonico != 'bne':
-                # Para cualquier otra que no sea 'beq' y 'bne'
-                rt = argumentos[0]
-                rs = argumentos[1]
-                imm = argumentos[2]
-                
                 codigoMaquina = instructionI(nemonico, rt, rs, imm)
-            
-            if nemonico == 'lb' or nemonico == 'sb':
-                # 'lb' y 'sb' tiene un orden distinto al guardar los argumentos
-                rt = argumentos[0]
-                imm = argumentos[1]
-                rs = argumentos[2]
-                
-                codigoMaquina = instructionI(nemonico, rt, rs, imm)
-            else:
-                # Aqui van  a entrar las instrucciones 'beq' y 'bne' 
-                # pero no se genera codigo maquina para generarlo despues cuando encuentre a donde salta
-                rt = argumentos[0]
-                rs = argumentos[1]
-                imm = argumentos[2]
             
 
         # Si es una instruccion tipo J se hace lo siguente
@@ -121,36 +71,32 @@ def main():
 
             address = argumentos[1]
             
-            
 
-
-        # Agreamos a una clase que guarda la informacion de cada instruccion
-        cola.append(input(instruccion, tag, nemonico, rs, rt, rd, imm, address, pc, tipo, codigoMaquina))
+        if tipo == 'R' or tipo == 'I' or tipo == 'J':
+            # Si la entrada es correcta
+            # Agreamos a una clase que guarda la informacion de cada instruccion
+            cola.append(input(instruccion, tag, nemonico, rs, rt, rd, imm, address, pc, tipo, codigoMaquina))
+            pc += 1 # Se incremente el Program Counter 
+        elif linea == '':
+            # Si no hay nada en una linea de texto, no hace nada
+            pass
+        else:
+            #Si encuentra un error en alguna linea lo marca
+            print(linea, f"<ERROR en la linea {n}>")
+            error = True
+            break
         
-        pc += 1 # Se incremente el Program Counter 
+        n += 1 # Contador de lineas, solo se usa cuando hay un error y saber en que linea estaba
 
 
-    # Las funciones de salto como 'j', 'jal', 'beq' y 'bnq' necesitan saber a que linea saltar
-    # buscará la instruccion con la etiquta a donde salta para igualar el PC a donde debe saltar
-    for i in cola:
-        if i.address != None:
-            for j in cola:
-                if i.address == j.tag: 
-                    # Aquí solo entran las instrucciones de tipo J
-                    i.address = j.pc
-                    i.address = i.address + 1
-                    i.machineCode = instructionJ(i.nemonic, i.address)
-                    break
-                    
 
-                
-                if i.imm == j.tag: 
-                    # Aqui entran los bne y beq
-                    i.imm = j.pc - i.pc
-                    i.machineCode = instructionI(i.nemonic, i.rs, i.rt, i.imm)
-                    break
+    if error == False:
+        # Si no hay errores, el programa continua
+        findJumps(cola) # Ingresar la lista para completar los branches y los jump
 
-        print(f"{i.machineCode:018b}")
+        for i in cola:
+            print(f"{i.machineCode:018b}")
+            #i.imprimir()      
     
     
 
