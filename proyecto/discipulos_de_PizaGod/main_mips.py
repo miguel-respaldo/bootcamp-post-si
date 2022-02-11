@@ -24,3 +24,10 @@ orig_stdout = sys.stdout #guarda console original
 
 file_path = 'conversion.txt'
 sys.stdout = open(file_path, "w") #imprime a archivo
+
+
+for x in range(len(auxiliary)-1):
+    file1[x] = convertion(auxiliary[x]) #pasara por nuestra funcion conversora 
+    
+sys.stdout.close() 
+sys.stdout = orig_stdout 
