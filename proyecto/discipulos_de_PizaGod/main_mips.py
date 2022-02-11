@@ -22,6 +22,17 @@ print("Ingrese el nombre de archivo con extensión, ejemplo: codigo2.txt")
 archivo = input("Archivo:  ") 
 archivo = readFile(archivo)
 
+for j in range(len(file1)):
+    if(":" in file1[j]):
+        val_tag.append(j+1)
+        auxiliary.extend(file1[j].split(":"))
+        auxiliary2.append(auxiliary[j])
+        del auxiliary[j]
+    else:
+        auxiliary.extend(file1[j].split(":"))
+
+for j in range (len(auxiliary2)):
+    tags[auxiliary2[j]] = val_tag[j]
 
 print("El archivo generado se llama conversion.txt")
 
