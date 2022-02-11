@@ -22,8 +22,12 @@ print("Ingrese el nombre de archivo con extensión, ejemplo: codigo2.txt")
 archivo = input("Archivo:  ") 
 archivo = readFile(archivo)
 
+
+arguments = []
 auxiliary = []  #stores 
 auxiliary2 = [] #va a guardar num de linea donde va un tag
+val_tag = []
+tags = {}
 
 for j in range(len(archivo)):
     if(":" in archivo[j]):
