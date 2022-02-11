@@ -191,8 +191,10 @@ def main():
             if ":" in linea1:
                 linea1=linea1.split(":")[1].strip()
 
-            #separamos los argumentos con una coma aqui ya no hay etiquetas
+            #separamos los argumentos con una coma aqui ya no hay etiquetas ni espacios
             lista_sin_etiquetas = linea1.split(",")
+            for x in range(len(lista_sin_etiquetas)):
+                lista_sin_etiquetas[x]=lista_sin_etiquetas[x].strip()
             print (lista_sin_etiquetas)
             #ejecutamos la funcion mnemonicos para obtener todos los opcode y tipo de función de cada instruccion en el archivo            
             for x in range(len(lista_sin_etiquetas)):
