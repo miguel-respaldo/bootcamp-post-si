@@ -210,9 +210,13 @@ def main():
                     print(opcode)
                 elif x==1:
                     rd=registros.registros(lista_sin_etiquetas[1])
+                    if rd==-1:
+                       rd=lista_sin_etiquetas[1]
                     print(rd)
                 elif x==2:
                     rs=registros.registros(lista_sin_etiquetas[2])
+                    if rs==-1:
+                       rs=lista_sin_etiquetas[2]
                     print(rs)
                 elif x==3:
                     rt=registros.registros(lista_sin_etiquetas[3])  
