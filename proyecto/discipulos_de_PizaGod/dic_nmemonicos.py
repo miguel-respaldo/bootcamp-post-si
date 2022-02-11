@@ -20,4 +20,4 @@ if instr in tipoR:
         func_type = None
         opcode = None
     
-    return [func_type, opcoe]
+    return [func_type, opcode]
