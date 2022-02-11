@@ -14,3 +14,18 @@ git merge NOMBRE_BRANCH
 git push -u NOMBRE_REMOTO NOMBRE_BRANCH
 git push
 
+# Cuando ya acaben
+
+git rebase main
+git checkout main
+git merge proyecto
+
+
+# para todos los dias
+
+git checkout main
+git pull main
+git checkout proyecto
+git rebase main
+
+
