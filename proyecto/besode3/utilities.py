@@ -127,13 +127,13 @@ def convertArgumentsI(nemonic, args):
         
         #codigoMaquina = instructionI(nemonico, rt, rs, imm)
     
-    if nemonic == 'lb' or nemonic == 'sb':
-        # 'lb' y 'sb' tiene un orden distinto al guardar los args
-        rt = args[0]
-        imm = args[1]
-        rs = args[2]
+        if nemonic == 'lb' or nemonic == 'sb':
+            # 'lb' y 'sb' tiene un orden distinto al guardar los args
+            rt = args[0]
+            imm = args[1]
+            rs = args[2]
         
-        #codigoMaquina = instructionI(nemonico, rt, rs, imm)
+            #codigoMaquina = instructionI(nemonico, rt, rs, imm)
     else:
         # Aqui van  a entrar las instrucciones 'beq' y 'bne' 
         # pero no se genera codigo maquina para generarlo despues cuando encuentre a donde salta
