@@ -25,23 +25,19 @@ def main():
     
     '''
     print("\nYa estas dentro de proyecto\n")
-
     
-    #---------------------- GUARDAR CADA INSTRUCCION --------------------------
+    #----------------- LEE EL ARCHIVO Y GUARDA CADA LINEA EN LISTAS --------------------------
     programa = open(archivo,'r')
-    elemento = 0
     linea_codigo = 0
+
     etiqueta = []
     n_etiqueta = []
-    c_etiqueta = 0
-    type_opcode = []
+    lista_linea = []
 
     for linea in programa:
+        contador = 0
+        lista_linea.append([])
         lista = linea.split(",")
-        elemento = 0
-        linea_codigo += 1                   # cuenta la linea de codigo actual
-        etiqueta.append([])
-        n_etiqueta.append([])
 
         for valor in lista:
             
@@ -49,37 +45,50 @@ def main():
             if (valor.find(":") != -1):     # busca si hay etiquetas
                 separador = valor.split(":")    # crea un arreglo y separa 
 
-                etiqueta[c_etiqueta].append(separador[0]) # guarda etiqueta
-                n_etiqueta[c_etiqueta].append(linea_codigo)  # guarda la linea actual
-                #print("Etiqueta",etiqueta[c_etiqueta],"en",n_etiqueta[c_etiqueta],end=("; "))
-                c_etiqueta += 1
+                etiqueta.append(separador[0]) # guarda etiqueta
+                n_etiqueta.append(linea_codigo)  # guarda la linea actual
 
                 valor = separador[1]            # el segundo elemento es instruccion
                 valor = valor.strip()           # quita los espacios
             else:
                 valor = valor.strip()           # quita los espacios
             
+            print("v{}".format(contador),"=",valor,end="; ")
+            
+            lista_linea[linea_codigo].append(valor)
+            contador += 1
+        
+        print("Esta es la linea:",linea_codigo)
+        linea_codigo += 1
+    
+    print("\nEl codigo tiene:",linea_codigo)
+    
+
+    #--------------------- LEE LOS DATOS DEL ARREGLO Y MANDA A SALIDA --------------------
+    for linea in lista_linea:
+        #print(linea)
+        contador = 0
+
+        for valor in linea:
+            
             # Obtenemos el tipo de instruccion y su opcode
-            if elemento == 0:
+            if contador == 0:
                 type_opcode = memonicos.instruction_decode(valor)   #mandar a llamar funcion
                 #print(type_opcode)
                 valor = type_opcode[1]       # asignamos el valor del opcode
             
-            #if ((type_opcode[0] == "j") or (type_opcode[0] == "b")):
-                
-                #for val_eti in etiqueta:
-                    #print(val_eti)
-                    #if valor == "INC":
-                        #valor = "chupala"
-                    
+            if valor in etiqueta:
+                valor = n_etiqueta[etiqueta.index(valor)]
+
             #memonicos.write_output(type_opcode,valor)
-
-            print("v{}".format(elemento),"=",valor,end="; ")
-
-            elemento += 1
-        print("Esta es la linea:",linea_codigo)
-    print("\nEl codigo tiene:",linea_codigo)
+            print("V",contador,"=",valor,end=("; "))
+            contador += 1
+        print("")
     
+    print("\n")
+    print(n_etiqueta)
+    print(etiqueta)
+    #print(lista_linea)
     programa.close()
     
 
