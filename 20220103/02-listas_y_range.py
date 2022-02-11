@@ -16,6 +16,3 @@ for elemento in range(cantidad):
         print(lista[elemento])
 
     print(lista[elemento])
-
-
-

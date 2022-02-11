@@ -11,9 +11,16 @@
 import os.path
 
 def main():
+    copy_number = 1
     original = "demo.txt"
     original = input("\nIntrodusca el nombre del archivo a copiar: ")
-    copia = original + "copia.txt"
+    number = "{}".format(copy_number)
+    copia = original[1:-4] + "_copia_" + number + ".txt"
+
+    while os.path.isfile(copia):
+        copy_number += 1
+    
+    copia = original[1:-4] + "_copia_" + copy_number + ".txt"
 
     if os.path.isfile(original):
         archivo = open(original, "r")

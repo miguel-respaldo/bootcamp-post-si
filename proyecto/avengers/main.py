@@ -66,21 +66,27 @@ class lacoordenada():
 		return
 					
 	def i_inst(self, opcode, splitted_line):
-	    result_bin = ""
-	    reg_s = splitted_line[1].strip()
-	    reg_s = reg_s[1:]
+
+		result_bin = ""
+		reg_s = splitted_line[1].strip()
+		reg_s = reg_s[1:]
+		
+		reg_t = splitted_line[2].strip()
+		reg_t = reg_t[1:]
+		immediate_val = splitted_line[3].strip()
+		
+		if immediate_val.count("x"):
+			immediate_val = immediate_val.replace("x", "")
+			immediate_val = int(immediate_val,base=16)
+
+		immediate_val = format(int(immediate_val), "08b")
 	    
-	    reg_t = splitted_line[2].strip()
-	    reg_t = reg_t[1:]
-	    immediate_val = splitted_line[3].strip()
-	    if immediate_val.count("x"):
-	        immediate_val = immediate_val.replace("0x", "")
-                immediate_val = int(immediate_val, base=16)
-            immediate_val = format(immediate_val, "08b")
-            resul_bin += reg_t
-            resul_bin += reg_s
-            resul_bin += immediate_val
-            print (resul_bin)
+		result_bin += format(int(reg_t), "03b")
+		result_bin += format(int(reg_s), "03b")
+		result_bin += immediate_val
+
+		print(result_bin)
+
                          
 
 	def r_inst(self, opcode, splitted_line):
