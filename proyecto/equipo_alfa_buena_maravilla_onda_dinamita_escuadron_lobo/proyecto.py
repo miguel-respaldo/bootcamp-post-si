@@ -21,117 +21,120 @@ import argparse
 #num_etiquetas=[]
 PC=1
 etiquetas={}
+lineas_bin=[]
 
 #Aqui se define la funcion para poder dar el numero de registro para cada función
 def linea_instruccion(opcode,rs,rt,rd):
+    linea= ""
         
-        if(opcode==0): #add
-            linea += "{:04b}".format(opcode)
-            linea += "{:03b}".format(rs)
-            linea += "{:03b}".format(rt)
-            linea += "{:03b}".format(rd)
-            linea += "00000"
-        elif(opcode==1):#addi
-            linea += "{:04b}".format(opcode)
-            linea += "{:03b}".format(rs)
-            linea += "{:03b}".format(rt)
-            if rd < 0:
-                rd=(rd^0xff + 1) & 0xff
-                linea+="{:08b}".format(rd)
-            else:
-                linea+="{:08b}".format(rd)
-        elif(opcode==2):#and
-            linea += "{:04b}".format(opcode)
-            linea += "{:03b}".format(rs)
-            linea += "{:03b}".format(rt)
-            linea += "{:03b}".format(rd)
-            linea += "00000"        
-        elif(opcode==3): #andi
-            linea += "{:04b}".format(opcode)
-            linea += "{:03b}".format(rs)
-            linea += "{:03b}".format(rt)
-            if rd<0:
-                rd=(rd^0xff + 1) & 0xff
-                linea+="{:08b}".format(rd)
-            else:
-                linea+="{:08b}".format(rd)
-        elif(opcode==4): #beq
-            linea += "{:04b}".format(opcode)
-            linea += "{:03b}".format(rs)
-            linea += "{:03b}".format(rt)
-            if rd < PC:
-                rd=-rd
-                rd=(rd^0xff + 1) & 0xff
-                linea+="{:08b}".format(rd)
-            else:
-                rd-=rd
-                linea+="{:08b}".format(rd)        
-        elif(opcode==5): #bne
-            linea += "{:04b}".format(opcode)
-            linea += "{:03b}".format(rs)
-            linea += "{:03b}".format(rt)
-            if rd < PC:
-                rd=-rd
-                rd=(rd^0xff + 1) & 0xff
-                linea+="{:08b}".format(rd)
-            else:
-                rd-=rd
-                linea+="{:08b}".format(rd)
+    if(opcode==0): #add
+        linea += "{:04b}".format(opcode)
+        linea += "{:03b}".format(rs)
+        linea += "{:03b}".format(rt)
+        linea += "{:03b}".format(rd)
+        linea += "00000"
+    elif(opcode==1):#addi
+        linea += "{:04b}".format(opcode)
+        linea += "{:03b}".format(rs)
+        linea += "{:03b}".format(rt)
+        if rd < 0:
+            rd=(rd^0xff + 1) & 0xff
+            linea+="{:08b}".format(rd)
+        else:
+            linea+="{:08b}".format(rd)
+    elif(opcode==2):#and
+        linea += "{:04b}".format(opcode)
+        linea += "{:03b}".format(rs)
+        linea += "{:03b}".format(rt)
+        linea += "{:03b}".format(rd)
+        linea += "00000"        
+    elif(opcode==3): #andi
+        linea += "{:04b}".format(opcode)
+        linea += "{:03b}".format(rs)
+        linea += "{:03b}".format(rt)
+        if rd<0:
+            rd=(rd^0xff + 1) & 0xff
+            linea+="{:08b}".format(rd)
+        else:
+            linea+="{:08b}".format(rd)
+    elif(opcode==4): #beq
+        linea += "{:04b}".format(opcode)
+        linea += "{:03b}".format(rs)
+        linea += "{:03b}".format(rt)
+        if rd < PC:
+            rd=-rd
+            rd=(rd^0xff + 1) & 0xff
+            linea+="{:08b}".format(rd)
+        else:
+            rd-=rd
+            linea+="{:08b}".format(rd)        
+    elif(opcode==5): #bne
+        linea += "{:04b}".format(opcode)
+        linea += "{:03b}".format(rs)
+        linea += "{:03b}".format(rt)
+        if rd < PC:
+            rd=-rd
+            rd=(rd^0xff + 1) & 0xff
+            linea+="{:08b}".format(rd)
+        else:
+            rd-=rd
+            linea+="{:08b}".format(rd)
 
-        elif(opcode==6): #j
-            linea += "{:04b}".format(opcode)
-            linea += "{:014b}".format(rs)
+    elif(opcode==6): #j
+        linea += "{:04b}".format(opcode)
+        linea += "{:014b}".format(rs)
 
-        elif(opcode==7): #jal
-            linea += "{:04b}".format(opcode)
-            linea += "{:014b}".format(rs)
+    elif(opcode==7): #jal
+        linea += "{:04b}".format(opcode)
+        linea += "{:014b}".format(rs)
 
-        elif(opcode==10): #jr
-            linea += "{:04b}".format(opcode)
-            linea += "{:03b}".format(rs)
-            linea += "00000000000"
+    elif(opcode==10): #jr
+        linea += "{:04b}".format(opcode)
+        linea += "{:03b}".format(rs)
+        linea += "00000000000"
 
-        elif(opcode==11): #lb
-            linea += "{:04b}".format(opcode)
-            linea += "{:03b}".format(rs)
-            linea += "{:03b}".format(rd)
-            if rt<0:
-                rt=(rt^0xff+1) &0xff
-                linea += "{:08}".format(rt)
-            else:
-                linea += "{:08}".format(rt)
+    elif(opcode==11): #lb
+        linea += "{:04b}".format(opcode)
+        linea += "{:03b}".format(rs)
+        linea += "{:03b}".format(rd)
+        if rt<0:
+            rt=(rt^0xff+1) &0xff
+            linea += "{:08}".format(rt)
+        else:
+            linea += "{:08}".format(rt)
 
-        elif(opcode==12): #or
-            linea += "{:04b}".format(opcode)
-            linea += "{:03b}".format(rs)
-            linea += "{:03b}".format(rt)
-            linea += "{:03b}".format(rd)
-            linea += "00000"
+    elif(opcode==12): #or
+        linea += "{:04b}".format(opcode)
+        linea += "{:03b}".format(rs)
+        linea += "{:03b}".format(rt)
+        linea += "{:03b}".format(rd)
+        linea += "00000"
 
-        elif(opcode==13): #sb
-            linea += "{:04b}".format(opcode)
-            linea += "{:03b}".format(rs)
-            linea += "{:03b}".format(rd)
-            if rt<0:
-                rt=(rt^0xff+1) &0xff
-                linea += "{:08}".format(rt)
-            else:
-                linea += "{:08}".format(rt)
+    elif(opcode==13): #sb
+        linea += "{:04b}".format(opcode)
+        linea += "{:03b}".format(rs)
+        linea += "{:03b}".format(rd)
+        if rt<0:
+            rt=(rt^0xff+1) &0xff
+            linea += "{:08}".format(rt)
+        else:
+            linea += "{:08}".format(rt)
 
-        elif(opcode==14): #sll
-            linea += "{:04b}".format(opcode)
-            linea += "{:03b}".format(rs)
-            linea += "{:03b}".format(rt)
-            linea += "{:03b}".format(rd)
-            linea += "00000"
+    elif(opcode==14): #sll
+        linea += "{:04b}".format(opcode)
+        linea += "{:03b}".format(rs)
+        linea += "{:03b}".format(rt)
+        linea += "{:03b}".format(rd)
+        linea += "00000"
 
-        elif(opcode==15): #srl
-            linea += "{:04b}".format(opcode)
-            linea += "{:03b}".format(rs)
-            linea += "{:03b}".format(rt)
-            linea += "{:03b}".format(rd)
-            linea += "00000"
-        return linea
+    elif(opcode==15): #srl
+        linea += "{:04b}".format(opcode)
+        linea += "{:03b}".format(rs)
+        linea += "{:03b}".format(rt)
+        linea += "{:03b}".format(rd)
+        linea += "00000"
+    return linea
+
 #Aqui vamos a encontrar el valor de las etiquetas
 def obtener_etiquetas(etiqueta):
     linea=-1
@@ -198,6 +201,8 @@ def main():
             lista_sin_etiquetas = linea1.split(",")
             for x in range(len(lista_sin_etiquetas)):
                 val = lista_sin_etiquetas[x].strip()
+                if '0x' in val:
+                    val = int(val[2:], 16)
                 if val in etiquetas:
                     lista_sin_etiquetas[x]=etiquetas[val]
                 else:
@@ -223,7 +228,9 @@ def main():
                     if rt==-1:
                        rt=lista_sin_etiquetas[3]
                     print(rt)
-            #binario=linea_instruccion(opcode,rd,rs,rt)
+            binario=linea_instruccion(opcode,rd,rs,rt)
+            lineas_bin.append(binario)
+            print(binario)
 
         archivo.close()
 
@@ -231,6 +238,7 @@ def main():
     print("Salida:",args.nombre_de_salida)
     print("en texto:",args.gen_texto)
     print(etiquetas)
+    print(lineas_bin)
 
 
 
