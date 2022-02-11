@@ -234,45 +234,38 @@ def main():
                     lista_sin_etiquetas[x]=etiquetas[val]
                 else:
                     lista_sin_etiquetas[x]=val
-            print (lista_sin_etiquetas)
+            #print (lista_sin_etiquetas)
             #ejecutamos la funcion mnemonicos para obtener todos los opcode y tipo de función de cada instruccion en el archivo            
             for x in range(len(lista_sin_etiquetas)):
                 if x==0:
                     opcode=mnemonic.mnemonicos(lista_sin_etiquetas[0])
-                    print(opcode)
+                    #print(opcode)
                 elif x==1:
                     rd=int(registros.registros(lista_sin_etiquetas[1]))
                     if rd==-1:
                        rd=int(lista_sin_etiquetas[1])
-                    print(rd)
+                    #print(rd)
                 elif x==2:
                     rs=int(registros.registros(lista_sin_etiquetas[2]))
                     if rs==-1:
                        rs=int(lista_sin_etiquetas[2])
-                    print(rs)
+                    #print(rs)
                 elif x==3:
                     rt=int(registros.registros(lista_sin_etiquetas[3]))  
                     if rt==-1:
                        rt=int(lista_sin_etiquetas[3])
-                    print(rt)
+                    #print(rt)
             
             binario=linea_instruccion(opcode,rd,rs,rt)
             lineas_bin.append(binario)
-            '''
-            archivo_salida.write(binario)
-            archivo_salida.write("\n")
-            '''
-            print(binario)
-        '''
-        archivo_salida.close()
-        '''
+            #print(binario)
         archivo.close()
 
     print("Archivo:",args.archivo)
     print("Salida:",args.nombre_de_salida)
     print("en texto:",args.gen_texto)
-    print(etiquetas)
-    print(lineas_bin)
+    #print(etiquetas)
+    #print(lineas_bin)
     write_file(lineas_bin, args.nombre_de_salida, args.gen_texto)
 
 
