@@ -3,7 +3,7 @@ import os
 import sys
 import argparse #para parsear
 
-from convert import converting
+from convert import convertion
 #########
 PC=1  #añadido  
 ETIQUETAS = [] #añadido
@@ -28,7 +28,7 @@ tags = {}
 for j in range(len(archivo)):
     if(":" in archivo[j]):
         val_tag.append(j+1)
-        linenum_tag.extend(archivo[j].split(":"))
+        aux.extend(archivo[j].split(":"))
         linenum_tag.append(aux[j])
         del aux[j]
     else:
@@ -46,7 +46,7 @@ sys.stdout = open(file_path, "w") #imprime a archivo
 
 
 for x in range(len(aux)-1):
-    archivo[x] = converting(aux[x]) #pasara por nuestra funcion conversora 
+    archivo[x] = convertion(aux[x]) #pasara por nuestra funcion conversora 
 
 sys.stdout.close()
 sys.stdout = orig_stdout
