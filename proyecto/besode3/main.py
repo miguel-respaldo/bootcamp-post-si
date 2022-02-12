@@ -1,14 +1,19 @@
 from utilities import *
 
 def main():
-    file = open("codigo2.txt", 'r')
-    
     cola = []
     n = 1
     pc = 1
     error = False
     
-
+    nombreArchivo = input("Ingrese nombre del archivo a compilar: ")
+    try:
+        file = open(nombreArchivo, 'r')
+    except:
+        print("ESTE ARCIVO NO EXISTE")
+        file = ""
+        error = True
+    
     for linea in file:
         tag = None
         instruccion = None
@@ -75,7 +80,7 @@ def main():
         if tipo == 'R' or tipo == 'I' or tipo == 'J':
             # Si la entrada es correcta
             # Agreamos a una clase que guarda la informacion de cada instruccion
-            cola.append(input(instruccion, tag, nemonico, rs, rt, rd, imm, address, pc, tipo, codigoMaquina))
+            cola.append(inputText(instruccion, tag, nemonico, rs, rt, rd, imm, address, pc, tipo, codigoMaquina))
             pc += 1 # Se incremente el Program Counter 
         elif linea == '':
             # Si no hay nada en una linea de texto, no hace nada
@@ -93,10 +98,27 @@ def main():
     if error == False:
         # Si no hay errores, el programa continua
         findJumps(cola) # Ingresar la lista para completar los branches y los jump
+        archivoSalidaBin = open(nombreArchivo[:-4]+'.bin', 'wb')
+        archivoSalidaTexto = open(nombreArchivo[:-4]+'-bin.txt', 'w')
 
+        baits = []
         for i in cola:
-            print(f"{i.machineCode:018b}")
-            #i.imprimir()      
+            # Separar por cada 8 bits y agregarlos en a una lista
+            temp = f"{i.machineCode:024b}"
+            baits.append(int(temp[0:8],2))
+            baits.append(int(temp[9:16],2))
+            baits.append(int(temp[17:24],2))
+            
+            archivoSalidaTexto.write(f"{i.machineCode:018b}\n")
+
+            #i.imprimir()
+        
+        # Agregar la lista con los bytes al archivo
+        archivoSalidaBin.write(bytearray(baits))
+
+        archivoSalidaBin.close()
+        file.close()
+    
     
     
 

@@ -1,6 +1,6 @@
 from nemonicList import *
 
-class input:
+class inputText:
     def __init__(self,instruction, tag, nemonic, rs, rt, rd, imm, address, pc, tipo, machineCode):
         self.instruction = instruction
         self.tag = tag
