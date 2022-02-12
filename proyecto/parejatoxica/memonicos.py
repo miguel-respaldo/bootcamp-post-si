@@ -42,7 +42,7 @@ def registro_decode(registro):
 
 def write_output(output,val,tipo):
 
-    print(val)
+    #print(val)
     out = ""                                    # variable para reordenar y guardar en bits
     baits = bytearray(4)                        # variable para salida en bytes
 

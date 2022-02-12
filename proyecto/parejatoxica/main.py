@@ -24,7 +24,7 @@ def main():
         type_out = int(input("Tipo de salida invalido, vuelve a intentar: "))
     
     print("\nYa estas dentro de proyecto")
-    print("El codigo se guarda en un archivo de salida llamado output.txt\n")
+    print("El codigo se guarda en un archivo de salida llamado output.txt\n\n")
     #----------------- LEE EL ARCHIVO Y GUARDA CADA LINEA EN LISTAS --------------------------
     programa = open(archivo,'r')
     linea_codigo = 0
