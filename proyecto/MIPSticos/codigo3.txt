@@ -1,0 +1,11 @@
+MAIN:addi,	$s2,	$s0,	0x05
+	addi,	$s3,	$s0,	0x01
+	jal,	FUNC		
+INC:add, 	$s0,	$s0,	$s0
+	add, 	$s0,	$s0,	$s0
+	add, 	$s0,	$s0,	$s0
+	j,	MAIN		
+FUNC:add, 	$s0,	$s0,	$s0
+	add, 	$s0,	$s0,	$s0
+	add, 	$s0,	$s0,	$s0
+	add,	$s4,	$s3,	$s2
