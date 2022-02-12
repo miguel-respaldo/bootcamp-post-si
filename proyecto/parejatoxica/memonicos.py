@@ -42,7 +42,7 @@ def registro_decode(registro):
 
 def write_output(output,val,tipo):
 
-    #print(val)
+    print(val)
     out = ""                                    # variable para reordenar y guardar en bits
     baits = bytearray(4)                        # variable para salida en bytes
 
@@ -52,13 +52,29 @@ def write_output(output,val,tipo):
         shamt = 0
         if (val[0][1] == 14 or (val[0][1] == 15)):  # checa si la instruccion es sll o srl
             shamt = val[3]
+            
+            opcode = '{0:06b}'.format(0)
+            rd = '{0:05b}'.format(val[1])
+            rs = '{0:05b}'.format(val[2])
+            rt = '{0:05b}'.format(val[3])
+            shamt = '{0:05b}'.format(shamt)
+            funct = '{0:06b}'.format(val[0][1])
 
-        opcode = '{0:06b}'.format(0)
-        rd = '{0:05b}'.format(val[1])
-        rs = '{0:05b}'.format(val[2])
-        rt = '{0:05b}'.format(val[3])
-        shamt = '{0:05b}'.format(shamt)
-        funct = '{0:06b}'.format(val[0][1])
+        elif val[0][1] == 10:                   # checa si la instruccion es jr
+            opcode = '{0:06b}'.format(0)
+            rd = '{0:05b}'.format(0)
+            rs = '{0:05b}'.format(val[1])
+            rt = '{0:05b}'.format(0)
+            shamt = '{0:05b}'.format(0)
+            funct = '{0:06b}'.format(val[0][1])
+        
+        else:                                   # cualquier otra instruccion tipo R
+            opcode = '{0:06b}'.format(0)
+            rd = '{0:05b}'.format(val[1])
+            rs = '{0:05b}'.format(val[2])
+            rt = '{0:05b}'.format(val[3])
+            shamt = '{0:05b}'.format(0)
+            funct = '{0:06b}'.format(val[0][1])
 
         out = opcode + rs + rt + rd + shamt + funct
         #None
