@@ -17,20 +17,19 @@ def main():
     archivo = input("Introduzca el nombre del programa MIPS: ")
     while not os.path.exists(archivo):
         archivo = input("El archivo no existe, introduzca otro nombre: ")
-   
-    
+       
     print("\nPuedes obtener el archivo de salida en:\n(1)-Texto\n(2)-Binario")
     type_out = int(input("Indica el tipo de salida del programa: "))
     while not (type_out==1 or type_out==2):
         type_out = int(input("Tipo de salida invalido, vuelve a intentar: "))
     
-    print("\nYa estas dentro de proyecto\n")
-    
+    print("\nYa estas dentro de proyecto")
+    print("El codigo se guarda en un archivo de salida llamado output.txt\n")
     #----------------- LEE EL ARCHIVO Y GUARDA CADA LINEA EN LISTAS --------------------------
     programa = open(archivo,'r')
     linea_codigo = 0
 
-    etiqueta = []
+    etiqueta = []                               # variables para almacenar etiquetas
     n_etiqueta = []
     lista_linea = []
 
@@ -42,7 +41,7 @@ def main():
         for valor in lista:
             
             # Aqui se deben separar las etiquietas de los valores reales
-            if (valor.find(":") != -1):     # busca si hay etiquetas
+            if (valor.find(":") != -1):         # busca si hay etiquetas
                 separador = valor.split(":")    # crea un arreglo y separa 
 
                 etiqueta.append(separador[0]) # guarda etiqueta
@@ -53,15 +52,15 @@ def main():
             else:
                 valor = valor.strip()           # quita los espacios
             
-            print("v{}".format(contador),"=",valor,end="; ")
+            #print("v{}".format(contador),"=",valor,end="; ")
             
-            lista_linea[linea_codigo].append(valor)
+            lista_linea[linea_codigo].append(valor) # guarda cada linea de codigo
             contador += 1
         
-        print("Esta es la linea:",linea_codigo)
+        #print("Esta es la linea:",linea_codigo)
         linea_codigo += 1
     
-    print("\nEl codigo tiene:",linea_codigo)
+    #print("\nEl codigo tiene:",linea_codigo)
     programa.close()                            # cerramos el programa 
 
     #------------------------------- PROCESAMIENTO DE DATOS ---------------------------
