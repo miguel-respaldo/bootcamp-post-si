@@ -1,0 +1,4 @@
+	MAIN:	addi,	$s1,	$s0,	0xAA
+			addi,	$s2,	$s0,	0x25
+			sb,	$s2,	4,	$s1
+			lb,	$s3,	4,	$s1
