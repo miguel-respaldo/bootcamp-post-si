@@ -1,0 +1,16 @@
+MAIN:addi,	 $s2,	$s0,	0x05
+	 addi,	$s3,	$s0,	0x01
+	 addi,	$s1,	$s0,	0x00
+INC: addi,		$s1,	$s1,	0x01
+	 add, 	$s0,	$s0,	$s0
+	 add,		$s0,	$s0,	$s0
+	 add,		$s0,	$s0,	$s0
+	 bne, $s1,	$s2,	INC
+DEC: addi, 	$s2,	$s2,	-1
+	 addi,	$s0,	$s0,	0x00
+	 addi,	$s0,	$s0,	0x00
+	 addi,	$s0,	$s0,	0x00
+	 beq, $s2, $s0,	EXIT
+	 j,	DEC		
+EXIT:add, 	$s0,	$s0,	$s0
+	 add,	$s0,	$s0,	$s0

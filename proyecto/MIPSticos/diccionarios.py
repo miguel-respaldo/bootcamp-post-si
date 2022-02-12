@@ -8,7 +8,7 @@
 #diccionario para instrucciones tipo I y J
 mnemonicos_dict_I = {"addi":8, "addiu":9, "andi": 12, "beq":4, "bne": 5, "lbu": 36,
         "lhu": 37, "ll": 48, "lui": 15, "lw": 35, "ori": 13, "slti": 10,
-        "sltiu": 11, "sb": 40, "sc": 56, "sh": 41,"sw": 43, "lwc1":49,
+        "sltiu": 11, "sb": 40, "lb":32,"sc": 56, "sh": 41,"sw": 43, "lwc1":49,
         "ldc1": 53, "swc1": 57, "sdc1": 61}
 
 mnemonicos_dict_J = {"j": 2, "jal": 3}
@@ -23,4 +23,4 @@ registers = {"$zero": 0, "$at": 1, "$v0": 2, "$v1": 3, "$a0": 4, "$a1": 5, "$a2"
 
 #diccionario para funct
 funct = {"add": 32, "addu": 33, "sub": 34, "subu": 35, "and": 36, "or": 37, "nor": 39,
-	 "slt": 42, "sltu": 43}
+	 "slt": 42, "sltu": 43,"sllv":4,"srlv":6}
