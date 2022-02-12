@@ -116,11 +116,6 @@ def generate_type_R(line):
     
     return opc+rs+rt+rd+shamt+fnct
     
-<<<<<<< HEAD
- 
-lines_of_file= read_assembly("caliz.asm") # aqui se obtiene el archivo como una lista
-identify_labels(lines_of_file)
-=======
 def generate_bin_txt(lines_of_file,nombre_de_salida):
     with open(nombre_de_salida,"w") as f:
         binary_inst = "0"
@@ -196,10 +191,5 @@ def main():
 
 
 main()
-
-
->>>>>>> 340e1611ae77c5e3b181bed9a8aca28938ee8809
-
-
 
  
