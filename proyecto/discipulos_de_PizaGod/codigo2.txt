@@ -1,0 +1,16 @@
+MAIN:addi,	x2,	x0,	0x05
+	 addi,	x3,	x0,	0x01
+	 addi,	x1,	x0,	0x00
+INC: addi,	x1,	x1,	0x01
+	 add ,	x0,	x0,	x0
+	 add,	x0,	x0,	x0
+	 add ,	x0,	x0,	x0
+	 bne,x1,	x2,	INC
+DEC: addi,	x2,	x2,	-1
+	 addi,	x0,	x0,	0x00
+	 addi,	x0,	x0,	0x00
+	 addi,	x0,	x0,	0x00
+	 beq,x2, x0,	EXIT
+	 j,	DEC		
+EXIT:add, 	x0,	x0,	x0
+	 add, 	x0,	x0,	x0
