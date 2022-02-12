@@ -3,9 +3,7 @@ import os
 import sys
 import argparse #para parsear
 
-from dic_mnemonicos import instr_decode # converts the instruction part of a line of MIPS code
-from registerlist import reg_decode # converts the register and immediate parts of the MIPS code
-
+from convert import converting
 #########
 PC=1  #añadido  
 ETIQUETAS = [] #añadido
@@ -48,7 +46,7 @@ sys.stdout = open(file_path, "w") #imprime a archivo
 
 
 for x in range(len(aux)-1):
-    archivo[x] = convertion(aux[x]) #pasara por nuestra funcion conversora 
-    
-sys.stdout.close() 
-sys.stdout = orig_stdout 
+    archivo[x] = converting(aux[x]) #pasara por nuestra funcion conversora 
+
+sys.stdout.close()
+sys.stdout = orig_stdout
