@@ -1,24 +1,25 @@
-#conversion_function
-from dic_mnemonicos import instr_decode # converts the instruction part of a line of MIPS code
-from dic_register import reg_decode # converts the register and immediate parts of the MIPS code
+#conversion_module
+#!/usr/bin/env python3
+# c-basic-offset: 4; tab-width: 8; indent-tabs-mode: nil
+# vi: set shiftwidth=4 tabstop=8 expandtab:
+# :indentSize=4:tabSize=8:noTabs=true:
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+from dic_mnemonicos import instr_decode  #converts instruction part of a line code (MIPS)
+from dic_register import reg_decode #converts register & immediate parts of a line code (MIPS)
 
 def convertion(code_instruction):
-    code_instruction = code_instruction.replace(" ", "")
+    code_instruction = "".join(code_instruction.split()) #elimina todos los espacios en blanco, tab, \n
     code_instruction = code_instruction.replace(",", " ") 
-    code_instruction = code_instruction.replace("  ", " ") 
-    code_instruction = code_instruction.replace("	", "") 
-    code_instruction = code_instruction.replace(":", " ") 
-    args = code_instruction.split(" ") #splits the arguments after every espace
-    instruction = args[0] #instrucion code is stored in pos 0 
-    
-    codes = instr_decode(instruction) #Assigns the value of  the opcode
-    func_type = codes[0]   #Assigns a function type to be printed according to cases
-    reg_values = reg_decode(func_type, instruction, args[1:]) #get the numeric values of the registers
-    
-    #if reg_values == None:
-    #    #print("Not a valid MIPS statement")
-    #    print(":( Me declaro incompetente para este caso")
-    #    return
+    code_instruction = code_instruction.replace(":", " ")
+ 
+    args = code_instruction.split(" ") #despues de cada espacio divide los argumentos
+    instruction = args[0] #posicion en 0 para la instrucion (codigo)
+   
+    codes = instr_decode(instruction) #colocamos el valor de opcode a codes
+    func_type = codes[0]   #Asignamos a function type el valor anterior para estar en la pos correcta (de acuerdo a los casos)
+    reg_values = reg_decode(func_type, instruction, args[1:]) #obtenemos los valores numericos de los registros
      
    #por diferentes tipos, r, i, b, j
     if func_type == "r":            
