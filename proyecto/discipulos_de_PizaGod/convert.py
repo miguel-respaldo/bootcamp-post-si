@@ -47,5 +47,8 @@ def converting(instr):
         imm = '{0:014b}'.format(reg_values[0])
         b = opcode+imm
         print(b)
+    else:
+        print("Interpretation Error") #Error de interpretacion 
+        return 
 
     return
