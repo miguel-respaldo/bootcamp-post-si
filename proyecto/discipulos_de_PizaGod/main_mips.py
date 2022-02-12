@@ -1,24 +1,24 @@
 # Converts MIPS instructions into binary and hex
 import os
 import sys
-import argparse #para parsear
+#import argparse #para parsear
 
 from convert import convertion
 #########
-PC=1  #añadido  
-ETIQUETAS = [] #añadido
-DIR_ETIQUETAS=[] #añadido
+#PC=1  #añadido  
+#ETIQUETAS = [] #añadido
+#DIR_ETIQUETAS=[] #añadido
 ##########
 
-def readFile(filen): #Function that reads a file 
-    f = open(filen, "r") #read permissions 
+def readFile(nombre_archivo): #Function that reads a file 
+    f = open(nombre_archivo, "r") #read permissions 
     content = f.read().split("\n") #splits input after line jump
     f.close()
     return content
 
 print("Ingrese el nombre de archivo con extensión, ejemplo: codigo2.txt")
-archivo = input("Archivo:  ") 
-archivo = readFile(archivo)
+nombre_archivo = input("Archivo:  ") 
+archivo = readFile(nombre_archivo)
 
 aux = []  #guardar
 linenum_tag = [] #va a guardar num de linea donde va un tag
@@ -39,7 +39,7 @@ for j in range (len(linenum_tag)):
 ###
 print("El archivo generado se llama conversion.txt")
 
-orig_stdout = sys.stdout #guarda console original
+orig_stdout = sys.stdout 
 
 file_path = 'conversion.txt'
 sys.stdout = open(file_path, "w") #imprime a archivo
@@ -48,5 +48,5 @@ sys.stdout = open(file_path, "w") #imprime a archivo
 for x in range(len(aux)-1):
     archivo[x] = convertion(aux[x]) #pasara por nuestra funcion conversora 
 
-sys.stdout.close()
-sys.stdout = orig_stdout
+#sys.stdout.close()
+#sys.stdout = orig_stdout
