@@ -14,22 +14,15 @@ def converting(instr):
     func_type = codes[0]   
     reg_values = reg_decode(func_type, instruction, args[1:]) 
  
-    #execution for b-type functions
-    if func_type == "b":
+    if func_type == "r":            
         opcode = '{0:04b}'.format(codes[1])
         rs = '{0:03b}'.format(reg_values[0])
         rt = '{0:03b}'.format(reg_values[1])
-        label = '{0:08b}'.format(reg_values[2])
-        b = opcode+rs+rt+label #binary
+        rd = '{0:03b}'.format(reg_values[2])
+        filler = '{0:05b}'.format(reg_values[3])
+        b = opcode+rs+rt+rd+filler # b = binary 
         print(b)
-    elif func_type == "b":
-        opcode = '{0:04b}'.format(codes[1])
-        rs = '{0:03b}'.format(reg_values[0])
-        rt = '{0:03b}'.format(reg_values[1])
-        label = '{0:08b}'.format(reg_values[2])
-        binary = opcode+rs+rt+label
-        print(binary)
-
+        
     elif func_type == "i":
         opcode = '{0:04b}'.format(codes[1])
         rs = '{0:03b}'.format(reg_values[0])
@@ -38,5 +31,21 @@ def converting(instr):
             imm = (bin(((1 << 8) -1) & reg_values[2])[2:]).zfill(8)
         else:
             imm = '{0:08b}'.format(reg_values[2]) 
-        binary = opcode+rs+rt+imm
-        print(binary)
+        b = opcode+rs+rt+imm
+        print(b)
+    
+    elif func_type == "b":
+        opcode = '{0:04b}'.format(codes[1])
+        rs = '{0:03b}'.format(reg_values[0])
+        rt = '{0:03b}'.format(reg_values[1])
+        label = '{0:08b}'.format(reg_values[2])
+        b = opcode+rs+rt+label #binary
+        print(b)
+    
+    elif func_type == "j":
+        opcode = '{0:04b}'.format(codes[1])
+        imm = '{0:014b}'.format(reg_values[0])
+        b = opcode+imm
+        print(b)
+
+    return
