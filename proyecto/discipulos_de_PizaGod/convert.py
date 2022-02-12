@@ -2,7 +2,7 @@
 from dic_mnemonicos import instr_decode # converts the instruction part of a line of MIPS code
 from dic_register import reg_decode # converts the register and immediate parts of the MIPS code
 
-def converting(instr):
+def convertion(instr):
     instr = instr.replace(" ", "")
     instr = instr.replace(",", " ") 
     instr = instr.replace("  ", " ") 

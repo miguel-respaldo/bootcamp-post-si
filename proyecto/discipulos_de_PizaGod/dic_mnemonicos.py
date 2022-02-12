@@ -4,7 +4,7 @@ def instr_decode(instr):
     tipoB = {'beq' : 0x4 , 'bne' : 0x5 } #Tipo Branch
     tipoJ = {'j' : 0x6 , 'jal' : 0x7 }
 
-   if instr in tipoR:
+    if instr in tipoR:
         opcode = tipoR[instr]
         func_type = "r"
     elif instr in tipoI:
