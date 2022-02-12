@@ -17,7 +17,7 @@ def reg_decode(func_type, instr, regs):
     
     #instrucciones tipo "r"
     if func_type == "r":   
-        if (instr == "sll") or (instr == "srl"): 
+        if (instr == "sll") or (instr == "srl"): #excepeciones de "r", no tienen rs, tienen un corrimiento
             try:
                 if (regs[0] < regs[1]):
                     return [registers[regs[1]], registers[regs[1]], registers[regs[1]], 0] 
@@ -26,7 +26,7 @@ def reg_decode(func_type, instr, regs):
             except:
                 return None                
 
-        if (instr == "jr"): 
+        if (instr == "jr"): # excepcion ---> rs, rt y el corrimiento
             try:
                 return [registers[regs[0]], 0, 0, 0]
             except:
@@ -38,6 +38,7 @@ def reg_decode(func_type, instr, regs):
         except:
             return None
             
+    #para las tipo b        
     elif func_type == "b":
         try:
             return [registers[regs[0]], registers[regs[1]], labels[regs[2]]]    
@@ -46,7 +47,7 @@ def reg_decode(func_type, instr, regs):
 
     #para las tipo "i"
     elif func_type == "i":
-        if (instr == "sb") or (instr == "lb"):
+        if (instr == "sb") or (instr == "lb"): # excepciones de las tipo i
             try:
                 if len(regs[1]) > 1 and regs[1][1] == "x":
                     imm = int(regs[1], base=16)
@@ -56,7 +57,6 @@ def reg_decode(func_type, instr, regs):
                 return[registers[regs[2]], registers[regs[0]], imm]
             except:
                 return None
-                          
         
         #las demas tipo i
         try:
@@ -69,8 +69,7 @@ def reg_decode(func_type, instr, regs):
         except:
             return None       
     
-    #func_type es igual a  "i" en el caso de los hexa
-    elif func_type == "j":
+    elif func_type == "j": #tipo jump
         return [labels[regs[0]]]
       
     else:
