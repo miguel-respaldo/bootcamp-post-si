@@ -4,9 +4,9 @@ import sys
 
 from convert import convertion
 
-def readFile(nombre_archivo): #Function that reads a file 
-    f = open(nombre_archivo, "r") #read permissions 
-    content = f.read().split("\n") #splits input after line jump
+def readFile(nombre_archivo): #Funcion para leer el archivo
+    f = open(nombre_archivo, "r") #permisos para leer
+    content = f.read().split("\n") # dividir la entrada despues de un salto de linea
     f.close()
     return content
 
@@ -30,17 +30,18 @@ for j in range(len(archivo)):
 
 for j in range (len(linenum_tag)):
     tags[linenum_tag[j]] = val_tag[j]
-###
+
 print("El archivo generado se llama conversion.txt")
 
-orig_stdout = sys.stdout 
+#Guardar en el archivo conversión
 
+orig_stdout = sys.stdout 
 file_path = 'conversion.txt'
 sys.stdout = open(file_path, "w") #imprime a archivo
 
-
 for x in range(len(aux)-1):
     archivo[x] = convertion(aux[x]) #pasara por nuestra funcion conversora 
+    
+sys.stdout.close()
+sys.stdout = orig_stdout
 
-#sys.stdout.close()
-#sys.stdout = orig_stdout
