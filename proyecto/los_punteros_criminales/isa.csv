@@ -1,0 +1,15 @@
+mnemonico,arg1,arg2,arg3,,Significado,,opcode,pos1,pos2,pos3,
+add,rd,rs,rt,,rd=rs+rt,,_0000,rs,rt,rd,_0000
+addi,rt,rs,imm,,rt=rs+imm,,_0001,rs,rt,imm,
+and,rd,rs,rt,,rd=rs&rt,,_0010,rs,rt,rd,_0000
+andi,rt,rs,imm,,rt=rs&imm,,_0011,rs,rt,imm,
+beq,rs,rt,offset,,if(rs==rt) pc+=offset*4,,_0100,rs,rt,offset,
+bne,rs,rt,offset,,if(rs!=rt) pc+=offset*4,,_0101,rs,rt,offset,
+j,target,,,,pc=pc_upper|(target<<2),,_0110,target,,,
+jal,target,,,, pc=target<<2,,_0111,target,,,
+jr,rs,,,,pc=rs,,_1010,rs,_0000,,
+lb,rt,offset,rs,,rt=*(char*)(offset+rs),,_1011,rs,rt,offset,
+or,rd,rs,rt,,rd=rs|rt,,_1100,rs,rt,rd,_0000
+sb,rt,offset,rs,,*(char*)(offset+rs)=rt,,_1101,rs,rt,offset,
+sll,rd,rt,rs,,rd=rt<<sa,,_1110,rs,rt,rd,_0000
+srl,rd,rt,rs,,rd=rt>>sa,,_1111,rs,rt,rd,_0000
