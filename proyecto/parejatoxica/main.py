@@ -18,13 +18,12 @@ def main():
     while not os.path.exists(archivo):
         archivo = input("El archivo no existe, introduzca otro nombre: ")
    
-    '''
-    print("\nPuedes obtener el archivo de salida en:\n(1)-Texto\n(2)-Binario")
-    salida = int(input("Indica el tipo de salida del programa: "))
-    while not (salida==1 or salida==2):
-        salida = int(input("Tipo de salida invalido, vuelve a intentar: "))
     
-    '''
+    print("\nPuedes obtener el archivo de salida en:\n(1)-Texto\n(2)-Binario")
+    type_out = int(input("Indica el tipo de salida del programa: "))
+    while not (type_out==1 or type_out==2):
+        type_out = int(input("Tipo de salida invalido, vuelve a intentar: "))
+    
     print("\nYa estas dentro de proyecto\n")
     
     #----------------- LEE EL ARCHIVO Y GUARDA CADA LINEA EN LISTAS --------------------------
@@ -66,8 +65,7 @@ def main():
     programa.close()                            # cerramos el programa 
 
     #------------------------------- PROCESAMIENTO DE DATOS ---------------------------
-    archivo = open("salida.o","w")
-    archivo.write("Codigo de salida: \n")
+    archivo = open("output.txt","w")
     archivo.close()
     
     linea_codigo = 0
@@ -85,19 +83,21 @@ def main():
                 
             else: 
 
-                if "0x" in valor:
+                if "0x" in valor:                   # busca valores hexadecimal
                     valor = int(valor,16)
                                 
-                elif "-" in valor:
+                elif "-" in valor:                  # busca valores negativos
                     valor = int(valor)
                 
-                elif valor in etiqueta:
+                elif valor in etiqueta:             # busca etiquetas de brinco
                     valor = n_etiqueta[etiqueta.index(valor)]
-
-                else:
+                
+                elif "x" in valor:                  # busca registros
                     valor = memonicos.registro_decode(valor)
+                
+                else:                               # hace cast de string a numero
+                    valor = int(valor)
 
-            #memonicos.write_output(archivo,tipo,valor)
             #print("V",contador,"=",valor,end=("; "))
             
             reorder[linea_codigo].append(valor)
@@ -106,18 +106,20 @@ def main():
         linea_codigo += 1
     
     #------------------- LEE LOS DATOS DEL ARREGLO Y MANDA A SALIDA --------------------
-    archivo = open("salida.o","a")
-
+    if type_out == 1:
+        archivo = open("output.txt","a")
+    elif type_out == 2:
+        archivo = open("output.txt","wb")
+    
     for linea in reorder:
-        memonicos.write_output(archivo,linea)
-        archivo.write("\n")
+        memonicos.write_output(archivo,linea,type_out)
 
     archivo.close()
 
     #print(n_etiqueta)
     #print(etiqueta)
     #print(reorder)
-    
-    os.system("cat salida.o")
+
+    os.system("cat output.txt")
 if __name__ == "__main__":
     main()
