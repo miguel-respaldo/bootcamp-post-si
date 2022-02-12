@@ -1,14 +1,8 @@
 # Converts MIPS instructions into binary and hex
 import os
 import sys
-#import argparse #para parsear
 
 from convert import convertion
-#########
-#PC=1  #añadido  
-#ETIQUETAS = [] #añadido
-#DIR_ETIQUETAS=[] #añadido
-##########
 
 def readFile(nombre_archivo): #Function that reads a file 
     f = open(nombre_archivo, "r") #read permissions 

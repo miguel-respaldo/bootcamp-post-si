@@ -5,8 +5,11 @@
 # :indentSize=4:tabSize=8:noTabs=true:
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
-# dictionary used return the values of registers rs, rt, rd
-# in diferent cases clasificated in mnemonics with opcode & func_type
+# registros rs, rt, rd
+# return[rs, rt, rd, filler]
+# return[rs, rt, rd, filler]
+# return[rs, rt, immediate]  
+
 registers = {"x0" : 0, "x1" : 1, "x2" : 2, "x3" : 3, "x4" : 4, "x5" : 5, "x6" : 6, "x7" : 7 }
 labels = { "MAIN" : 1, "INC" : 4, "DEC" : 9, "FUNC" : 8, "EXIT" : 15 }
 
