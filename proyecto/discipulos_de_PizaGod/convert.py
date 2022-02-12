@@ -22,3 +22,21 @@ def converting(instr):
         label = '{0:08b}'.format(reg_values[2])
         b = opcode+rs+rt+label #binary
         print(b)
+    elif func_type == "b":
+        opcode = '{0:04b}'.format(codes[1])
+        rs = '{0:03b}'.format(reg_values[0])
+        rt = '{0:03b}'.format(reg_values[1])
+        label = '{0:08b}'.format(reg_values[2])
+        binary = opcode+rs+rt+label
+        print(binary)
+
+    elif func_type == "i":
+        opcode = '{0:04b}'.format(codes[1])
+        rs = '{0:03b}'.format(reg_values[0])
+        rt = '{0:03b}'.format(reg_values[1])
+        if reg_values[2] < 0:
+            imm = (bin(((1 << 8) -1) & reg_values[2])[2:]).zfill(8)
+        else:
+            imm = '{0:08b}'.format(reg_values[2]) 
+        binary = opcode+rs+rt+imm
+        print(binary)
