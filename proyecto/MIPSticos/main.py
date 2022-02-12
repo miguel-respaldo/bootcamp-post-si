@@ -8,6 +8,8 @@
 
 from pickletools import opcodes
 import re
+import os
+import argparse
 
 
 from diccionarios import mnemonicos_dict_I,mnemonicos_dict_J,registers,funct
@@ -94,6 +96,7 @@ def generate_type_R(line):
     
     return opc+rs+rt+rd+shamt+fnct
     
+ 
 lines_of_file= read_assembly("caliz.asm") # aqui se obtiene el archivo como una lista
 identify_labels(lines_of_file)
 
